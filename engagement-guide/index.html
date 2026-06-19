@@ -1,0 +1,1752 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <!-- FIX: Added Favicon to prevent 404 error -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+    
+    <title>FLCC - AI Engagement Guide</title>
+    
+    <!-- External Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2canvas for PNG export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content" class="container" role="main" tabindex="-1">
+        <h1>FLCC - AI Engagement Guide</h1>
+        
+        <div class="form-container">
+            <!-- Left Column: Questions -->
+            <div class="questions-column" role="region" aria-label="Policy Configuration">
+                <form id="policyForm" class="policy-form" aria-label="AI Policy Configuration Form">
+
+                    <!-- Question 1: AI Use Cases -->
+                    <div class="question-container" id="question5" data-question="useCases" role="group" aria-labelledby="use-cases-heading">
+                        <h2 id="use-cases-heading">How may learners use AI in this assignment?</h2>
+                        <div class="options-grid" role="group" aria-labelledby="use-cases-heading">
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="prohibited" aria-describedby="prohibited-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🚫</span>
+                                    <h3>No AI Use</h3>
+                                    <!-- <p id="prohibited-desc">This assignment is designed to be completed without AI tools.</p> -->
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="encouraged">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">✅</span>
+                                    <h3>Open Use</h3>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="brainstorming" aria-describedby="brainstorming-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">💡</span>
+                                    <h3>Brainstorming</h3>
+                                    <p id="brainstorming-desc">You can use AI to explore beyond what's immediately obvious and surface ideas you might not have considered - giving you more raw material to evaluate, discard, or build on.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="research" aria-describedby="research-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🔍</span>
+                                    <h3>Research and Summarization</h3>
+                                    <p id="research-desc">Use AI to quickly surface key themes and condense large amounts of information, freeing you to focus on analysis and critical thinking rather than just collecting facts.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="outline" aria-describedby="outline-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🗒️</span>
+                                    <h3>Outline and Thesis</h3>
+                                    <p id="outline-desc">Test-drive different organizational structures and thesis angles with AI, then choose and refine the one that best serves your argument.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="content" aria-describedby="content-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">📝</span>
+                                    <h3>Content Generation</h3>
+                                    <p id="content-desc">You can use AI-generated drafts as something concrete to react to and revise - often a faster path to finding your own voice than starting from a blank page.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="critique" aria-describedby="critique-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🗨️</span>
+                                    <h3>Critique and Peer Review</h3>
+                                    <p id="critique-desc">You can use AI to help identify gaps in logic, unclear phrasing, or missing evidence before you share your work with others.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="analysis" aria-describedby="analysis-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">📊</span>
+                                    <h3>Data Analysis</h3>
+                                    <p id="analysis-desc">You can use AI to identify patterns and generate questions from complex datasets, so you can spend more time interpreting what the data actually means.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="useCases" value="other" aria-describedby="other-use-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">➕</span>
+                                    <h3>Other Use Cases</h3>
+                                    <p id="other-use-desc">Have something else in mind? Describe it below.</p>
+                                </div>
+                            </label>
+
+                            <div id="otherUseCasesContainer" class="other-documentation-container hidden" role="group" aria-labelledby="custom-use-label">
+                                <div class="other-documentation-input">
+                                    <label id="custom-use-label" for="customUseCases">Specify other use cases:</label>
+                                    <textarea id="customUseCases" name="customUseCases" placeholder="Enter additional approved use cases" rows="3" aria-labelledby="custom-use-label"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /question5 -->
+
+                    <!-- Question 2: Documentation Requirements -->
+                    <div class="question-container" id="question4" data-question="documentation" role="group" aria-labelledby="documentation-heading">
+                        <h2 id="documentation-heading">What should learners include when submitting AI-assisted work?</h2>
+                        <div class="options-grid documentation-options" role="group" aria-labelledby="documentation-heading">
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="none" aria-describedby="none-doc-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">❌</span>
+                                    <h3>No Disclosure Required</h3>
+                                    <p id="none-doc-desc">Learners are not required to disclose or document their use of AI for this assignment. AI use is fully permitted - keep the focus on the task itself.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="tools" aria-describedby="tools-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">📝</span>
+                                    <h3>Document Platforms</h3>
+                                    <p id="tools-desc">Please document which AI platforms and tools you used. Be intentional about tool choice, and help me understand the AI landscape you find valuable.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="chatsummary" aria-describedby="chatsummary-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">💬</span>
+                                    <h3>Submit Chat Summary</h3>
+                                    <p id="chatsummary-desc">Include a brief AI-generated overview of your conversation. Try this prompt: <code>Please summarize the chat we've just had into 2 or 3 paragraphs.</code></p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="prompts" aria-describedby="prompts-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">📤</span>
+                                    <h3>Submit Relevant Prompts &amp; Outputs</h3>
+                                    <p id="prompts-desc">Please curate the prompts and AI responses you are comfortable sharing that demonstrate how AI helped shape your final product. This makes visible how you shape questions and evaluate responses - skills that are as important as the output itself.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="citation" aria-describedby="citation-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🧾</span>
+                                    <h3>Formal Citation Required</h3>
+                                    <p id="citation-desc">Please include formal citations for any AI-generated content you use. Reinforces information literacy: provenance matters regardless of source, and AI-generated content deserves the same scrutiny as any other reference.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="reflection" aria-describedby="reflection-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🧠</span>
+                                    <h3>Additional Reflection</h3>
+                                    <p id="reflection-desc">Please include a brief reflection on your AI usage and what you learned from the experience. Metacognitive writing strengthens ownership of the final work by helping you articulate what you changed, what you kept, and why.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="factcheck" aria-describedby="factcheck-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🔎</span>
+                                    <h3>Fact Check</h3>
+                                    <p id="factcheck-desc">Please verify AI-generated information against trusted sources and document your fact-checking process. AI tools can produce inaccurate information. Requiring verification reinforces that accuracy is your responsibility, not the tool's.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="multitools" aria-describedby="multitools-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">🔄</span>
+                                    <h3>Compare Multiple Tools</h3>
+                                    <p id="multitools-desc">Please compare results from at least two AI tools and reflect on the differences. Seeing that responses vary across tools builds critical perspective and helps you resist treating any single AI answer as authoritative.</p>
+                                </div>
+                            </label>
+
+                            <label class="option-card checkbox-card">
+                                <input type="checkbox" name="documentation" value="other" aria-describedby="other-desc">
+                                <div class="card-content">
+                                    <span aria-hidden="true" class="icon">➕</span>
+                                    <h3>Other Requirements</h3>
+                                    <p id="other-desc">Have additional documentation requirements? Specify them below.</p>
+                                </div>
+                            </label>
+
+                            <div id="otherDocumentationContainer" class="other-documentation-container hidden" role="group" aria-labelledby="custom-doc-label">
+                                <div class="other-documentation-input">
+                                    <label id="custom-doc-label" for="customDocumentation">Specify additional requirements:</label>
+                                    <textarea id="customDocumentation" name="customDocumentation" placeholder="Enter your additional documentation or assignment requirements" rows="3" aria-labelledby="custom-doc-label"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /question4 -->
+
+                </form>
+            </div><!-- /questions-column -->
+
+            <!-- Right Column: AI Engagement -->
+            <div class="preview-column" role="region" aria-label="AI Engagement">
+                <div class="preview-container">
+                    <h2>AI Engagement Guide</h2>
+                    <div id="previewContainer" class="policy-statement" role="region" aria-live="polite">
+                        <!-- AI Engagement Guide is generated dynamically by JavaScript -->
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="button" id="infoBtn"      class="btn btn-secondary" aria-label="About this tool"><i class="fas fa-circle-info" aria-hidden="true"></i> Info</button>
+                        <button type="button" id="startOverBtn" class="btn btn-secondary" aria-label="Start over and clear all selections"><i class="fas fa-rotate-left" aria-hidden="true"></i> Restart</button>
+                        <button type="button" id="shareBtn"     class="btn" aria-label="Share or download policy"><i class="fas fa-share-nodes" aria-hidden="true"></i> Share</button>
+                        <button type="button" id="copyPolicyBtn" class="btn" aria-label="Copy policy for LMS"><i class="fas fa-copy" aria-hidden="true"></i> Copy</button>
+                    </div>
+
+                    <!-- Alt text panel: copy this whenever sharing the policy as an image -->
+                    <div class="alt-text-container">
+                        <div class="alt-text-header">
+                            <h3>Alt Text for Accessibility</h3>
+                            <button type="button" id="copyAltBtn" class="copy-alt-btn" aria-label="Copy Alt Text to clipboard">
+                                <i class="fas fa-copy" aria-hidden="true"></i> Copy
+                            </button>
+                        </div>
+                        <textarea id="altTextArea" class="alt-text-area" readonly aria-label="Alt Text Representation of the Policy"></textarea>
+                    </div>
+                </div>
+            </div><!-- /preview-column -->
+        </div><!-- /form-container -->
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="acknowledgement">
+                    <p>This AI Engagement Guide Generator was built on the original work created by Ed Beck and Tera Doty-Blance and has been shared under a
+                       <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
+                           Creative Commons Attribution 4.0 International License
+                           <i class="fab fa-creative-commons" aria-hidden="true"></i>
+                           <i class="fab fa-creative-commons-by" aria-hidden="true"></i>
+                       </a>.</p>
+                    <p>Source code is available on
+                       <a href="https://github.com/corydave/websitetest/tree/main/claude/aiPolicyGenerator" target="_blank">
+                           GitHub <i class="fab fa-github" aria-hidden="true"></i>
+                       </a>
+                       and was forked from
+                       <a href="https://github.com/beckej13820/edu-apps" target="_blank" rel="noopener noreferrer">Ed & Tera's pioneering work.</a> | Some data is collected on this site. Only anonymous information (specifically, which rationale was used). <a href="ai-engagement-no-analytics.html" id="no-analytics-link">Click here for a version that does not collect analytics.</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main><!-- /main-content -->
+
+    <!-- =====================================================================
+         MODAL: No AI Use
+         Shown when instructor selects "No AI Use". Offers preset reasons or
+         a free-text field to explain to learners why AI is prohibited.
+    ===================================================================== -->
+    <div id="noAiModal" class="modal hidden" role="dialog" aria-labelledby="no-ai-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="no-ai-modal-title">Why is AI not permitted?</h2>
+                <button class="no-ai-cancel" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:#666;padding:0.5rem;line-height:1;" aria-label="Cancel and uncheck No AI Use">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="color:#666;margin-bottom:1rem;font-size:0.9rem;">Optional — but a brief explanation helps learners understand your reasoning.</p>
+                <div id="prohibitionReasonContainer">
+                    <div class="options-grid" style="margin-bottom:0.75rem;">
+                        <label class="option-card">
+                            <input type="radio" name="prohibitionReason" value="Learners should demonstrate their own knowledge and skills without AI assistance.">
+                            <div class="card-content">
+                                <h3>Demonstrate Own Skills</h3>
+                                <p>You should demonstrate your own knowledge and skills without AI assistance.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="prohibitionReason" value="This is an in-class or timed assessment where AI tools are not available.">
+                            <div class="card-content">
+                                <h3>In-Class Assessment</h3>
+                                <p>This is an in-class or timed assessment where AI tools are not available.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="prohibitionReason" value="The learning objectives for this assignment require learners to develop their own original ideas.">
+                            <div class="card-content">
+                                <h3>Original Thinking Required</h3>
+                                <p>The learning objectives require you to develop your own original ideas.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <textarea id="prohibitionReasonText" name="prohibitionReasonText"
+                              placeholder="Or write your own explanation for learners..."
+                              style="width:100%;padding:0.5rem;border:1px solid #ddd;border-radius:var(--border-radius);font-size:clamp(0.8rem,1.25vw,0.9rem);resize:vertical;min-height:60px;margin-top:0.5rem;"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="noAiCancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="button" id="noAiDoneBtn"   class="btn">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: Open Use
+         Shown when instructor selects "Open Use". Offers preset rationale
+         options to explain to learners why open AI use is permitted.
+    ===================================================================== -->
+    <div id="openUseModal" class="modal hidden" role="dialog" aria-labelledby="open-use-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="open-use-modal-title">Why is open AI use permitted?</h2>
+                <button class="open-use-cancel" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:#666;padding:0.5rem;line-height:1;" aria-label="Cancel and uncheck Open Use">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="color:#666;margin-bottom:1rem;font-size:0.9rem;">Optional — but a brief rationale helps learners understand the intent behind open AI use.</p>
+                <div id="openUseRationaleContainer">
+                    <div class="options-grid" style="margin-bottom:0.75rem;">
+                        <label class="option-card">
+                            <input type="radio" name="openUseRationale" value="AI tools may help learners practice drafting, revising, brainstorming, or clarifying ideas while still demonstrating their own understanding.">
+                            <div class="card-content">
+                                <h3>Support Skill Development</h3>
+                                <p>AI tools may help you practice drafting, revising, brainstorming, or clarifying ideas while still demonstrating your own understanding.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="openUseRationale" value="AI tools are part of many academic, professional, and creative contexts. This assignment includes guided AI use to build responsible engagement skills.">
+                            <div class="card-content">
+                                <h3>Reflect Real-World Practice</h3>
+                                <p>AI tools are part of many academic, professional, and creative contexts. This assignment includes guided AI use to build responsible engagement skills.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="openUseRationale" value="AI may support early-stage idea generation, organization, or exploration, allowing learners to focus more deeply on analysis, synthesis, or application.">
+                            <div class="card-content">
+                                <h3>Scaffold Complex Thinking</h3>
+                                <p>AI may support early-stage idea generation, organization, or exploration, allowing you to focus more deeply on analysis, synthesis, or application.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="openUseRationale" value="AI tools may offer language clarification, idea rehearsal, or alternative explanations that support diverse learners.">
+                            <div class="card-content">
+                                <h3>Accessibility &amp; Equity Support</h3>
+                                <p>AI tools may offer you language clarification, idea rehearsal, or alternative explanations that support diversity.</p>
+                            </div>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="openUseRationale" value="This assignment invites you to decide whether and how AI tools support your learning. You are encouraged to make intentional choices based on your goals, strengths, and areas for growth. You know your learning life best, and this policy honors your capacity to choose tools that align with your understanding of how you learn most effectively.">
+                            <div class="card-content">
+                                <h3>Learner Agency & Choice</h3>
+                                <p>This assignment invites you to decide whether and how AI tools support your learning. You are encouraged to make intentional choices based on your goals, strengths, and areas for growth. You know your learning life best, and this policy honors your capacity to choose tools that align with your understanding of how you learn most effectively.</p>
+                            </div>
+                        </label>
+                    </div>
+                    <textarea id="openUseRationaleText" name="openUseRationaleText"
+                              placeholder="Or write your own rationale for learners..."
+                              style="width:100%;padding:0.5rem;border:1px solid #ddd;border-radius:var(--border-radius);font-size:clamp(0.8rem,1.25vw,0.9rem);resize:vertical;min-height:60px;margin-top:0.5rem;"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="openUseCancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="button" id="openUseDoneBtn" class="btn">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: Info
+         About this tool (video + copy placeholders pending final content).
+    ===================================================================== -->
+    <div id="infoModal" class="modal hidden" role="dialog" aria-labelledby="info-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="info-modal-title">About This Tool</h2>
+                <button class="close-modal" aria-label="Close modal">
+                    <span class="icon" aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- TODO: Replace placeholder video ID before launch -->
+                <div class="info-video-container">
+                    <iframe width="560" height="315" src="https://docs.google.com/videos/d/1qhSSQgAohVCxIsrJn4jvxepKfUUEvuGGjPUF27xaGZg/play" title="Video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px;"></iframe>
+                </div>
+                <!-- TODO: Replace lorem ipsum before launch -->
+                <!--<div class="info-text">-->
+                <!--    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
+                <!--    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+                <!--    <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: Embed
+         Generates an iFrame snippet that can be pasted into an LMS or website.
+    ===================================================================== -->
+    <div id="embedModal" class="modal hidden" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Embed AI Policy Generator</h2>
+                <button class="close-modal" aria-label="Close modal">
+                    <span class="icon" aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Copy and paste this code to embed the AI Policy Generator on your website or LMS:</p>
+                <div class="code-container">
+                    <pre><code id="embedCode"></code></pre>
+                    <button id="copyEmbedBtn" class="btn" aria-label="Copy embed code to clipboard">
+                        <span class="icon" aria-hidden="true">📋</span> Copy Code
+                    </button>
+                </div>
+                <div class="embed-preview">
+                    <h3>Preview:</h3>
+                    <div class="preview-frame">
+                        <iframe
+                            id="embedPreviewFrame"
+                            src="new-policy-generator.html"
+                            style="width:100%;border:none;min-height:400px;"
+                            title="AI Policy Generator Preview"
+                            allow="clipboard-write"
+                            aria-label="Preview of the AI Policy Generator">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: Share & Download
+         Copy a shareable URL or download the policy in various file formats.
+    ===================================================================== -->
+    <div id="downloadModal" class="modal hidden" role="dialog" aria-labelledby="download-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="download-modal-title">Share &amp; Download</h2>
+                <button class="close-modal" aria-label="Close modal">
+                    <span class="icon" aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 0.5rem;">
+                    <p class="share-section-heading" style="margin:0;">Share</p>
+                    <label style="display:flex;align-items:center;gap:0.4em;font-size:0.85rem;cursor:pointer;">
+                        <input type="checkbox" id="previewOnlyCheck" checked> Only show the AI Policy
+                    </label>
+                </div>
+                <div class="download-options" style="margin-bottom:1rem;">
+                    <button id="copyUrlBtn" class="download-option">
+                        <div class="option-icon">🔗</div>
+                        <div class="option-content">
+                            <h3>Copy URL</h3>
+                            <p>Copy a shareable link that restores this exact policy configuration.</p>
+                        </div>
+                    </button>
+                    <button id="shareEmbedBtn" class="download-option">
+                        <div class="option-icon">🖼️</div>
+                        <div class="option-content">
+                            <h3>Embed</h3>
+                            <p>Get an iFrame snippet to embed the policy in your LMS or website.</p>
+                        </div>
+                    </button>
+                </div>
+                <p class="share-section-heading">Download</p>
+                <div class="download-options" id="downloadOptionsGrid">
+                    <button id="downloadHTML" class="download-option">
+                        <div class="option-icon">🌐</div>
+                        <div class="option-content">
+                            <h3>HTML Document</h3>
+                            <p>Formatted web page with icons and styling. Opens in any browser and can be printed or saved as PDF.</p>
+                        </div>
+                    </button>
+                    <button id="downloadMarkdown" class="download-option">
+                        <div class="option-icon">📝</div>
+                        <div class="option-content">
+                            <h3>Markdown</h3>
+                            <p>Plain text format with simple formatting. Works well with platforms like GitHub, Notion, and many editors.</p>
+                        </div>
+                    </button>
+                    <button id="downloadText" class="download-option">
+                        <div class="option-icon">📄</div>
+                        <div class="option-content">
+                            <h3>Plain Text</h3>
+                            <p>Simple text format that works everywhere. Icons will appear as emoji characters.</p>
+                        </div>
+                    </button>
+                    <button id="downloadPNG" class="download-option">
+                        <div class="option-icon">🖼️</div>
+                        <div class="option-content">
+                            <h3>PNG Image</h3>
+                            <p>Image format suitable for slides or documents. Captures the preview box.</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: PNG Accessibility Reminder
+         Shown after a PNG download to prompt the user to copy alt text.
+    ===================================================================== -->
+    <div id="pngReminderModal" class="modal hidden" role="dialog" aria-labelledby="png-reminder-title" aria-modal="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="png-reminder-title">Important: Accessibility</h2>
+                <button class="close-modal" aria-label="Close modal">
+                    <span class="icon" aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You have successfully downloaded the PNG image.</p>
+                <p style="margin-top:1rem;"><strong>Please ensure you copy the Alt Text below</strong> to provide accessible text for screen readers wherever you upload this image.</p>
+                <div class="alt-text-container" style="border:none;margin-top:1rem;padding-top:0;">
+                    <textarea id="modalAltTextArea" class="alt-text-area" readonly aria-label="Alt Text Representation of the Policy"></textarea>
+                    <button type="button" id="modalCopyAltBtn" class="btn" style="margin-top:0.5rem;width:100%;">
+                        <span class="icon" aria-hidden="true">📋</span> Copy Alt Text
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         JAVASCRIPT
+         All logic is in this single script block to keep the file self-
+         contained. Sections are numbered and labeled for easy navigation.
+    ===================================================================== -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ─── DOM references ────────────────────────────────────────────────
+        const form                        = document.getElementById('policyForm');
+        const previewContainer            = document.getElementById('previewContainer');
+        const startOverBtn                = document.getElementById('startOverBtn');
+        const shareBtn                    = document.getElementById('shareBtn');
+        const infoBtn                     = document.getElementById('infoBtn');
+        const otherDocumentationContainer = document.getElementById('otherDocumentationContainer');
+
+        const altTextArea                 = document.getElementById('altTextArea');
+        const copyAltBtn                  = document.getElementById('copyAltBtn');
+
+        const pngReminderModal            = document.getElementById('pngReminderModal');
+        const modalAltTextArea            = document.getElementById('modalAltTextArea');
+        const modalCopyAltBtn             = document.getElementById('modalCopyAltBtn');
+
+        const copyPolicyBtn               = document.getElementById('copyPolicyBtn');
+        const shareEmbedBtn               = document.getElementById('shareEmbedBtn');
+        const embedModal                  = document.getElementById('embedModal');
+        const embedCode                   = document.getElementById('embedCode');
+        const embedPreviewFrame           = document.getElementById('embedPreviewFrame');
+        const copyEmbedBtn                = document.getElementById('copyEmbedBtn');
+
+        const infoModal                   = document.getElementById('infoModal');
+        const noAiModal                   = document.getElementById('noAiModal');
+        const noAiDoneBtn                 = document.getElementById('noAiDoneBtn');
+        const noAiCancelBtn               = document.getElementById('noAiCancelBtn');
+        const openUseModal                = document.getElementById('openUseModal');
+        const openUseDoneBtn              = document.getElementById('openUseDoneBtn');
+        const openUseCancelBtn            = document.getElementById('openUseCancelBtn');
+
+        const downloadModal               = document.getElementById('downloadModal');
+        const copyUrlBtn                  = document.getElementById('copyUrlBtn');
+        const downloadHTMLBtn             = document.getElementById('downloadHTML');
+        const downloadMarkdownBtn         = document.getElementById('downloadMarkdown');
+        const downloadTextBtn             = document.getElementById('downloadText');
+        const downloadPNGBtn              = document.getElementById('downloadPNG');
+
+        // True when this page is running inside an iframe (e.g. LMS embed)
+        const isInIframe = window.self !== window.top;
+
+        // =====================================================================
+        // SECTION 1 — AI usage level helper
+        // =====================================================================
+
+        /**
+         * Reads the current useCases checkboxes and returns a string that
+         * describes the overall AI permission level for this assignment:
+         *
+         *   'prohibited'  — "No AI Use" is checked
+         *   'encouraged'  — "Open Use" is checked
+         *   'limited'     — one or more specific use-cases are checked
+         *   null          — nothing selected yet
+         */
+        function getAiUsageFromUseCases() {
+            if (document.querySelector('input[name="useCases"][value="prohibited"]:checked')) return 'prohibited';
+            if (document.querySelector('input[name="useCases"][value="encouraged"]:checked'))  return 'encouraged';
+            return document.querySelectorAll('input[name="useCases"]:checked').length > 0 ? 'limited' : null;
+        }
+
+
+        // =====================================================================
+        // SECTION 2 — Mutual exclusion logic for checkbox groups
+        // =====================================================================
+
+        /**
+         * "No AI Use" and "Open Use" are mutually exclusive with every other
+         * use-case option. Selecting either one grays out and unchecks all
+         * other cards. Selecting any regular card clears the exclusive choice.
+         *
+         * @param {HTMLInputElement} changed - The checkbox that just changed.
+         */
+        function handleUseCaseExclusivity(changed) {
+            const isExclusive = (changed.value === 'prohibited' || changed.value === 'encouraged');
+
+            if (changed.checked && isExclusive) {
+                // Gray out every other use-case card
+                document.querySelectorAll('input[name="useCases"]').forEach(cb => {
+                    if (cb !== changed) {
+                        cb.checked = false;
+                        cb.closest('.option-card').classList.add('grayed-out');
+                    }
+                });
+            } else if (!changed.checked && isExclusive) {
+                // Exclusive card unchecked — restore all cards
+                document.querySelectorAll('input[name="useCases"]').forEach(cb => {
+                    cb.closest('.option-card').classList.remove('grayed-out');
+                });
+            } else {
+                // Regular card clicked — clear any active exclusive selection
+                ['prohibited', 'encouraged'].forEach(val => {
+                    const cb = document.querySelector(`input[name="useCases"][value="${val}"]`);
+                    if (cb && cb.checked) {
+                        cb.checked = false;
+                        document.querySelectorAll('input[name="useCases"]').forEach(c => {
+                            c.closest('.option-card').classList.remove('grayed-out');
+                        });
+                    }
+                });
+            }
+        }
+
+        /**
+         * "No Disclosure Required" is mutually exclusive with all other
+         * documentation options. Selecting it clears and grays out the rest.
+         *
+         * @param {HTMLInputElement} changed - The checkbox that just changed.
+         */
+        function handleDocumentationExclusivity(changed) {
+            if (changed.value === 'none') {
+                if (changed.checked) {
+                    document.querySelectorAll('input[name="documentation"]').forEach(cb => {
+                        if (cb !== changed) {
+                            cb.checked = false;
+                            cb.closest('.option-card').classList.add('grayed-out');
+                        }
+                    });
+                } else {
+                    document.querySelectorAll('input[name="documentation"]').forEach(cb => {
+                        cb.closest('.option-card').classList.remove('grayed-out');
+                    });
+                }
+            } else {
+                // Any other documentation option clears "No Disclosure" if active
+                const noneCb = document.querySelector('input[name="documentation"][value="none"]');
+                if (noneCb && noneCb.checked) {
+                    noneCb.checked = false;
+                    document.querySelectorAll('input[name="documentation"]').forEach(cb => {
+                        cb.closest('.option-card').classList.remove('grayed-out');
+                    });
+                }
+            }
+        }
+
+
+        // =====================================================================
+        // SECTION 3 — Conditional visibility
+        // =====================================================================
+
+        /**
+         * Hides the documentation section when AI is prohibited (nothing to
+         * document) and clears any existing documentation selections.
+         */
+        function handleConditionalQuestions() {
+            const aiUsage = getAiUsageFromUseCases();
+            const docQ    = document.getElementById('question4');
+
+            if (aiUsage === 'prohibited') {
+                docQ.classList.add('hidden');
+                document.querySelectorAll('input[name="documentation"]').forEach(cb => {
+                    cb.checked = false;
+                    cb.closest('.option-card').classList.remove('grayed-out');
+                });
+            } else {
+                docQ.classList.remove('hidden');
+            }
+
+            updateIframeHeight();
+        }
+
+        /** Shows/hides the "Other use cases" free-text field */
+        function toggleOtherUseCases() {
+            const cb = document.querySelector('input[name="useCases"][value="other"]');
+            document.getElementById('otherUseCasesContainer').classList.toggle('hidden', !(cb && cb.checked));
+            updateIframeHeight();
+        }
+
+        /** Shows/hides the "Other documentation requirements" free-text field */
+        function toggleOtherDocumentation() {
+            const cb = document.querySelector('input[name="documentation"][value="other"]');
+            otherDocumentationContainer.classList.toggle('hidden', !(cb && cb.checked));
+            updateIframeHeight();
+        }
+
+
+        // =====================================================================
+        // SECTION 4 — URL state (encode / decode / update)
+        // =====================================================================
+
+        /**
+         * Serialises all form selections into a compact base64 string so the
+         * complete policy configuration can be shared via a URL parameter.
+         *
+         * State shape: { u, d, cu, cd, pr, prt, or }
+         *   u   — array of selected useCases values
+         *   d   — array of selected documentation values
+         *   cu  — custom use-cases text
+         *   cd  — custom documentation text
+         *   pr  — selected prohibitionReason radio value
+         *   prt — custom prohibition reason text
+         *   or  — selected openUseRationale radio value
+         */
+        function encodeFormState() {
+            const formData = new FormData(form);
+            const state = {
+                u:   Array.from(formData.getAll('useCases')),
+                d:   Array.from(formData.getAll('documentation')),
+                cu:  document.getElementById('customUseCases')?.value || '',
+                cd:  document.getElementById('customDocumentation')?.value || '',
+                pr:  document.querySelector('input[name="prohibitionReason"]:checked')?.value || '',
+                prt: document.getElementById('prohibitionReasonText')?.value || '',
+                or:  document.querySelector('input[name="openUseRationale"]:checked')?.value || '',
+                ort: document.getElementById('openUseRationaleText')?.value || ''
+            };
+            return btoa(JSON.stringify(state));
+        }
+
+        /**
+         * Restores form state from a base64-encoded string (e.g. from the URL),
+         * then refreshes the preview to match.
+         *
+         * @param {string} encoded - The base64 string from encodeFormState().
+         */
+        function decodeFormState(encoded) {
+            try {
+                const state = JSON.parse(atob(encoded));
+
+                if (state.u) state.u.forEach(v => {
+                    const cb = document.querySelector(`input[name="useCases"][value="${v}"]`);
+                    if (cb) { cb.checked = true; handleUseCaseExclusivity(cb); }
+                });
+                if (state.d) state.d.forEach(v => {
+                    const cb = document.querySelector(`input[name="documentation"][value="${v}"]`);
+                    if (cb) { cb.checked = true; handleDocumentationExclusivity(cb); }
+                });
+                if (state.cu) { const el = document.getElementById('customUseCases');      if (el) el.value = state.cu; }
+                if (state.cd) { const el = document.getElementById('customDocumentation'); if (el) el.value = state.cd; }
+                if (state.pr) {
+                    const r = document.querySelector(`input[name="prohibitionReason"][value="${state.pr}"]`);
+                    if (r) r.checked = true;
+                }
+                if (state.prt) { const el = document.getElementById('prohibitionReasonText'); if (el) el.value = state.prt; }
+                if (state.ort) { const el = document.getElementById('openUseRationaleText'); if (el) el.value = state.ort; }
+                if (state.or) {
+                    const r = document.querySelector(`input[name="openUseRationale"][value="${state.or}"]`);
+                    if (r) r.checked = true;
+                }
+
+                handleConditionalQuestions();
+                toggleOtherUseCases();
+                toggleOtherDocumentation();
+                updatePolicyPreview();
+
+            } catch (e) {
+                // Silently ignore malformed or outdated URL parameters
+                console.debug('Invalid URL parameters:', e);
+            }
+        }
+
+        /** Writes the current form state into the browser URL bar (no reload) */
+        function updateURL() {
+            try {
+                const newURL = new URL(window.location.href);
+                newURL.searchParams.set('policy', encodeFormState());
+                window.history.replaceState({}, '', newURL);
+            } catch (e) {
+                console.error('Error updating URL:', e);
+            }
+        }
+
+        /** On page load: check for a 'policy' URL param and restore state from it */
+        function initializeFromURL() {
+            try {
+                const encoded = new URLSearchParams(window.location.search).get('policy');
+                if (encoded) {
+                    decodeFormState(encoded);
+                    setTimeout(() => { updatePolicyPreview(); updateIframeHeight(); sendAnalytics('raw'); }, 0);
+                }
+            } catch (e) {
+                console.error('Error initializing from URL:', e);
+            }
+        }
+
+        initializeFromURL();
+
+        /** Applies preview-only layout when the 'preview=true' URL param is set */
+        function initPreviewMode() {
+            const isPreview = new URLSearchParams(window.location.search).get('preview') === 'true';
+            if (isPreview) document.body.classList.add('preview-mode');
+        }
+        initPreviewMode();
+
+
+        // =====================================================================
+        // SECTION 5 — iframe communication (for LMS embeds)
+        // =====================================================================
+
+        /** Tells the parent page how tall this document is so the iframe resizes */
+        function updateIframeHeight() {
+            if (isInIframe) {
+                window.parent.postMessage(
+                    { type: 'resize', height: document.documentElement.scrollHeight },
+                    '*'
+                );
+            }
+        }
+
+        /** Pushes the current plain-text policy to the parent page on every change */
+        function sendPolicyUpdate() {
+            if (isInIframe) {
+                const policyText = Array.from(previewContainer.querySelectorAll('.policy-section'))
+                    .map(s => s.querySelector('p')?.textContent.trim() || '')
+                    .join('\n\n');
+                window.parent.postMessage({ type: 'policyUpdate', policy: policyText }, '*');
+            }
+        }
+
+        /** Responds to a parent page requesting the policy text on demand */
+        window.addEventListener('message', function (event) {
+            if (event.data.type === 'getPolicy') {
+                const policyText = Array.from(previewContainer.querySelectorAll('.policy-section'))
+                    .map(s => s.querySelector('p')?.textContent.trim() || '')
+                    .join('\n\n');
+                event.source.postMessage({ type: 'policyResponse', policy: policyText }, event.origin);
+            }
+        });
+
+
+        // =====================================================================
+        // SECTION 6 — Policy text / HTML builders
+        // =====================================================================
+
+        /**
+         * Builds a structured HTML string for all selected documentation
+         * requirements, ready to inject into the preview panel.
+         *
+         * @returns {string} HTML string or empty string if nothing is selected.
+         */
+        function getDocumentationText() {
+            const selected = Array.from(document.querySelectorAll('input[name="documentation"]:checked'))
+                .filter(cb => cb.value !== 'none')
+                .map(cb => {
+                    if (cb.value === 'other') {
+                        const t = document.getElementById('customDocumentation')?.value?.trim() || '';
+                        return t ? { title: '', text: t, icon: '➕' } : null;
+                    }
+                    // The chatsummary card includes a <code> element whose text
+                    // we want to preserve exactly, so we handle it explicitly.
+                    if (cb.value === 'chatsummary') {
+                        return {
+                            title: 'Submit Chat Summary',
+                            text:  'Submit a brief AI-generated summary of your chat conversation. Try: \u201cPlease summarize the chat we\u2019ve just had into 2 or 3 paragraphs.\u201d',
+                            icon:  '💬'
+                        };
+                    }
+                    const card = cb.closest('.option-card').querySelector('.card-content');
+                    return {
+                        title: card.querySelector('h3')?.textContent || '',
+                        text:  card.querySelector('p').textContent,
+                        icon:  card.querySelector('.icon')?.textContent || ''
+                    };
+                })
+                .filter(Boolean);
+
+            if (!selected.length) return '';
+
+            return 'Please share how you used AI:\n' +
+                selected.map(i => {
+                    if (i.title) {
+                        return `<div class="use-case-header"><span class="icon">${i.icon}</span><h4 class="use-case-title">${i.title}: </h4></div><p class="use-case-text">${i.text}</p>`;
+                    }
+                    return `<span class="icon">${i.icon}</span> ${i.text}`;
+                }).join('\n');
+        }
+
+        /**
+         * Builds a structured HTML string for all selected (non-exclusive)
+         * use-case cards, ready to inject into the preview panel.
+         *
+         * @returns {string} HTML string or empty string if nothing is selected.
+         */
+        function getUseCasesText() {
+            const selected = Array.from(document.querySelectorAll('input[name="useCases"]:checked'))
+                .filter(cb => cb.value !== 'prohibited' && cb.value !== 'encouraged')
+                .map(cb => {
+                    if (cb.value === 'other') {
+                        const t = document.getElementById('customUseCases')?.value?.trim() || '';
+                        return t ? { title: '', text: t, icon: '➕' } : null;
+                    }
+                    const card = cb.closest('.option-card').querySelector('.card-content');
+                    return {
+                        title: card.querySelector('h3')?.textContent || '',
+                        text:  card.querySelector('p').textContent,
+                        icon:  card.querySelector('.icon')?.textContent || ''
+                    };
+                })
+                .filter(Boolean);
+
+            if (!selected.length) return '';
+
+            return 'Feel free to leverage AI:\n' +
+                selected.map(i => {
+                    if (i.title) {
+                        return `<div class="use-case-header"><span class="icon">${i.icon}</span><h4 class="use-case-title">${i.title}: </h4></div><p class="use-case-text">${i.text}</p>`;
+                    }
+                    return `<span class="icon">${i.icon}</span> ${i.text}`;
+                }).join('\n');
+        }
+
+        /**
+         * Returns the emoji icon(s) shown in the policy header strip,
+         * reflecting the current AI usage level and documentation status.
+         *
+         * @returns {string} HTML string of <span> icon elements.
+         */
+        function generatePolicyIcons() {
+            const aiUsage = getAiUsageFromUseCases();
+            const noneCb  = document.querySelector('input[name="documentation"][value="none"]:checked');
+            const hasDoc  = !noneCb && document.querySelectorAll('input[name="documentation"]:checked').length > 0;
+
+            const icons = [];
+            if      (aiUsage === 'encouraged')  icons.push('<span class="policy-icon" aria-hidden="true" title="Open AI Use">✅</span>');
+            else if (aiUsage === 'limited')      icons.push('<span class="policy-icon" aria-hidden="true" title="Selective AI Use">⚠️</span>');
+            else if (aiUsage === 'prohibited')   icons.push('<span class="policy-icon" aria-hidden="true" title="No AI Use">🚫</span>');
+
+            if (hasDoc) icons.push('<span class="policy-icon" aria-hidden="true" title="Documentation Required">📝</span>');
+
+            return icons.join('');
+        }
+
+        /**
+         * Builds a plain-text representation of the AI Engagement.
+         * Written into both alt text fields so it's ready to copy whenever
+         * an image of the policy is shared.
+         */
+        function generateAltText() {
+            const parts = ['AI POLICY STATEMENT'];
+
+            const headerEl = previewContainer.querySelector('.policy-header h2');
+            if (headerEl) parts.push(headerEl.textContent.trim());
+
+            previewContainer.querySelectorAll('.policy-section').forEach(s => {
+                const docSection = s.querySelector('.documentation-section');
+                if (docSection) {
+                    const hdr = docSection.querySelector('.documentation-header');
+                    if (hdr) parts.push(hdr.textContent.trim());
+                    docSection.querySelectorAll('li').forEach(li => {
+                        const t = li.textContent.replace(/\s+/g, ' ').trim();
+                        if (t) parts.push(t);
+                    });
+                } else {
+                    const p = s.querySelector('p');
+                    if (p) { const t = p.textContent.trim(); if (t) parts.push(t); }
+                }
+            });
+
+            const alt = parts.join('  |  ');
+            altTextArea.value      = alt;
+            modalAltTextArea.value = alt;
+        }
+
+
+        // =====================================================================
+        // SECTION 7 — Main preview renderer
+        // =====================================================================
+
+        /**
+         * Reads all current form values and rebuilds the AI Engagement HTML
+         * from scratch. Called on every form change and after any state restore.
+         */
+        function updatePolicyPreview() {
+            const sections = [];
+            const aiUsage  = getAiUsageFromUseCases();
+            const noneCb   = document.querySelector('input[name="documentation"][value="none"]:checked');
+            const hasDoc   = !noneCb && document.querySelectorAll('input[name="documentation"]:checked').length > 0;
+
+            // --- Header strip ---
+            if (aiUsage) {
+                const labels = {
+                    encouraged: 'Open AI Use',
+                    limited:    'Selective AI Use',
+                    prohibited: 'No AI Use for This Assignment'
+                };
+                let header = labels[aiUsage];
+                if (hasDoc) header += ' — Documentation Required';
+                sections.push({ text: header, iconHTML: generatePolicyIcons(), isHeader: true });
+            }
+
+            // --- Body copy ---
+            if (aiUsage === 'encouraged') {
+                const rationaleCustom = document.getElementById('openUseRationaleText')?.value?.trim();
+                const rationaleRadio  = document.querySelector('input[name="openUseRationale"]:checked');
+                const baseText = 'You are welcome to explore AI tools freely throughout this assignment.';
+                const rationaleText = rationaleCustom || rationaleRadio?.value || '';
+                sections.push({
+                    text:     rationaleText ? `${baseText} ${rationaleText}` : baseText,
+                    iconHTML: '<span class="icon" aria-hidden="true">✅</span>'
+                });
+
+            } else if (aiUsage === 'prohibited') {
+                const reasonText  = document.getElementById('prohibitionReasonText')?.value?.trim();
+                const reasonRadio = document.querySelector('input[name="prohibitionReason"]:checked');
+                const reason      = reasonText || reasonRadio?.value || '';
+                const baseText    = 'This assignment is designed to be completed without AI tools.';
+                sections.push({
+                    text:     reason ? `${baseText} ${reason}` : baseText,
+                    iconHTML: '<span class="icon" aria-hidden="true">🚫</span>'
+                });
+
+            } else if (aiUsage === 'limited') {
+                const text = getUseCasesText();
+                if (text) sections.push({ text, iconHTML: '<span class="icon" aria-hidden="true">✔️</span>', isDocumentation: true });
+            }
+
+            // --- Documentation requirements ---
+            if (aiUsage !== 'prohibited' && hasDoc) {
+                const text = getDocumentationText();
+                if (text) sections.push({ text, iconHTML: '<span class="icon" aria-hidden="true">📝</span>', isDocumentation: true });
+            }
+
+            // --- Render to HTML ---
+            let html = '';
+            sections.forEach(s => {
+                if (s.isHeader) {
+                    const clsMap = { encouraged: 'policy-permitted', limited: 'policy-limited', prohibited: 'policy-prohibited' };
+                    const cls    = clsMap[aiUsage] || '';
+                    html += `<div class="policy-header ${cls}"><div class="policy-icons">${s.iconHTML}</div><h2>${s.text}</h2></div>`;
+
+                } else if (s.isDocumentation) {
+                    const [h, ...reqs] = s.text.split('\n');
+                    const reqHTML = reqs.filter(r => r.trim()).map(r => `<li>${r}</li>`).join('');
+                    html += `<div class="policy-section">${s.iconHTML}<div class="documentation-section"><h3 class="documentation-header">${h}</h3><ul class="documentation-requirements policy-list">${reqHTML}</ul></div></div>`;
+
+                } else {
+                    html += `<div class="policy-section">${s.iconHTML}<p>${s.text}</p></div>`;
+                }
+            });
+
+            previewContainer.innerHTML = html || '<p>Select options to generate your AI Engagement Guide.</p>';
+
+            generateAltText();
+            updateIframeHeight();
+            sendPolicyUpdate();
+        }
+
+
+        // =====================================================================
+        // SECTION 8 — Clipboard helper
+        // =====================================================================
+
+        /**
+         * Copies text to the clipboard using the modern Clipboard API where
+         * available (HTTPS / localhost), falling back to the legacy
+         * execCommand trick for older browsers.
+         *
+         * On success, temporarily changes feedbackEl's innerHTML to
+         * confirmedMsg for 2 seconds, then restores the original.
+         *
+         * @param {string}  text         - Text to copy.
+         * @param {Element} feedbackEl   - Element whose innerHTML gives visual feedback.
+         * @param {string}  confirmedMsg - HTML to show during the 2-second confirmation.
+         */
+        function copyToClipboard(text, feedbackEl, confirmedMsg = '✓ Copied') {
+            const originalHTML = feedbackEl.innerHTML;
+
+            const showConfirmation = () => {
+                feedbackEl.innerHTML = confirmedMsg;
+                setTimeout(() => { feedbackEl.innerHTML = originalHTML; }, 2000);
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                // Modern path: works on HTTPS and localhost
+                navigator.clipboard.writeText(text)
+                    .then(showConfirmation)
+                    .catch(legacyCopy);   // fall back if permission denied
+            } else {
+                legacyCopy();
+            }
+
+            // Fallback: create a temporary off-screen textarea, select all, copy
+            function legacyCopy() {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                // Position off-screen so it doesn't cause layout shifts
+                ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                    showConfirmation();
+                } catch (err) {
+                    console.error('Clipboard copy failed:', err);
+                }
+                document.body.removeChild(ta);
+            }
+        }
+
+
+        // =====================================================================
+        // SECTION 9 — Form event listeners
+        // =====================================================================
+
+        form.addEventListener('change', function (e) {
+            if (e.target.name === 'useCases') {
+                handleUseCaseExclusivity(e.target);
+                handleConditionalQuestions();
+                toggleOtherUseCases();
+
+                // Selecting "No AI Use" opens the prohibition-reason modal.
+                // The preview only updates once the instructor clicks Done.
+                if (e.target.value === 'prohibited' && e.target.checked) {
+                    openModal(noAiModal);
+                    return;
+                }
+
+                // Selecting "Open Use" opens the open-use rationale modal.
+                // The preview only updates once the instructor clicks Done.
+                if (e.target.value === 'encouraged' && e.target.checked) {
+                    openModal(openUseModal);
+                    return;
+                }
+
+            } else if (e.target.name === 'documentation') {
+                handleDocumentationExclusivity(e.target);
+                toggleOtherDocumentation();
+            }
+
+            updatePolicyPreview();
+            updateURL();
+            sendAnalytics('raw');
+        });
+
+        // Selecting a preset radio inside the No AI modal clears the free-text
+        // field so only one reason shows in the policy.
+        noAiModal.addEventListener('change', function (e) {
+            if (e.target.name === 'prohibitionReason') {
+                const ta = document.getElementById('prohibitionReasonText');
+                if (ta) ta.value = '';
+            }
+        });
+
+        // Free-text fields: re-render preview on every keystroke
+        ['customUseCases', 'customDocumentation', 'prohibitionReasonText', 'openUseRationaleText'].forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('input', function () {
+                // Typing a custom prohibition reason clears any radio selection
+                if (id === 'prohibitionReasonText' && this.value.trim()) {
+                    document.querySelectorAll('input[name="prohibitionReason"]').forEach(r => r.checked = false);
+                }
+                // Typing a custom open-use rationale clears any radio selection
+                if (id === 'openUseRationaleText' && this.value.trim()) {
+                    document.querySelectorAll('input[name="openUseRationale"]').forEach(r => r.checked = false);
+                }
+                updatePolicyPreview();
+                updateURL();
+            });
+        });
+
+
+        // =====================================================================
+        // SECTION 10 — Clipboard button listeners
+        // =====================================================================
+
+        // Alt text copy — main panel beneath the preview
+        copyAltBtn.addEventListener('click', function () {
+            copyToClipboard(
+                altTextArea.value,
+                copyAltBtn,
+                '<i class="fas fa-copy" aria-hidden="true"></i> Copied'
+            );
+        });
+
+        // Alt text copy — inside the PNG accessibility reminder modal
+        modalCopyAltBtn.addEventListener('click', function () {
+            copyToClipboard(
+                modalAltTextArea.value,
+                modalCopyAltBtn,
+                '<span class="icon" aria-hidden="true">✓</span> Copied'
+            );
+        });
+
+        // Embed code copy
+        copyEmbedBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            copyToClipboard(embedCode.textContent, copyEmbedBtn, '✓ Copied');
+        });
+
+        // Copy shareable URL — inside the Share modal
+        copyUrlBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const shareUrl = new URL(window.location.href);
+            if (document.getElementById('previewOnlyCheck')?.checked) {
+                shareUrl.searchParams.set('preview', 'true');
+            } else {
+                shareUrl.searchParams.delete('preview');
+            }
+            copyToClipboard(shareUrl.toString(), copyUrlBtn.querySelector('h3'), 'Copied!');
+            sendAnalytics('sentiment');
+        });
+
+
+        // =====================================================================
+        // SECTION 11 — Modal open / close helpers
+        // =====================================================================
+
+        /** Opens a modal and adds a body class that CSS can use to lock scroll */
+        function openModal(modal) {
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+        }
+
+        /** Closes a modal and removes the body lock class */
+        function closeModal(modal) {
+            modal.classList.add('hidden');
+            document.body.classList.remove('modal-open');
+            // Stop any iframe video inside the modal by resetting its src
+            modal.querySelectorAll('iframe').forEach(f => { f.src = f.src; });
+        }
+
+        /**
+         * Cancels the No AI Use flow: unchecks the checkbox, removes any
+         * prohibition reason, closes the modal, and refreshes the preview.
+         */
+        function cancelNoAi() {
+            const prohibCb = document.querySelector('input[name="useCases"][value="prohibited"]');
+            if (prohibCb && prohibCb.checked) {
+                prohibCb.checked = false;
+                document.querySelectorAll('input[name="useCases"]').forEach(cb => {
+                    cb.closest('.option-card').classList.remove('grayed-out');
+                });
+            }
+            document.querySelectorAll('input[name="prohibitionReason"]').forEach(r => r.checked = false);
+            const prt = document.getElementById('prohibitionReasonText');
+            if (prt) prt.value = '';
+
+            closeModal(noAiModal);
+            handleConditionalQuestions();
+            updatePolicyPreview();
+            updateURL();
+        }
+
+        // No AI modal — Done button
+        noAiDoneBtn.addEventListener('click', function () {
+            closeModal(noAiModal);
+            updatePolicyPreview();
+            updateURL();
+        });
+
+        // No AI modal — Cancel button and header × button
+        noAiCancelBtn.addEventListener('click', cancelNoAi);
+        document.querySelectorAll('.no-ai-cancel').forEach(btn => btn.addEventListener('click', cancelNoAi));
+
+        // Clicking the backdrop of the No AI modal cancels it
+        noAiModal.addEventListener('click', function (e) {
+            if (e.target === noAiModal) cancelNoAi();
+        });
+
+        /**
+         * Cancels the Open Use flow: unchecks the checkbox, removes any
+         * rationale selection, closes the modal, and refreshes the preview.
+         */
+        function cancelOpenUse() {
+            const encouragedCb = document.querySelector('input[name="useCases"][value="encouraged"]');
+            if (encouragedCb && encouragedCb.checked) {
+                encouragedCb.checked = false;
+                document.querySelectorAll('input[name="useCases"]').forEach(cb => {
+                    cb.closest('.option-card').classList.remove('grayed-out');
+                });
+            }
+            document.querySelectorAll('input[name="openUseRationale"]').forEach(r => r.checked = false);
+            const ort = document.getElementById('openUseRationaleText');
+            if (ort) ort.value = '';
+
+            closeModal(openUseModal);
+            handleConditionalQuestions();
+            updatePolicyPreview();
+            updateURL();
+        }
+
+        // Selecting a preset radio inside the Open Use modal clears the custom textarea
+        openUseModal.addEventListener('change', function (e) {
+            if (e.target.name === 'openUseRationale') {
+                const ta = document.getElementById('openUseRationaleText');
+                if (ta) ta.value = '';
+            }
+        });
+
+        // Open Use modal — Done button
+        openUseDoneBtn.addEventListener('click', function () {
+            closeModal(openUseModal);
+            updatePolicyPreview();
+            updateURL();
+        });
+
+        // Open Use modal — Cancel button and header × button
+        openUseCancelBtn.addEventListener('click', cancelOpenUse);
+        document.querySelectorAll('.open-use-cancel').forEach(btn => btn.addEventListener('click', cancelOpenUse));
+
+        // Clicking the backdrop of the Open Use modal cancels it
+        openUseModal.addEventListener('click', function (e) {
+            if (e.target === openUseModal) cancelOpenUse();
+        });
+
+        // Share button
+        shareBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            openModal(downloadModal);
+        });
+
+        // Info button
+        infoBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            openModal(infoModal);
+        });
+
+        // Embed option in Share modal — generates the iFrame snippet with optional preview mode
+        shareEmbedBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            const previewOnly = !!document.getElementById('previewOnlyCheck')?.checked;
+            const embedUrl = new URL(window.location.origin + window.location.pathname);
+            embedUrl.searchParams.set('policy', encodeFormState());
+            if (previewOnly) embedUrl.searchParams.set('preview', 'true');
+            embedCode.textContent = `<iframe src="${embedUrl.toString()}" width="100%" height="600px" frameborder="0" style="border:none;"></iframe>`;
+            if (embedPreviewFrame) embedPreviewFrame.src = embedUrl.toString();
+            closeModal(downloadModal);
+            openModal(embedModal);
+            sendAnalytics('sentiment');
+        });
+
+        // Copy button — copies the policy as rich HTML for pasting into an LMS
+        copyPolicyBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            const htmlContent = `<html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:#333;">${previewContainer.innerHTML}</body></html>`;
+            const plainText   = extractPlainText();
+            const orig        = copyPolicyBtn.innerHTML;
+            const showDone    = () => {
+                copyPolicyBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied!';
+                setTimeout(() => { copyPolicyBtn.innerHTML = orig; }, 2000);
+            };
+            if (navigator.clipboard && window.isSecureContext && typeof ClipboardItem !== 'undefined') {
+                navigator.clipboard.write([new ClipboardItem({
+                    'text/html':  new Blob([htmlContent], { type: 'text/html' }),
+                    'text/plain': new Blob([plainText],   { type: 'text/plain' })
+                })]).then(showDone).catch(() => copyToClipboard(plainText, copyPolicyBtn, '<i class="fas fa-check" aria-hidden="true"></i> Copied!'));
+            } else {
+                copyToClipboard(plainText, copyPolicyBtn, '<i class="fas fa-check" aria-hidden="true"></i> Copied!');
+            }
+            sendAnalytics('sentiment');
+        });
+
+        // Close (×) button on all standard modals
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault(); e.stopPropagation();
+                [embedModal, downloadModal, pngReminderModal, infoModal].forEach(m => closeModal(m));
+            });
+        });
+
+        // Clicking the backdrop closes any standard modal
+        [embedModal, downloadModal, pngReminderModal, infoModal].forEach(modal => {
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal(modal);
+            });
+        });
+
+        // Escape key closes whichever modal is currently open
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            if (!noAiModal.classList.contains('hidden'))     { cancelNoAi(); return; }
+            if (!openUseModal.classList.contains('hidden'))   { cancelOpenUse(); return; }
+            [embedModal, downloadModal, pngReminderModal, infoModal].forEach(m => closeModal(m));
+        });
+
+
+        // =====================================================================
+        // SECTION 12 — Start Over
+        // =====================================================================
+
+        startOverBtn.addEventListener('click', function () {
+            // Reset all native form fields
+            form.reset();
+
+            // The prohibition-reason and open-use-rationale inputs live outside
+            // the <form> element, so we clear them manually.
+            document.querySelectorAll('input[name="prohibitionReason"]').forEach(r => r.checked = false);
+            const prt = document.getElementById('prohibitionReasonText');
+            if (prt) prt.value = '';
+            document.querySelectorAll('input[name="openUseRationale"]').forEach(r => r.checked = false);
+            const ortEl = document.getElementById('openUseRationaleText');
+            if (ortEl) ortEl.value = '';
+
+            // Remove all grayed-out states
+            document.querySelectorAll('.option-card.grayed-out').forEach(c => c.classList.remove('grayed-out'));
+
+            // Hide conditional containers
+            otherDocumentationContainer.classList.add('hidden');
+            document.getElementById('otherUseCasesContainer').classList.add('hidden');
+
+            // Close any open modals
+            [noAiModal, openUseModal, infoModal, embedModal, downloadModal, pngReminderModal].forEach(m => closeModal(m));
+
+            // Restore question visibility
+            document.getElementById('question4').classList.remove('hidden');
+            document.getElementById('question5').classList.remove('hidden');
+
+            // Clear the URL parameter
+            const newURL = new URL(window.location.href);
+            newURL.searchParams.delete('policy');
+            window.history.replaceState({}, '', newURL);
+
+            // Reset preview (deferred to ensure DOM has settled)
+            setTimeout(() => {
+                previewContainer.innerHTML = '<p>Select options to generate your AI Engagement Guide.</p>';
+                altTextArea.value      = '';
+                modalAltTextArea.value = '';
+            }, 0);
+        });
+
+
+        // =====================================================================
+        // SECTION 13 — Download helpers
+        // =====================================================================
+
+        /**
+         * Creates a Blob from content and triggers a file download.
+         *
+         * @param {string} content  - Text content of the file.
+         * @param {string} filename - Suggested filename for the download.
+         * @param {string} mimeType - MIME type string (e.g. 'text/html').
+         */
+        function triggerDownload(content, filename, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const a    = Object.assign(document.createElement('a'), {
+                href:     URL.createObjectURL(blob),
+                download: filename
+            });
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+        }
+
+        /**
+         * Converts the current preview into a self-contained, styled HTML
+         * document that can be opened in any browser or printed to PDF.
+         *
+         * @returns {string} Complete HTML document as a string.
+         */
+        function generateFormattedHTML() {
+            const aiUsage     = getAiUsageFromUseCases();
+            const clsMap      = { encouraged: 'policy-permitted', limited: 'policy-limited', prohibited: 'policy-prohibited' };
+            const policyClass = clsMap[aiUsage] || '';
+            const headerEl    = previewContainer.querySelector('.policy-header h2');
+
+            let sections = [];
+            if (headerEl) {
+                sections.push(`<div class="policy-header ${policyClass}"><div class="policy-icons">${generatePolicyIcons()}</div><h2>${headerEl.textContent.trim()}</h2></div>`);
+            }
+
+            previewContainer.querySelectorAll('.policy-section').forEach(s => {
+                if (s.querySelector('.documentation-section')) {
+                    const hdr  = s.querySelector('.documentation-header').textContent.trim();
+                    const reqs = Array.from(s.querySelectorAll('li')).map(li => {
+                        const m    = li.textContent.trim().match(/^([\p{Emoji}\p{Symbol}\p{P}]+)\s+/u);
+                        const icon = m ? m[1] : '';
+                        const text = m ? li.textContent.trim().slice(icon.length).trim() : li.textContent.trim();
+                        return `<li><span class="icon">${icon}</span> ${text}</li>`;
+                    }).join('');
+                    const icon = s.querySelector('.icon')?.textContent || '';
+                    sections.push(`<div class="policy-section"><span class="icon" aria-hidden="true">${icon}</span><div class="documentation-section"><h3 class="documentation-header">${hdr}</h3><ul class="documentation-requirements policy-list">${reqs}</ul></div></div>`);
+                } else {
+                    const icon = s.querySelector('.icon')?.textContent || '';
+                    const text = s.querySelector('p')?.textContent.trim() || '';
+                    if (text) sections.push(`<div class="policy-section"><span class="icon" aria-hidden="true">${icon}</span><p>${text}</p></div>`);
+                }
+            });
+
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engagement Guide</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;margin:2rem auto;max-width:800px;color:#333}
+  h1{color:#0046ad;border-bottom:2px solid #0046ad;padding-bottom:.5rem;margin-bottom:2rem}
+  .policy-header{background:#f8f9fa;border-left:4px solid #0046ad;padding:1rem;margin-bottom:1.5rem;border-radius:4px}
+  .policy-header.policy-permitted{border-left-color:#58a618}.policy-header.policy-limited{border-left-color:#ffc107}.policy-header.policy-prohibited{border-left-color:#dc3545}
+  .policy-header h2{margin:0;font-size:1.5rem;color:#2c3e50;font-weight:600}
+  .policy-section{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:1rem}
+  .policy-section .icon{font-size:1.5em;flex-shrink:0;margin-top:.25rem}
+  .policy-section p{margin:0;flex:1;font-size:.9rem}
+  .documentation-section{width:100%}.documentation-header{font-weight:bold;margin-bottom:.75rem;margin-top:0;font-size:1rem}
+  .policy-list{list-style:none;padding-left:0}.policy-list li{margin-bottom:.75rem;font-size:.9rem}
+  .use-case-header{display:flex;align-items:center;gap:.3em;margin-bottom:.2rem}.use-case-header .icon{margin-right:0;flex-shrink:0;font-size:1.2em}
+  .use-case-title{font-size:1rem;font-weight:bold;margin:0}.use-case-text{font-size:.9rem;margin:.1rem 0 0;color:#555}
+  .icon{font-size:1.5em;vertical-align:middle;margin-right:.5em}
+  @media print{.policy-header,.policy-section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<h1>AI Engagement Guide</h1>
+<div class="policy-statement">${sections.join('\n')}</div>
+</body>
+</html>`;
+        }
+
+        /**
+         * Converts the preview into GitHub-flavoured Markdown.
+         *
+         * @returns {string} Markdown string.
+         */
+        function generateMarkdown() {
+            const parts = [];
+            const h = previewContainer.querySelector('.policy-header h2');
+            if (h) parts.push(`# ${h.textContent.trim()}\n`);
+
+            previewContainer.querySelectorAll('.policy-section').forEach(s => {
+                if (s.querySelector('.documentation-section')) {
+                    const hdr  = s.querySelector('.documentation-header').textContent.trim();
+                    const icon = s.querySelector('.icon')?.textContent || '';
+                    parts.push(`## ${icon} ${hdr}\n`);
+                    parts.push(Array.from(s.querySelectorAll('li')).map(li => `- ${li.textContent.trim()}`).join('\n') + '\n');
+                } else {
+                    const icon = s.querySelector('.icon')?.textContent || '';
+                    const text = s.querySelector('p')?.textContent.trim() || '';
+                    if (text) parts.push(`${icon} ${text}\n`);
+                }
+            });
+
+            return parts.join('\n');
+        }
+
+        /**
+         * Strips all HTML and returns the policy as clean, readable plain text.
+         *
+         * @returns {string} Plain text string.
+         */
+        function extractPlainText() {
+            const parts = [];
+            const h = previewContainer.querySelector('.policy-header h2');
+            if (h) { parts.push(h.textContent.trim()); parts.push(''); }
+
+            previewContainer.querySelectorAll('.policy-section').forEach(s => {
+                if (s.querySelector('.documentation-section')) {
+                    const hdr  = s.querySelector('.documentation-header').textContent.trim();
+                    const reqs = Array.from(s.querySelectorAll('li')).map(li => li.textContent.trim()).join('\n');
+                    parts.push(`${hdr}\n${reqs}`);
+                } else {
+                    const icon = s.querySelector('.icon')?.textContent || '';
+                    const text = s.querySelector('p')?.textContent.trim() || '';
+                    if (text) parts.push(`${icon} ${text}`);
+                }
+            });
+
+            return parts.join('\n\n');
+        }
+
+        // Wire up download buttons
+        downloadHTMLBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            triggerDownload(generateFormattedHTML(), 'ai_policy_statement.html', 'text/html');
+            closeModal(downloadModal);
+        });
+
+        downloadMarkdownBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            triggerDownload(generateMarkdown(), 'ai_policy_statement.md', 'text/markdown');
+            closeModal(downloadModal);
+        });
+
+        downloadTextBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+            triggerDownload(extractPlainText(), 'ai_policy_statement.txt', 'text/plain');
+            closeModal(downloadModal);
+        });
+
+        // PNG download uses html2canvas; then shows the accessibility reminder modal
+        downloadPNGBtn.addEventListener('click', function (e) {
+            e.preventDefault(); e.stopPropagation();
+
+            const h3orig = downloadPNGBtn.querySelector('h3').textContent;
+            downloadPNGBtn.querySelector('h3').textContent = 'Generating Image...';
+            document.body.style.cursor = 'wait';
+
+            html2canvas(previewContainer, {
+                scale:           2,
+                backgroundColor: '#ffffff',
+                logging:         false
+            }).then(canvas => {
+                const link    = document.createElement('a');
+                link.download = 'ai_policy_statement.png';
+                link.href     = canvas.toDataURL('image/png');
+                link.click();
+
+                downloadPNGBtn.querySelector('h3').textContent = h3orig;
+                document.body.style.cursor = 'default';
+                closeModal(downloadModal);
+                openModal(pngReminderModal);   // Prompt the user to copy alt text
+            }).catch(err => {
+                console.error('PNG generation failed:', err);
+                downloadPNGBtn.querySelector('h3').textContent = 'Error — please try again';
+                document.body.style.cursor = 'default';
+                setTimeout(() => { downloadPNGBtn.querySelector('h3').textContent = h3orig; }, 3000);
+            });
+        });
+
+
+        // =====================================================================
+        // SECTION 14 — Event delegation fallback
+        // Catches clicks that bubble up past the direct bindings above.
+        // This ensures buttons work correctly when the tool is embedded inside
+        // LMS iframes where some browsers re-wrap the DOM and can swallow
+        // direct event bindings attached in earlier sections.
+        // =====================================================================
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('#shareBtn'))      { e.preventDefault(); e.stopPropagation(); openModal(downloadModal); return; }
+            if (e.target.closest('#infoBtn'))       { e.preventDefault(); e.stopPropagation(); openModal(infoModal);    return; }
+            if (e.target.closest('#shareEmbedBtn')) {
+                e.preventDefault(); e.stopPropagation();
+                const previewOnly = !!document.getElementById('previewOnlyCheck')?.checked;
+                const embedUrl = new URL(window.location.origin + window.location.pathname);
+                embedUrl.searchParams.set('policy', encodeFormState());
+                if (previewOnly) embedUrl.searchParams.set('preview', 'true');
+                embedCode.textContent = `<iframe src="${embedUrl.toString()}" width="100%" height="600px" frameborder="0" style="border:none;"></iframe>`;
+                if (embedPreviewFrame) embedPreviewFrame.src = embedUrl.toString();
+                closeModal(downloadModal);
+                openModal(embedModal);
+                sendAnalytics('sentiment');
+                return;
+            }
+            if (e.target.closest('#copyPolicyBtn')) { e.preventDefault(); e.stopPropagation(); copyPolicyBtn.dispatchEvent(new MouseEvent('click', { bubbles: false })); return; }
+            if (e.target.closest('#noAiDoneBtn'))     { e.preventDefault(); e.stopPropagation(); closeModal(noAiModal); updatePolicyPreview(); updateURL(); return; }
+            if (e.target.closest('.no-ai-cancel'))    { e.preventDefault(); e.stopPropagation(); cancelNoAi(); return; }
+            if (e.target.closest('#openUseDoneBtn'))  { e.preventDefault(); e.stopPropagation(); closeModal(openUseModal); updatePolicyPreview(); updateURL(); return; }
+            if (e.target.closest('.open-use-cancel')) { e.preventDefault(); e.stopPropagation(); cancelOpenUse(); return; }
+            if (e.target.closest('.close-modal'))   { e.preventDefault(); e.stopPropagation(); [embedModal, downloadModal, pngReminderModal, infoModal].forEach(m => closeModal(m)); return; }
+            if (e.target.closest('#copyUrlBtn')) {
+                e.preventDefault(); e.stopPropagation();
+                const shareUrl = new URL(window.location.href);
+                if (document.getElementById('previewOnlyCheck')?.checked) { shareUrl.searchParams.set('preview', 'true'); } else { shareUrl.searchParams.delete('preview'); }
+                copyToClipboard(shareUrl.toString(), copyUrlBtn.querySelector('h3'), 'Copied!');
+                return;
+            }
+            if (e.target.closest('#copyEmbedBtn'))  { e.preventDefault(); e.stopPropagation(); copyToClipboard(embedCode.textContent, copyEmbedBtn, '✓ Copied'); return; }
+            if (e.target.closest('#downloadHTML'))  { e.preventDefault(); e.stopPropagation(); triggerDownload(generateFormattedHTML(), 'ai_policy_statement.html', 'text/html');  closeModal(downloadModal); return; }
+            if (e.target.closest('#downloadMarkdown')) { e.preventDefault(); e.stopPropagation(); triggerDownload(generateMarkdown(), 'ai_policy_statement.md', 'text/markdown'); closeModal(downloadModal); return; }
+            if (e.target.closest('#downloadText'))  { e.preventDefault(); e.stopPropagation(); triggerDownload(extractPlainText(), 'ai_policy_statement.txt', 'text/plain'); closeModal(downloadModal); return; }
+        });
+
+        // =====================================================================
+        // SECTION 15 — Anonymous analytics
+        //
+        // Two event types are tracked:
+        //   'raw'       — fires on every checkbox change, capturing exploratory
+        //                 clicks and any policy loaded via a shared URL.
+        //   'sentiment' — fires when the user copies or shares the policy,
+        //                 representing their deliberate, final selection.
+        //
+        // Never fires in preview mode; silently ignores network errors so it
+        // never interferes with the user experience.
+        // =====================================================================
+
+        /**
+         * Posts the current form state to analytics.php.
+         *
+         * @param {'raw'|'sentiment'} eventType
+         */
+        function sendAnalytics(eventType) {
+            // Skip when running as a read-only preview embed
+            if (document.body.classList.contains('preview-mode')) return;
+
+            const useCases = Array.from(
+                document.querySelectorAll('input[name="useCases"]:checked')
+            ).map(cb => cb.value);
+
+            const documentation = Array.from(
+                document.querySelectorAll('input[name="documentation"]:checked')
+            ).map(cb => cb.value);
+
+            // Only send when at least one option is selected
+            if (!useCases.length && !documentation.length) return;
+
+            fetch('analytics.php', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ useCases, documentation, eventType })
+            }).catch(() => { /* silent — analytics must never break the UI */ });
+        }
+
+        // Track clicks on "no analytics" version link
+        document.getElementById('no-analytics-link').addEventListener('click', () => {
+            fetch('analytics.php', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ eventType: 'no_analytics_click' })
+            }).catch(() => { /* silent */ });
+        });
+
+    }); // end DOMContentLoaded
+    </script>
+
