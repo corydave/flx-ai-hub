@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="/shared/Course File templates/Standard/pages/../_assets/thirdpartylib/bootstrap-4.3.1/css/bootstrap.min.css">
+   <!-- Font Awesome CSS -->
+   <link rel="stylesheet" href="/shared/Course File templates/Standard/pages/../_assets/thirdpartylib/fontawesome-free-5.9.0-web/css/all.min.css">
+   <!-- prism.min.css for code linting -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <!-- Template CSS -->
+   <link rel="stylesheet" href="/shared/Course File templates/Standard/pages/../_assets/css/styles.min.css">
+   <link rel="stylesheet" href="/shared/Course File templates/Standard/pages/../_assets/css/custom.css">
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046ad;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046ad;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046ad;
+}
+.accentColor {
+    background-color: #0046ad;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #fff;
+    border-color: #fff;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046ad;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #fff;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046ad;
+}
+
+.card-graphic {
+    border-color: #0046ad;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046ad;
+}
+
+ol.large-number li:before {
+    color: #0046ad;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046ad;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046ad;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+   <title>Page</title>
+</head>
+<body>
+<div class="container-fluid">
+<h1 class="jumbotron">
+                         AI Or Not
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Determining if content was created by humans or by AI</li>
+</ul>
+<br />
+
+<h1 id="introduction">Introduction</h1>
+<p>The ability of AI to create images, text, video, and music has increased dramatically. It used to be very easy to look at content and tell if it was created by AI; not so anymore. Heck, <em>I made this quiz and I didn&#39;t score a 100% on it</em>!!! So don&#39;t feel bad if you don&#39;t get them all. Or if you don&#39;t get half of them - they can be tricky.</p>
+<p>But that&#39;s the point - we are looking to see what AI is capable of. <strong>Don&#39;t get discouraged</strong> this early on in your AI journey!</p>
+<center>
+
+<div class="embed-responsive embed-responsive-16by9 rounded">
+<iframe class="embed-responsive-item rounded" width="560" height="315" src="https://www.youtube.com/embed/3qk8z5xYiBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:15px !important;"></iframe></div>
+</center>
+
+<br />
+
+<h1 id="activity-1-ai-or-not">Activity #1: AI or Not</h1>
+<p>In the following examples, decide if the content you see was created by a human or by AI. At the end, you&#39;ll get to see the correct answers.</p>
+<center>
+
+<iframe src="https://corydave.github.io/websitetest/claude/aiOrNot/" width="90%" height="1000" style="border-radius: 15px !important;" frameborder="0"></iframe>
+
+</center>
+
+<h1 id="activity-2-review-your-results">Activity #2: Review your Results</h1>
+<p>Once you are done classifying all the content you will see your results. If you click on the thumbnails you&#39;ll see more information about that particular content (if it was human or AI and the provenance of that content as well).</p>
+<center>
+<img src="http://aichallenges.org/aIorNotResults.gif" alt="Clicking on each item in the results to see more about the item." title="Clicking on each item in the results to see more about the item." style="border-radius: 15px; !important; max-width: 500px;" />
+
+</center><br />
+
+
+<br />
+<br />
+
+<h1 id="activity-3-share-your-results">Activity #3: Share your results</h1>
+<p>Please think about sharing your results! Click on the number below that corresponds to how many you got right. This is completely anonymous. </p>
+<p>Once you submit your results you can see how everyone else has done. Note that these stats include <em>everyone</em> who has completed this challenge.</p>
+<center>
+<iframe style="border-radius:12px" src="https://script.google.com/macros/s/AKfycbxMoHgLtP_OR7tm9uSeTlB29PyA4UiEO0R6bZjJgoexXxC0_JumzgYQfxMpxVjrlLD-Eg/exec" width="90%" height="800" frameborder="0" ></iframe>
+</center>
+
+<p><br /><br /></p>
+<h1 id="bonus-learn-about-the-new-ai-video-generators">BONUS: Learn about the new AI video generators</h1>
+<div class="two-col-panels"><div class="row mx-1 mb-4">
+<div class="col-md-6 rounded  ">
+<div class="rounded px-2 py-1">
+<center>
+
+<div class="embed-responsive embed-responsive-16by9 rounded">
+<iframe class="embed-responsive-item rounded" width="560" height="315" src="https://www.youtube.com/embed/2Fjp7B3wnmg?si=JG8Vvsfk8kTGy-le" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;"></iframe></div>
+</center>
+
+</div>
+</div>
+<div class="col-md-6 rounded  ">
+<div class="rounded px-2 py-1">
+<center>
+
+<div class="embed-responsive embed-responsive-16by9 rounded">
+<iframe class="embed-responsive-item rounded" width="560" height="315" src="https://www.youtube.com/embed/3Vwkg4Z_cAs?si=JG8Vvsfk8kTGy-le" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;"></iframe></div>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+<br />
+
+<p>Enjoy the rest of your day, and don&#39;t be afraid to poke around a bit more with AI!</p>
+
+<!-------------------------------------------------------------->    
+<pre style="display: none">
+--------------------------------------------------
+Source markdown in custom md-to-brightspace format
+--------------------------------------------------
+^version 2023-06-08^
+^source markdown start^
+^^ AI Or Not
+
+# What we think you'll love
+
+* Determining if content was created by humans or by AI
+
+&lt;br />
+
+# Introduction
+
+The ability of AI to create images, text, video, and music has increased dramatically. It used to be very easy to look at content and tell if it was created by AI; not so anymore. Heck, _I made this quiz and I didn't score a 100% on it_!!! So don't feel bad if you don't get them all. Or if you don't get half of them - they can be tricky.
+
+But that's the point - we are looking to see what AI is capable of. **Don't get discouraged** this early on in your AI journey!
+
+&lt;center>
+
+^youtube &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/2Fjp7B3wnmg?si=q2ZyRJk07O8DCKHK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:15px !important;">&lt;/iframe>
+
+&lt;/center>
+
+&lt;br />
+
+# Activity #1: AI or Not
+
+In the following examples, decide if the content you see was created by a human or by AI. At the end, you'll get to see the correct answers.
+
+&lt;center>
+
+&lt;iframe src="https://corydave.github.io/websitetest/claude/aiOrNot/" width="90%" height="1000" style="border-radius: 15px !important;" frameborder="0">&lt;/iframe>
+
+&lt;/center>
+
+# Activity #2: Review your Results
+
+Once you are done classifying all the content you will see your results. If you click on the thumbnails you'll see more information about that particular content (if it was human or AI and the provenance of that content as well).
+
+&lt;center>
+&lt;img src="http://aichallenges.org/aIorNotResults.gif" alt="Clicking on each item in the results to see more about the item." title="Clicking on each item in the results to see more about the item." style="border-radius: 15px; !important; max-width: 500px;" />
+
+&lt;/center>&lt;br />
+
+
+&lt;br />
+&lt;br />
+
+# Activity #3: Share your results
+
+Please think about sharing your results! Click on the number below that corresponds to how many you got right. This is completely anonymous. 
+
+Once you submit your results you can see how everyone else has done. Note that these stats include _everyone_ who has completed this challenge.
+
+&lt;center>
+&lt;iframe style="border-radius:12px" src="https://script.google.com/macros/s/AKfycbxMoHgLtP_OR7tm9uSeTlB29PyA4UiEO0R6bZjJgoexXxC0_JumzgYQfxMpxVjrlLD-Eg/exec" width="90%" height="800" frameborder="0" >&lt;/iframe>
+&lt;/center>
+
+&lt;br />&lt;br />
+
+# BONUS: Learn about the new AI video generators
+
+^= =
+
+&lt;center>
+
+^youtube &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/2Fjp7B3wnmg?si=JG8Vvsfk8kTGy-le" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;">&lt;/iframe>
+
+&lt;/center>
+
+^===
+
+&lt;center>
+
+^youtube &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3Vwkg4Z_cAs?si=JG8Vvsfk8kTGy-le" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;">&lt;/iframe>
+
+&lt;/center>
+
+^=
+
+&lt;br />
+
+Enjoy the rest of your day, and don't be afraid to poke around a bit more with AI!
+^source markdown end^
+</pre>
+<!-------------------------------------------------------------->    
+</div>
+<script src="/shared/Course File templates/Standard/pages/../_assets/thirdpartylib/jquery/jquery-3.3.1.slim.min.js"></script>
+<script src="/shared/Course File templates/Standard/pages/../_assets/thirdpartylib/popper-js/popper.min.js"></script>
+<script src="/shared/Course File templates/Standard/pages/../_assets/thirdpartylib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="/shared/Course File templates/Standard/pages/../_assets/js/scripts.min.js"></script>
+</body></html>

@@ -1,0 +1,299 @@
+
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<br />
+
+<h1 class="jumbotron">
+                         NotebookLM
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Turning complex reading into an instant Podcast</li>
+<li>Generating Flashcards and Quizzes to test your knowledge</li>
+<li>Having a Chatbot that only knows what you tell it (no hallucinations!)</li>
+<li>Creating a video based on your sources</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>NotebookLM is a Google tool that helps you make a Chatbot for your own personal use. It is different from other AI tools because of <em>grounding</em> (that means that instead of searching the entire internet, all responses are based on the specific documents you upload). This is especially helpful for times when you need to process specific information for a task:</p>
+<ul>
+<li>Instructional design for a course you are teaching</li>
+<li>Researching a topic of interest</li>
+<li>Managing technical documents like the federal requirements for financial aid</li>
+</ul>
+<p>Imagine you have a team of experts who have read <em>only</em> the documents you gave them. One expert answers your questions with citations. Another writes study guides and quizzes. A third creates videos, and two others host a radio show about your topic. That is NotebookLM. And it&#39;s awesome.</p>
+<br />
+
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-12 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<br />
+
+<p>NotebookLM is a <em>very</em> powerful tool. We will only look at some of the things you can do with it, but once you get the basics you should feel confident exploring on your own.</p>
+</div>
+</div>
+</div>
+</div>
+<br />
+
+<h1 id="activity-1-lay-of-the-land">Activity #1: Lay of the Land</h1>
+<p>Since we are looking at a specific tool in this challenge, we should understand the layout of NotebookLM. Head over to <a target='_blank' href="notebooklm.google.com">notebooklm.google.com</a> and hit the &quot;Create new&quot; button in the upper right. Once you create a notebook, you&#39;ll get a pop-up asking for sources - close that for now.</p>
+<p>Note that there are three &quot;panes&quot;:</p>
+<ol>
+<li><p><strong>Sources:</strong> The left pane is where all your sources will be - PDFs, websites, YouTube videos - everything you want to include for this notebook.</p>
+</li>
+<li><p><strong>Chat:</strong> The middle pane is the chat. This is where you will ask questions and work with the AI.</p>
+</li>
+<li><p><strong>Studio:</strong> This is the fun part! You&#39;ll make podcasts, videos, flashcards, quizzes, and infographics here.</p>
+</li>
+</ol>
+<center>
+
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vRvjWizIN7rBtktEEymUn5rDU40EniSjl3R9eyhvLiyHzXPjBh_iyXyr_LbsJvjGN0DouqKf1CDaYZh/pub?w=1524&amp;h=868" style="width:750px;" alt="Layout of NotebookLM showing the SOURCES on the left, CHAT in the middle, and STUDIO on the right." title="Layout of NotebookLM showing the SOURCES on the left, CHAT in the middle, and STUDIO on the right." />
+
+</center>
+
+<h2 id="adding-documents">Adding Documents</h2>
+<p>For this challenge we will be creating a Chatbot for a College Success course. If you&#39;d rather, you can use documents and links that are relevant to what you do.</p>
+<p><strong>STEP 1: Get a PDF to upload</strong></p>
+<p>Download the PDF we will be using. It is an OER from OpenStax called <a target='_blank' href="https://assets.openstax.org/oscms-prodcms/media/documents/College_Success_Concise.pdf">College Success Concise</a>.</p>
+<br />
+
+<p><strong>STEP 2: Upload the PDF</strong></p>
+<p>Click on the &quot;Add sources&quot; button in the Sources pane on the left and find the PDF you just downloaded. Add it to your notebook.</p>
+<br />
+
+<p><strong>STEP 3: Add a YouTube link</strong></p>
+<p>Click on the &quot;Add sources&quot; button again and paste in this YouTube video (&quot;Inside the Mind of a Master Procrastinator by Tim Urban for TED&quot;): &nbsp;&nbsp; <a target='_blank' href="https://www.youtube.com/watch?v=arj7oStGLkU">https://www.youtube.com/watch?v=arj7oStGLkU</a></p>
+<p>You can add as many sources as you want - files, URLs, videos, etc. but for this challenge, two is enough.</p>
+<p><br /><br /></p>
+<p>You&#39;ll note that the title of your notebook is derived automatically from your content. If you&#39;d like to change it, simply click in the title on the top left and change it to whatever you&#39;d like.</p>
+<p>You&#39;ll also note that the chat now has a summary that is also automatic.</p>
+<center>
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTg56dqpyXfblNt8WaAj8PZ0zupO6KQYj8aT4Z7r3xwZjmc7CUcQAycIMX_L0Znb6g45BOacPfmPUCT/pub?w=1524&amp;h=868" style="width: 750px;" alt="Screenshot from NotebookLM showing where to click to change the title of the notebook - the words CHANGE TITLE HERE are present." title="Screenshot from NotebookLM showing where to click to change the title of the notebook - the words CHANGE TITLE HERE are present." />
+</center>
+
+<br />
+
+<h1 id="activity-2-the-grounded-chatbot">Activity #2: The Grounded Chatbot</h1>
+<p><strong>STEP 1: Ask the Chatbot Questions</strong></p>
+<p>In the chat box, ask a specific question. You might try:</p>
+<pre contenteditable="false" class="language-none drg-code">
+What are the top three things I can tell new students to help them adjust to college life?
+</pre><pre contenteditable="false" class="language-none drg-code">
+Please explain the concept of "growth mindset", why it is important for learning, and how I can start practicing it.
+</pre><br />
+
+<p>Don&#39;t forget that NotebookLM is generating responses <em>exclusively</em> from the content you&#39;ve uploaded!</p>
+<br />
+
+<p><strong>STEP 2: Check the Receipts:</strong> </p>
+<p>When it answers, look for the gray citation numbers at the end of the sentences. Click on one. Watch how it highlights the <em>exact</em> paragraph in your original document where it found the answer. This is how you verify truth.</p>
+<br />
+
+<p><strong>STEP 3: Save to Note</strong></p>
+<p>Unlike ChatGPT, Gemini, or Claude, conversations you have in NotebookLM are ephemeral. If you leave the notebook and return later, the chat window is empty. </p>
+<p>If you find the responses useful, click on the &quot;Save to note&quot; button under the response. This will save the note in the Studio tab on the right. Not only is the entire response saved, but all the citations will be there, too!</p>
+<br />
+
+<h1 id="activity-3-the-study-suite-flashcards--quizzes">Activity #3: The Study Suite (Flashcards &amp; Quizzes)</h1>
+<p><strong>STEP 1: Make Flashcards</strong></p>
+<p>The right pane, Studio, is where all the magic happens. You&#39;ll note that there are a number of options here. Let&#39;s start with &quot;Flashcards&quot;. </p>
+<p>Click on the pencil icon to configure the options - choose whatever options you&#39;d like. You don&#39;t have to put any instructions in the text box (but you can if you want!).</p>
+<center>
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vR0OFiClmBA7VX3rg-rnnKEw8RgGJwvv2mv4s6PfTbrhmuiKfMUJzNCwru9jhKem1PEayuJbigy3JKH/pub?w=1524&amp;h=868" style="width: 750px;" alt="Screenshot from NotebookLM showcasing the FLASHCARDS feature in the Studio." title="Screenshot from NotebookLM showcasing the FLASHCARDS feature in the Studio." />
+</center>
+
+<br />
+
+<p><strong>STEP 2: Make a Quiz</strong></p>
+<p>Similarly, you can configure a quiz, too. Or a mind map. Or a slide deck. Or an infographic. Note that if you make a slide deck, each slide will be one big image (which makes the slide less accessible for screen readers).</p>
+<p>Here&#39;s the infographic NotebookLM generated (again, this is all one image so the alt text would need to be substantial to make it ADA compliant - but you could always upload the image to AI and have it generate the alt text for you):</p>
+<center>
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQRpMfM6rbyuCYWz-5jsNipTsAudw9NMAA363ymh4kjHLrb2v-dBbO5FerkAbgiCLhSfwaPrU86C5-O/pub?w=2304&amp;h=4128" style="height: 1000px;" alt='The infographic titled “The Procrastinator’s Brain: Why You Wait Until the Last Minute” explains procrastination using cartoon characters inside a cutaway brain. Three characters are introduced: The Rational Decision-Maker, described as the part of your brain that wants to make sensible, long-term plans and do productive work, shown as a calm person in a blue suit at a desk with organized papers and a computer; The Instant Gratification Monkey, which lives entirely in the present moment and only cares about what is easy and fun, illustrated as a joyful monkey in a party hat surrounded by pizza, video game controllers, music notes, phones, and social media icons; and The Panic Monster, which is dormant until a deadline gets too close and is the only thing the Monkey fears, depicted as a large red creature curled around an alarm clock. The infographic outlines “The System: How Procrastination Unfolds” in three steps. Step 1, “The Monkey Seizes Control,” shows the monkey hijacking the controls from the Rational Decision-Maker to do something fun instead of working. Step 2, “Entering the ‘Dark Playground,’” represents leisure happening when it shouldn’t, with scenes like a roller coaster, dark rain clouds, and scattered entertainment devices symbolizing guilt, anxiety, and dread. Step 3, “The Panic Monster Awakens,” shows looming deadlines waking the Panic Monster, which scares the monkey away and finally lets work begin. Next, the infographic presents “The Two Types of Procrastination.” Short-Term Procrastination (with deadlines) is portrayed with a person working urgently at a desk stacked with papers labeled “DEADLINE” while the Panic Monster looms, with the caption explaining that effects are contained because the Panic Monster eventually forces action. Long-Term Procrastination (with no deadlines) shows a person rowing a small boat down a winding river while the Panic Monster sleeps beside them; the text warns this is more dangerous because the Panic Monster has nothing to wake up for, so inaction can last forever. Beneath this, an illustration labeled “Theater of Life” shows a spectator watching actors on stage, paired with the caption “The Hidden Cost,” explaining that long-term procrastination can make you feel like a spectator in your own life, unable to start chasing your dreams. The image ends with a small NotebookLM logo.' title='An infographic generated by NotebookLM.' />
+</center>
+
+<br />
+
+<h1 id="activity-4-the-magic-podcast">Activity #4: The &quot;Magic&quot; Podcast</h1>
+<p>This is the feature that has gone viral. You can turn your reading list into a listening list.</p>
+<p><strong>STEP 1: Locate Audio Overview</strong></p>
+<p>Look for the &quot;Audio Overview&quot; section (usually near the top of the Notebook Guide on the left).</p>
+<br />
+
+<p><strong>STEP 2: Generate</strong></p>
+<p>Click the &quot;Generate&quot; button. This will take a few moments.</p>
+<br />
+
+<p><strong>STEP 3: Listen</strong></p>
+<p>Wait a moment, and you will hear two AI hosts discussing your specific content. They banter, interrupt each other, and use metaphors to explain your documents. Check out the podcast from this notebook:</p>
+<br />
+
+<center>
+<iframe
+  frameborder="0"
+  width="600"
+  height="75"
+  style="border-radius:50px;"
+  src="https://drive.google.com/file/d/17gJAqzktKKeNdDys-nOkk-K8HTrPRfg9/preview">
+</iframe>
+</center>
+
+
+<br />
+
+<h1 id="activity-5-explore">Activity #5: Explore</h1>
+<p>NotebookLM is extraordinarily powerful. It is an incredible tool for research but it&#39;s also incredible as an informed resource. Imagine putting all your policies and procedures into NotebookLM and using the Chatbot function when questions arise. Or consolidating complicated, comprehensive material into digestible videos. </p>
+<p>The best way to understand the power of NotebookLM is to explore. Go ahead! Remember, you can&#39;t AI wrong. Go out and find a great use for NotebookLM!</p>
+<p>And before you go, check out this video if you are interested in the explainer NotebookLM made based on the college success content:</p>
+<center>
+<iframe src="https://docs.google.com/videos/d/1AbBJhGGbLSaLOjCg5qV-BKO8Uht6CL-rUdv69YJkMXA/play?vq=hd1080" frameborder="0" style="width:640px; height: 360px; border-radius: 15px !important; border; 0px;">
+</center></div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>

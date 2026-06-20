@@ -1,0 +1,230 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<h1 class="jumbotron">
+                         Summarizing
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Uploading documents to AI and receiving relevant insight</li>
+<li>Customizing summaries from documents</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>By now, you’ve probably seen how AI can make creative idioms, help with writing, and generate images. But here’s the real magic: AI can also understand complex stuff - especially when you give it something specific to work with.</p>
+<p>Have a policy manual, research article, or lesson plan you wish you could make sense of faster? Ever wish someone could summarize the key points, answer questions about it, or translate it into plain English?</p>
+<p>Let’s do that! You’ll be feeding AI actual documents and seeing what it can extract, explain, or even challenge.</p>
+<br />
+
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-8 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<center>
+
+<p><strong>WARNING</strong></p>
+</center>
+
+<p>Do not upload documents with sensitive content, personally identifiable information, or anything you don&#39;t want public. AI tools like ChatGPT, Claude, and Google Gemini train their models on the conversations we have with them - this includes documents you upload!</p>
+</div>
+</div>
+</div>
+</div>
+<br />
+
+<h1 id="activity-1-choose-a-deep-niche">Activity #1: Choose a Deep Niche</h1>
+<p><strong>Upload a document that you would like summarized</strong></p>
+<p>Pick a topic you care about and have real materials for. Examples include:</p>
+<ul>
+<li>A school policy you wish were clearer</li>
+<li>A technical manual or how-to guide</li>
+<li>A research article or case study</li>
+<li>Notes or syllabi from a course you’ve taken or taught</li>
+</ul>
+<br />
+
+<p>Note that some AI tools (like <a target='_blank' href="https://chatgpt.com/">ChatGPT</a>) might not allow file uploads - or limit the number of uploads - on the free plans. That&#39;s OK! <a target='_blank' href="https://gemini.google.com/">Google Gemini</a> allows for file uploads on the free plan!</p>
+<p>These tools can &quot;read&quot; documents and respond based on that information. Upload your document and say something like:</p>
+<pre contenteditable="false" class="language-none drg-code">
+I’ve uploaded a PDF. Can you help me summarize the key points in a way that’s easy to understand?
+
+<br /><br />
+
+[COPY IN DRAFT COMMUNICATION]
+</pre><br />
+
+<pre contenteditable="false" class="language-none drg-code">
+What are 3 things most people might misunderstand about this document?
+</pre><br />
+
+<p>You’re not just prompting AI - you’re letting it learn from your materials. And that learning can unlock nuanced insight into your conversation.</p>
+<p><br /><br /></p>
+<h1 id="activity-2-ask-nuanced-questions">Activity #2: Ask Nuanced Questions</h1>
+<p>Now that AI has access to your document, try pushing further:</p>
+<pre contenteditable="false" class="language-none drg-code">
+What are the implications of this policy for teachers in special ed?
+</pre><br />
+
+<pre contenteditable="false" class="language-none drg-code">
+Can you rewrite this section in plain language for parents?
+</pre><br />
+
+<pre contenteditable="false" class="language-none drg-code">
+What questions would you ask if you were trying to improve this training guide?
+</pre><br />
+
+<pre contenteditable="false" class="language-none drg-code">
+How would this apply in a rural context vs. an urban one?
+</pre><p><br /><br /></p>
+<p>The goal here is to see how AI can move beyond surface summaries — and into deeper insight.</p>
+<p><br /><br /></p>
+<h1 id="bonus-activity-upload-multiple-documents">Bonus Activity: Upload Multiple Documents</h1>
+<p>If you have a number of documents (for instance, chapters from a textbook or state and federal guidelines for financial aid), you can upload them into the same chat and ask for insight across the documents. Congratulations - this chat has become a knowledge management system and you can always return to this chat later on to ask questions.</p>
+<p>In the next challenge, we&#39;ll look at some wild ways to level-up prompting based on multiple documents.</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>

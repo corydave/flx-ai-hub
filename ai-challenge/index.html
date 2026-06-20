@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Journey</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">    
+        
+
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+    
+    <style>
+
+
+       .hiddenDRG { 
+          display: none
+         }
+    
+       .flcc-blue-bg { 
+           background-color: #1e90ff;
+       }
+       
+       .modal-content {
+           border-radius: 15px;
+           height: 90vh;
+       }
+       
+       .h1-DRG {
+           font-family: Comfortaa, Lato, Rubik, sans-serif;
+       }
+       
+       .lead {
+           font-family: Comfortaa, Lato, Rubik, sans-serif !important;
+       }
+    
+        li {
+            margin-bottom: 0px;
+        }
+        
+        ol li {
+            margin-bottom: 10px;
+        }
+
+
+        body {
+            font-family: Comfortaa, sans-serif;
+        }        
+        
+        .header {
+            height: 78px;
+            background-color: #478316;
+            color: white;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            /*margin-top: -200px;*/
+            z-index: 10000;
+            text-align: center;
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            /*flex-direction: column;            */
+        }
+        
+        .section-title {
+            font-family: Comfortaa, sans-serif;
+        }
+        
+        .header-text {
+            font-family: Comfortaa, sans-serif;
+            font-size: 2.5em;
+            /*height: 100vh;*/
+            padding-left: 30px;
+            display: none;
+        }
+        
+        .header-image-container {
+            background-color: white;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .header-logo {
+            /*margin: 10px;*/
+            padding-top: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: white;
+            /*border-radius: 10px;*/
+            padding-bottom: 3px;
+            height: 72px;
+            /*border-radius: 0px 5px 5px 0px;*/
+        }
+        
+        .main-container {
+            padding-top: 78px;
+            width: 100%;
+            /*background-color: red;*/
+        }
+        
+        
+        .signup-card {
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            /*background-color: white;*/
+            text-align: center;
+        }
+        .gallery-tab-content {
+            display: none;
+            border: 0px !important;
+        }
+        
+        .nav-item {
+            border: 0px !important;
+        }
+        
+        .nav-link {
+            border: 0px !important;
+        }
+        
+        .gallery-tab-content.active {
+            display: block;
+        }
+        .modal-dialog-scrollable {
+            max-height: 50vh;
+            top: 60px;
+        }
+        .scrolling-wrapper {
+            position: relative;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 20px 0;
+        }
+        .scrolling-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .challenges-container {
+            position: relative;
+        }
+        .arrows-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6f42c1;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        .arrow-btn:hover {
+            color: #563d7c;
+        }
+        .arrow-btn:disabled {
+            color: #dee2e6;
+            cursor: not-allowed;
+        }
+        .rounded {
+            border-radius: 15px !important;
+        }
+        
+        
+        /* SAMPLE PROMPTS */
+        
+        .copy-button {
+            color: #111;
+            position: absolute;
+            top: 10px;
+            right: 5px;
+        }
+
+        .textToCopy {
+            width: 600px;
+            background-color: #ededed;
+            color: black;
+            font-family: "courier new", monospace;
+            padding: 10px 30px 10px 10px;
+            font-size: 1.0em;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .sample-prompt {
+            width: 90%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }        
+        
+        
+        
+        
+        
+        .stages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .stage {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            position: relative;
+            min-height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .stage-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            position: absolute;
+            left: -40px;    
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .stage-content {
+            flex-grow: 1;
+            /*padding-left: 60px;*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 60px;            
+        }
+
+        .stage-title {
+            font-weight: bold;
+            margin: 0;
+            display: block;
+            margin-bottom: 4px;
+            font-family: Comfortaa, Lato, Rubik, sans-serif;
+        }
+
+        .stage-description {
+            margin: 0;
+            display: block;
+            line-height: 1.5;
+            font-family: Comfortaa, Lato, Rubik, sans-serif;
+        }
+
+        /* Stage-specific background colors */
+        .recognize { background-color: #F3E8FF; }
+        .investigate { background-color: #FFE4CC; }
+        .supercharge { background-color: #DCFCE7; }
+        .exchange { background-color: #DBEAFE; }
+
+
+       /* Challenge Cards Grid Layout */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .card {
+            border-radius: 15px !important;
+        }
+        
+        .challenge-item {
+            border-radius: 15px !important;
+        }
+        
+        
+        
+        
+        
+        /* Card styling */
+        .challenge-card {
+            height: 100%;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        /*.card-img-container {*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*    height: 120px;*/
+        /*    padding-top: 15px;*/
+        /*}*/
+        
+        /*.card-img {*/
+        /*    max-height: 100px;*/
+        /*    max-width: 100%;*/
+        /*}*/
+        
+        .card-title {
+            font-family: Comfortaa, Lato, Rubik, sans-serif;
+            font-weight: 600;
+        }
+        
+        .badge {
+            font-weight: normal;
+            padding: 5px 10px;
+        }
+        
+        .card-img-DRG: {
+            border-radius: 15px !important;
+            border: 44px solid black !important;
+        }
+        
+        /* Responsive breakpoints */
+        @media (min-width: 576px) {
+            .challenge-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .challenge-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .challenge-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+
+        /* Mobile Responsive Design */
+        @media (max-width: 600px) {
+
+            
+            .header-logo {
+                /*margin: 10px;*/
+                padding-top: 10px;
+                padding-left: 30px;
+                padding-right: 30px;
+                background-color: white;
+                border-radius: 0px;
+                height: 70px;
+                width: 100%;
+            }            
+
+            .header-text {
+                font-family: Comfortaa, sans-serif;
+                font-size: 3em;
+                display: none;
+            }
+            
+            
+            .stages-container {
+                width: 100%;
+                margin-top: 30px;
+            }
+            
+            .stage {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                padding-top: 50px; /* Make room for the icon */
+                min-height: auto;
+            }
+
+            .stage-icon {
+                width: 70px;
+                height: 70px;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .stage-content {
+                padding-left: 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            .stage-title {
+                text-align: center;
+            }
+
+            .stage-description {
+                text-align: center;
+            }
+
+        }        
+
+
+ 
+        
+ 
+
+        
+    </style>
+</head>
+<body>
+
+
+   <div class="header">
+      <div class="header-image-container">
+        <img class="header-logo" src="https://pxl-flccedu.terminalfour.net/prod01/flcc-cdn-pxl/media/flccedu/content-assets/images/branding/logos/finger-lakes-color.svg" alt="Finger Lakes Community College">    
+      </div>        
+      <span class="header-text">Finger Lakes Community College</span>
+   </div>
+
+   <div class="main-container">
+  
+ 
+ 
+ 
+     <!-- Hero Section with Description -->
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-8 col-md-10 mx-auto">
+    
+                <div class="lead text-muted hiddenDRG"><center><hr />
+                <!--<EM>This is a sample of the AI challenge that was rolled out at FLCC. What you don't see is the community sharing that is built into this challenge. Participants can share their work (like idioms from Challenge 1 or images from Challege 4) with their peers. If you are interested in rolling the AI Challenge out to your organization, email <a href="mailto:dave.ghidiu@flcc.edu">dave.ghidiu@flcc.edu</a>. We are happy to customize the challenge for you and your organization.<br /><hr /><br /></EM>-->
+                </center></div>
+        
+               <h1 class="h1-DRG">Transform Your Organization's AI Learning</h1>
+                <p class="lead text-muted">
+                    A comprehensive, ready-to-deploy AI learning program designed for people with no prior AI experience. Help your team confidently navigate the AI revolution with our proven 10-challenge learning journey.
+                    <br /><br />
+                    Low stakes. Low risk. Privacy-first design. No data collection, no sign-ins, no tracking. We've created 10 unique challenges that take your team from AI novice to confident user through hands-on, practical activities.
+                    <br /><br />
+                    Ready to deploy today. Complete program with all materials, instructions, and support resources included. Fully customizable to match your organization's branding and specific needs.
+                </p>
+                <p class="lead text-muted">We have identified four stages of AI use that we think are important as we start to explore AI:</p><br /><br />
+            
+            <!--    <div class="lead text-muted" style="text-align: left;">-->
+            <!--        <ul>-->
+            <!--            <li><strong>Recognize:</strong> Identify where AI exists in your world and how it can be useful</li>-->
+            <!--            <li><strong>Investigate:</strong> Explore AI tools and their potential</li>-->
+            <!--            <li><strong>Supercharge:</strong> Leverage AI to enhance creativity, productivity, and decision-making <em>potentiating</em> your actions</li>-->
+            <!--            <li><strong>Exchange:</strong> Collaborate with AI in a dynamic, interactive way, blending human expertise with AI’s capabilities</li>-->
+            <!--        </ul>-->
+            <!--    </div>-->
+            <!--</div>-->
+            
+            
+            <!--<img src="https://docs.google.com/drawings/d/e/2PACX-1vRGVeOL-u3SLJihRXSy7OJhYNS-GfJr-4M4JPqtQiH7T5_oDHpM75FWF4efGPhdNIn5jjpZ3I9kug3y/pub?w=1536&amp;h=468" alt="Four icons with words under each one. An eyeball with the word RECOGNIZE. A magnifying glass with the word INVESTIGATE. A lightning bolt with the word SUPERCHARGE. And two curved arrows leading into each other with the word EXCHANGE." title="Four icons with words under each one. An eyeball with the word RECOGNIZE. A magnifying glass with the word INVESTIGATE. A lightning bolt with the word SUPERCHARGE. And two curved arrows leading into each other with the word EXCHANGE." />-->
+
+
+
+    <div class="stages-container">
+        <div class="stage recognize">
+            <img src="images/rise.png" alt="Eye icon" class="stage-icon">
+            <div class="stage-content">
+                <p class="stage-title">Recognize:</p>
+                <p class="stage-description">Identify where AI exists in your world and how it can be useful</p>
+            </div>
+        </div>
+
+        <div class="stage investigate">
+            <img src="images/investigate.png" alt="Magnifying glass icon" class="stage-icon">
+            <div class="stage-content">
+                <p class="stage-title">Investigate:</p>
+                <p class="stage-description">Explore AI tools and their potential</p>
+            </div>
+        </div>
+
+        <div class="stage supercharge">
+            <img src="images/supercharge.png" alt="Lightning bolt icon" class="stage-icon">
+            <div class="stage-content">
+                <p class="stage-title">Supercharge:</p>
+                <p class="stage-description">Leverage AI to enhance creativity, productivity, and decision-making potentiating your actions</p>
+            </div>
+        </div>
+
+        <div class="stage exchange">
+            <img src="images/exchange.png" alt="Refresh icon" class="stage-icon">
+            <div class="stage-content">
+                <p class="stage-title">Exchange:</p>
+                <p class="stage-description">Collaborate with AI in a dynamic, interactive way, blending human expertise with AI's capabilities</p>
+            </div>
+        </div>
+    </div>
+
+            
+        </div>
+    </section>
+
+
+
+    <!-- Challenge Cards -->
+    <hr />
+    <section class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 h1-DRG">AI Challenges</h1>
+            <p class="lead text-muted text-center">Click on a challenge to get started</p>
+            
+            <div class="challenge-grid">
+                <!-- Challenge 1 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge01Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vRUltIv1LF2MWJx_oHqVfcFdaYcSrMBXdt2YySpV4Cq6zu8mk9J9YvEqfaLr9Nsckkypr_EKuuHcVLz/pub?w=500&amp;h=500" alt="The icon for power with the words GETTING STARTED." title="Getting Started" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 1:<br />What <em>is</em> AI?</h5>
+                            <p class="card-text">Learn about AI, create an account at some popular AI services, and have some fun!</p>
+                            <span class="badge rounded-pill bg-light text-dark">recognize</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Challenge 2 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge02Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vSy1xyG-qAuefOnjfBad5i8rKeLlyDrRzHkh5R8MEN3iR7drkByRekZNaze4V9p-PC6TAb76zwH0je_/pub?w=500&amp;h=500" alt="Icons of a robot head and a human with the words AI OR NOT." title="AI or Not?" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 2:<br />AI or Not?</h5>
+                            <p class="card-text">Can you tell what was created by a human and what was created by AI?</p>
+                            <span class="badge rounded-pill bg-light text-dark">recognize</span>
+                        </div>
+                    </div>
+                </div>                
+                
+                <!-- Challenge 3 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge03Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vRqMqL-pNwFOniQXy37W9scrhkfhXCjo3IQl10bZxu2L25e7Bi20u3H-rQxCbP0S9X1tpmdZz7aDrkr/pub?w=500&amp;h=500" alt="An icon of a pencil and paper with writing - the words REFINING PROMPTS are visible." title="Refining Prompts" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 3:<br />Prompt Refinement</h5>
+                            <p class="card-text">See what a difference a well-crafted prompt can make.</p>
+                            <span class="badge rounded-pill bg-light text-dark">recognize</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 4 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge04Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vTTNkOPhqZwEkSmrxyE59djl4qtJk8_qPis9E29PclMgbGSzGjMtq1tZTqNW3WavrARgPMxa7CIzb-0/pub?w=500&amp;h=500" alt="The icon of a photograph and the word IMAGES." title="Images" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 4:<br />Imagine Images</h5>
+                            <p class="card-text">Create customized images - and convert a photo of yourself into a cartoon!</p>
+                            <span class="badge rounded-pill bg-light text-dark">investigate</span>                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 5 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge05Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vQwF3TgsAwv6jXe8w5m1uERh0pSSsIzCIhJh1mfddfOnGexoPrDzsZfxihf1rZSPfy_nTGTZoxzUg1y/pub?w=500&amp;h=500" alt="The icon of a person shouting through a megaphone with the words WRITING COACH." title="Writing Coach" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 5:<br />AI as a Writing Coach</h5>
+                            <p class="card-text">Use AI to get feedback on your draft and explore different perspectives.</p>
+                            <span class="badge rounded-pill bg-light text-dark">investigate</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 6 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge06Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vQTdgLakRoba9Yqvk_WhQeQ98pM91Yd6_oEqtCQxoR-y1NS9RguU8x2Uy-gxg8S2H7f_H87acoqTubc/pub?w=500&amp;h=500" alt="The icon for PDF and the word SUMMARIZING." title="Summarizing" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 6:<br /></h5>
+                            <p class="card-text">Upload documents to AI and gain nuanced insight.</p>
+                            <span class="badge rounded-pill bg-light text-dark">supercharge</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 7 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge07Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vTvNvHz75V6bbGm5iwt68dHnxrcEQ21gaGy1pnqZQ0fqI27ZJ8QEfklKQbu4rv4XygnY-3G5ZKzMBVd/pub?w=500&amp;h=500" alt="The logo for NotebookLM" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 7:<br />NotebookLM</h5>
+                            <p class="card-text">Supercharge your research, knowledge base, and projects.</p>
+                            <span class="badge rounded-pill bg-light text-dark">supercharge</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Challenge 7 -->
+                <!--<div class="challenge-item">-->
+                <!--    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge07Modal">-->
+                <!--        <div class="card-img-container">-->
+                <!--            <img src="https://docs.google.com/drawings/d/e/2PACX-1vTz_ZWgY102OmJiuFxa7piRcQvN7Z_zcv1g1PaQGxHoB2s1gxZZLMaCyE1A7yLz4iDX9_jaTNZu9sXa/pub?w=500&amp;h=500" alt="Limitations" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">-->
+                <!--        </div>-->
+                <!--        <div class="card-body text-center">-->
+                <!--            <h5 class="card-title">Challenge 7:<br />AI Limitations</h5>-->
+                <!--            <p class="card-text">Can you tell what was created by a human and what was created by AI?</p>-->
+                <!--            <span class="badge rounded-pill bg-light text-dark">supercharge</span>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+    
+                <!-- Challenge 8 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge08Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vSeQIM1Ef0QSGletmpNeQuHRfxwP5eBfq3IRRyVzdO9nVzaBKoIRxS98U0H9H12yzVO4y-YoqM9aZkK/pub?w=500&amp;h=500" alt="The icon for a sound file" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 8:<br />"Voice Mode"</h5>
+                            <p class="card-text">Have an audible conversation with AI.</p>
+                            <span class="badge rounded-pill bg-light text-dark">supercharge</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 9 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge09Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vS_uzzykdzpNMvMb7uEgVmTtz0zGOFAon3zWUsbPoeTmOC4Trlk33UUEScM3I0rqcLMF3zisLYWLhpL/pub?w=500&amp;h=500" alt="The words CRAFTING PROMPTS." class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 9<br /></h5>
+                            <p class="card-text">Level-up your prompting with a detailed framework.</p>
+                            <span class="badge rounded-pill bg-light text-dark">supercharge</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Challenge 10 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge10Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vRrb0wEEK6sMG1BHhaMllcnfF1M7S8vuYq8rhTpFayClllK-gDpunUAZfL-Eya9RB8lD2pl0IYochH6/pub?w=500&amp;h=500" alt="The words VIBE CODING" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 10<br /></h5>
+                            <p class="card-text">Think you'll never be able to make that app you dream of? Think again. Let AI build your ideas.</p>
+                            <span class="badge rounded-pill bg-light text-dark">exchange</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Challenge 11 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge11Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vRjtb5Q7sMbOrd1QzhNvdnu63xrkxN_6RCwZYY936uImoO-B7qYSNZCt0_6i4sBFhsdUuiGbrY0ha6N/pub?w=500&amp;h=500" alt="A question mark" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 11<br /></h5>
+                            <p class="card-text"></p>
+                            <span class="badge rounded-pill bg-light text-dark">exchange</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Challenge 12 -->
+                <div class="challenge-item">
+                    <div class="card challenge-card" style="" data-bs-toggle="modal" data-bs-target="#challenge12Modal">
+                        <div class="card-img-container">
+                            <img src="https://docs.google.com/drawings/d/e/2PACX-1vRjtb5Q7sMbOrd1QzhNvdnu63xrkxN_6RCwZYY936uImoO-B7qYSNZCt0_6i4sBFhsdUuiGbrY0ha6N/pub?w=500&amp;h=500" alt="A question mark" class="card-img-DRG" style="border-radius: 15px 15px 0px 0px;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Challenge 12<br /></h5>
+                            <p class="card-text"></p>
+                            <span class="badge rounded-pill bg-light text-dark">exchange</span>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section> 
+
+
+
+
+
+
+    <!-- Sign Up Form -->
+    <!--<section class="py-5" style="display: none;">-->
+    <!--    <div class="container">-->
+    <!--        <div class="row justify-content-center">-->
+    <!--            <div class="col-md-6">-->
+    <!--                <div class="card">-->
+    <!--                    <div class="card-body">-->
+    <!--                        <h3 class="card-title text-center mb-4">Sign Up for Weekly Challenges</h3>-->
+    <!--                        <form id="signupForm">-->
+    <!--                            <div class="mb-3">-->
+    <!--                                <label for="firstName" class="form-label">First Name</label>-->
+    <!--                                <input type="text" class="form-control" id="firstName" required>-->
+    <!--                            </div>-->
+    <!--                            <div class="mb-3">-->
+    <!--                                <label for="lastName" class="form-label">Last Name</label>-->
+    <!--                                <input type="text" class="form-control" id="lastName" required>-->
+    <!--                            </div>-->
+    <!--                            <div class="mb-3">-->
+    <!--                                <label for="email" class="form-label">Email Address</label>-->
+    <!--                                <input type="email" class="form-control" id="email" required>-->
+    <!--                            </div>-->
+    <!--                            <button type="submit" class="btn btn-primary w-100" style="background-color: #6f42c1; border: 0px;">Sign Up</button>-->
+    <!--                        </form>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+
+    <!-- Gallery Section -->
+
+    
+    <!-- Sign Up Form -->
+    <hr />
+    <section class="py-5 ">
+        <div class="container">
+            <h1 class="text-center mb-5 h1-DRG">Interested in setting this up at your organization?</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="signup-card">
+                        <div class="card-body">
+                            <h3 class="card-title text-center mb-4 section-title">Email us at <a href="mailto:ai@flcc.edu">ai@flcc.edu</a></h3>
+                            <!--<iframe src="https://script.google.com/macros/s/AKfycby4NRPFqi6bS0XfAqGcxfZ9rkKQv-bxI8A4varPGiDMceFucpMxtxHzL9aykC3eT_GA/exec" width="80%;" height="500"></iframe>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>       
+
+
+    <!-- Challenge Modals -->
+    <!-- Modal 1: AI Foundations -->
+    <div class="modal fade" id="challenge01Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 1: What <em>is</em> AI?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="challenge-content-01"></div>
+
+                    <!-- <a href="challenge01.html">Click here</a> -->
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/14dmOrJOHDljeXTaqY4ww1ezeZSAihC9VXCgK-WgxAso/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Prompt Engineering -->
+    <div class="modal fade" id="challenge02Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 2: AI or Not?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/14Q_ZKS1H1VvM7awXESBVRyROpmplVrVz3Q33TOdF0GU/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <!--<div id="challenge-content-02"></div>-->
+                    <div id="challenge-content-02"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: AI Art Creation -->
+    <div class="modal fade" id="challenge03Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 3: Prompt Refinement </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1q1ctc6yOHtx3dq8q5OkKxbdvNBasbXjpi14ECfSMbNE/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-03"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: AI Art Creation -->
+    <div class="modal fade" id="challenge04Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 4: Imagine Images</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1z0xIjJ5FYpebpMYalCUN3zPFLOHSLEqix5K62KJTnmw/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-04"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal 5: AI Art Creation -->
+    <div class="modal fade" id="challenge05Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 5: AI as a Writing Coach</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1IvOpOcW9SRgAKzMc4TSwpQ57eL_34Bo_smAp4_MtCJg/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-05"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal 6: AI Art Creation -->
+    <div class="modal fade" id="challenge06Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 6</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/15vubTR2hDa2XtlDdLjvxEzDL83bQdIOEoIXaOKHUxP4/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-06"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal 7: Live AI -->
+    <div class="modal fade" id="challenge07Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 7</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1_AjMA3QNmMN6kSEUDgMxQrs9sIL9OVzohVR3SqI3c4s/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-07"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>        
+        
+    <!-- Modal 8: AI Art Creation -->
+    <div class="modal fade" id="challenge08Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 8</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1Ohdpp_DNDqeiF9Ok4QOd7LGaGIeZyGWVPjTQRv_XsHE/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-08"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal 9: AI Art Creation -->
+    <div class="modal fade" id="challenge09Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 9</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1LKGIha0nAMBUM1UWqdR7v-w1R6C2QYIIeBeF9R7-CrQ/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-09"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!-- Modal 10: AI Art Creation -->
+    <div class="modal fade" id="challenge10Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 10</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="challenge-content-10"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>        
+    </div>
+    
+    <!-- Modal 11: AI Art Creation -->
+    <div class="modal fade" id="challenge11Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 11</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1LKGIha0nAMBUM1UWqdR7v-w1R6C2QYIIeBeF9R7-CrQ/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-11"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 12: AI Art Creation -->
+    <div class="modal fade" id="challenge12Modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Challenge 12</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--<center><br /><br /><a href="https://docs.google.com/document/d/1LKGIha0nAMBUM1UWqdR7v-w1R6C2QYIIeBeF9R7-CrQ/preview" target="_blank">Click here to see the challenge</a><br /><br /><br /></center>-->
+                    <div id="challenge-content-12"></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary flcc-blue-bg" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script>
+    
+        content("challenge01.html", 'challenge-content-01');
+        content("challenge02.html", 'challenge-content-02');
+        content("challenge03.html", 'challenge-content-03');
+        content("challenge04.html", 'challenge-content-04');
+        content("challenge05.html", 'challenge-content-05');
+        content("challenge06.html", 'challenge-content-06');
+        content("challenge07.html", 'challenge-content-07');
+        content("challenge08.html", 'challenge-content-08');
+        content("challenge09.html", 'challenge-content-09');
+        content("challenge10.html", 'challenge-content-10');
+        content("challenge11.html", 'challenge-content-11');
+        content("challenge12.html", 'challenge-content-12');
+    
+        async function content(page, id) {
+    
+          let response = await fetch(page);
+          let text = await response.text();
+          let body = text;
+          let target = document.getElementById(id);
+          target.innerHTML = body;          
+            
+        }
+        
+    </script>
+    
+
+    
+    <!-- COPY SAMPLE PROMPT -->
+    <script>
+        function copyText(id) {
+            console.log(id);
+            
+            let a = document.getElementById(id).innerText;
+            console.log(a);
+            navigator.clipboard.writeText
+                (a);
+        }
+    </script>    
+ 
+
+
+   </div>
+   
+   
+    
+</body>
+</html>

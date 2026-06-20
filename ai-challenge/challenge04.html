@@ -1,0 +1,267 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<br />
+
+<h1 class="jumbotron">
+                         Imagine Images
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li><p>Generating images from text</p>
+</li>
+<li><p>Refining images with explicit prompts</p>
+</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>Have you ever found an image online, copied it, and put it into work (a slideshow or a handout)? If you have, there&#39;s a good chance that you are in violation of copyright (fair use is not a reliable methodology for using copyrighted material).</p>
+<p>Of course, you could go to sites like <a target='_blank' href="https://pixabay.com/">Pixabay</a> or <a target='_blank' href="https://unsplash.com/">Unsplash</a> to find millions of copyright-free material. Those sites have an enormous collection of high-quality images you can use for free.</p>
+<p>But you can also just generate your own images! You can create your very own, bespoke, niche image. Do you need a photograph of an elephant playing a violin for a lesson? Well, there&#39;s an AI for that!</p>
+<br />
+
+<center>
+
+<div class="embed-responsive embed-responsive-16by9 rounded drg-rounded" style="border-radius: 15px !important;">
+<iframe class="embed-responsive-item rounded drg-rounded" style="border-radius: 15px !important;" width="560" height="315" src="https://www.youtube.com/embed/80Rs4otz2aw?si=LFlDpKB6VlP2az5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;"></iframe></div>
+</center>
+
+<br />
+
+<br />
+
+<h1 id="activity-1-generate-an-image">Activity #1: Generate an image</h1>
+<center>
+<img src="https://lh3.googleusercontent.com/d/1q7lTMUTQtk3lwZu4rnP0BPqCYvEzrSlj=w480" / alt="Images of elephants playing violins." title="Images of elephants playing violins." />
+<br />
+<span style="font-size: 0.9em; font-style: italic;">These images were created with Gemini.</span>
+</center><br />
+
+<p>You&#39;ll want to use either <a target='_blank' href="https://chat.openai.com/">ChatGPT</a>, <a target='_blank' href="https://gemini.google.com/">Google Gemini</a>, or <a target='_blank' href="https://www.meta.ai/">Meta AI</a> for this one (although Meta AI seems to be the most creative right now). There are a few things to remember about image generation:</p>
+<ul>
+<li><p>You&#39;ll need to have an account to generate images at most sites.</p>
+</li>
+<li><p>You probably won&#39;t get exactly what you want on your first try. Some AI tools will let you iterate on the work they generate and others won&#39;t. You&#39;ll have to experiment. </p>
+</li>
+<li><p>There is no such thing as being too specific when prompting AI for an image - be as verbose as you can!</p>
+</li>
+<li><p>You can also specify what genre of art you want (impressionist painting, line drawing, watercolor).</p>
+</li>
+<li><p>Many AI tools are not great at text generation in images. They are getting better, but your mileage may vary. We&#39;ll look at Canva in a future challenge - the text in images is pretty good with Canva&#39;s AI.</p>
+</li>
+<li><p>Meta AI (you&#39;ll need a Meta/Facebook account) tends to generate the most creative images (and the tool has some really neat ways to change the look and feel of the images).</p>
+</li>
+<li><p>ChatGPT has recently updated their image generation. While it provides incredible images, the process is slow.</p>
+</li>
+</ul>
+<p>You should probably get experience generating images from all three tools. Different people have different affinities for these tools. And don&#39;t stop after just one image - iterate on it!</p>
+<p>If you want an example of a decent prompt, try this out. If you know a lot about photography, you can even specify details like the camera make and model, f-stop, and other settings.</p>
+<p>Try this simple prompt - or come up with your own:</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please generate a photo of a lion in the Sahara.
+</pre><center>
+<img src="https://lh3.googleusercontent.com/d/1JKCUsSLZ0TaJuD55FC8iyuxAWGoDuTVU=w480" / alt="Images of lions in the Sahara." title="Images of lions in the Sahara." />
+<br />
+<span style="font-size: 0.9em; font-style: italic;">These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</span>
+</center><br />
+
+<p>This is a great start - but we can do better.</p>
+<p><br /><br /></p>
+<h1 id="activity-2-use-subject-medium-and-style">Activity #2: Use <em>Subject</em>, <em>Medium</em>, and <em>Style</em></h1>
+<p>What we did before with a simple prompt gave the AI service little context to work with. We can get much better results if we are more specific. </p>
+<p>Emily Laird (an AI Integration Technologist) recommends the following recipe:</p>
+<ul>
+<li><p><strong>Subject</strong> - What do you want in your image? What is in the background?</p>
+</li>
+<li><p><strong>Medium</strong> - What do you want your image to look like? A photograph? A chalk drawing? A painting? </p>
+</li>
+<li><p><strong>Style</strong> - What genre do you want - steampunk? Minimalism? Renaissance period? Impressionist? You choose!</p>
+</li>
+</ul>
+<p>Once we start adding modifiers to our subject we start getting results that are aligned closer to what we are looking for:</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please generate a lion in the Sahara. Blur the background slightly. The image is made out of clay and looks 3D. The image looks like a still from a claymation show.
+</pre><center>
+<img src="https://lh3.googleusercontent.com/d/1ofpoWgVqwdz70n7g6AcDrZM445NXfpuH=w480" alt="Images of claymation lions." title="Images of claymation lions." />
+<br />
+<span style="font-size: 0.9em; font-style: italic;">These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</span>
+</center><br />
+
+<p>That&#39;s pretty slick! Notice how all three AI services interpreted the style of <em>claymation</em> a little differently. That&#39;s okay! The differences between these services are starting to emerge.</p>
+<br />
+
+<h1 id="activity-3-modify-an-image-the-ai-created">Activity #3: Modify an image the AI created</h1>
+<p>Most AI services can modify images that you create; you can build on previous iterations. For our case, let&#39;s try making it nighttime in the image of the lion (if you are working with different prompts, try a prompt that fundamentally alters the image):</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please make it nighttime in the image.
+</pre><center>
+<img src="https://lh3.googleusercontent.com/d/1z7PEt_VUVckS4tmiGmY6zhXOEz1HCDtd=w480" alt="Images of claymation lions at night." title="Images of claymation lions at night." />
+<br />
+<span style="font-size: 0.9em; font-style: italic;">These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</span>
+</center><br />
+
+<p>In these examples, we can see that Gemini did a great job of reimagining the sky as a nighttime starry sky. But look! The lion actually changed a little (this happens sometimes). The interpretation of nighttime with ChatGPT and Meta are wildly different - but the lions stayed exactly the same.</p>
+<p>This is part of the process. Learning how to be more specific and understanding the different styles and medium types really help refine our images.</p>
+<br />
+<br />
+
+<h1 id="activity-4-listen-to-emily-lairds-podcast">Activity #4: Listen to Emily Laird&#39;s podcast</h1>
+<p>If you are enjoying creating images with AI, you should spend six minutes to listen to Emily Laird&#39;s podcast. She walks through some great prompting tips to generate next-level images. </p>
+<center>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2mBvdDTk4sIZJbrSAHXqoJ?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</center>
+
+<p>Feel free to try the prompt she suggested (below) and see what you get. You might want to even try refining it (change the scenery, for example):</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please generate a portrait of a young woman, oil painting, Rembrandt style, dramatic lighting, warm tones.
+</pre><p><br /><br /></p>
+<p>Enjoy the rest of your day, and don&#39;t be afraid to poke around a bit more with AI!</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>
+

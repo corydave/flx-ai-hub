@@ -1,0 +1,411 @@
+
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<br />
+
+<h1 class="jumbotron">
+                         Advanced Prompting
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li><p>Moving beyond generic responses into nuanced, sophisticated outputs</p>
+</li>
+<li><p>Learning a structured framework for complex prompts (CRAFT)</p>
+</li>
+<li><p>Building high-caliber briefs that get professional-grade results</p>
+</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>By now, you&#39;ve experienced how prompt refinement (Challenge #3) can dramatically improve AI outputs. In this challenge, we are going to level up!</p>
+<p>There are two kinds of advanced prompting: tactical and strategic. <em>Tactical</em> prompting (CRAFT) works when you have a moderately complex task. <em>Strategic</em> prompting (which we call &quot;high-end&quot;) is for the really big, messy, real-world problems where you&#39;re asking AI to think through multiple stakeholders, competing priorities, and constraints.</p>
+<p>The difference is this: a CRAFT prompt might help you design a syllabus or a discussion question whereas a high-end prompt might help you redesign an entire program, build a community initiative, or solve an organizational challenge.</p>
+<h1 id="activity-1-mastering-the-craft-method">Activity #1: Mastering the CRAFT Method</h1>
+<center>
+
+<p><span style="font-family: courier, courier new, monospace;">C.R.A.F.T.</span> is an acronym for five elements that structure a prompt:</p>
+</center>
+
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-12 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<br />
+
+<p><strong>CONTEXT:</strong> Why are you asking? What situation created this need? What does AI need to understand about your world?</p>
+<p><strong>REQUEST:</strong> What is the actual thing you want AI to produce? Be clear about the end product.</p>
+<p><strong>ACTIONS:</strong> What should AI actually do to complete the request? What steps or elements need to be included?</p>
+<p><strong>FRAME:</strong> What constraints or specifications matter? Length? Audience? Tone? Assumptions to make?</p>
+<p><strong>TEMPLATE:</strong> What structure or format should the output follow?</p>
+</div>
+</div>
+</div>
+</div>
+<p>In the three prompts below, each new paragraph corresponds to one of the five parameters above. Try running one (or more!) of these prompts to see the type of response you get from AI.</p>
+<h2 id="craft-prompt-1---designing-a-clear-syllabus">CRAFT PROMPT #1 - Designing a clear syllabus</h2>
+<pre contenteditable="false" class="language-none drg-code">
+You are a college instructor who values accessibility and student success. You understand that a good syllabus is a contract, a roadmap, and a communication tool.
+
+<br /><br />
+
+Write a comprehensive but readable course syllabus that clearly sets expectations while making students feel welcomed into the course.
+
+<br /><br />
+
+Include course learning objectives, assessment methods, course policies, communication expectations, support resources, and a week-by-week schedule. Organize information so students can find what they need quickly.
+
+<br /><br />
+
+Keep it to 3-4 pages (accessibility through brevity). Use plain language - no jargon. Address both in-person and remote learners. Assume students haven't read a syllabus before and may be anxious about the course.
+
+<br /><br />
+
+Organize as: Welcome statement, Course overview, Learning objectives, Assessment overview, Course policies, Communication/support resources, Week-by-week schedule.
+
+</pre><br />
+
+<h2 id="craft-prompt--2-creating-an-effective-discussion-prompt">CRAFT PROMPT # 2: Creating an Effective Discussion Prompt</h2>
+<pre contenteditable="false" class="language-none drg-code">
+You are an instructor facilitating meaningful online discussion in a community college course. You want students to think deeply while feeling safe to participate.
+
+<br /><br />
+
+Write a discussion prompt that encourages critical thinking and authentic peer engagement.
+
+<br /><br />
+
+Ask an open-ended question that connects to course concepts, invite students to share examples from their own experience, ask follow-up thinking (e.g., "What might explain this?"), encourage respectful disagreement.
+
+<br /><br />
+
+The prompt should take 5-10 minutes to read and understand. Assume some students are introverts and some have limited time. Create psychological safety - no "gotcha" questions.
+
+<br /><br />
+
+Format as: Compelling opening question, 2-3 clarifying prompts, one reflection question that deepens thinking, guidance on respectful disagreement.
+
+</pre><br />
+
+<h2 id="craft-prompt-3-building-an-accessible-web-form">CRAFT PROMPT #3: Building an Accessible Web Form</h2>
+<pre contenteditable="false" class="language-none drg-code">
+You are a developer creating a web form for a non-profit that serves people with varying levels of tech comfort and accessibility needs.
+
+<br /><br />
+
+Design a form that collects necessary information while being accessible, intuitive, and respectful of user data.
+
+<br /><br />
+
+Use clear labels and logical field ordering, provide helpful error messages, include keyboard navigation, explain why you're asking for each piece of information, offer multiple ways to complete the form (web, phone, in-person).
+
+<br /><br />
+
+Keep it under 10 fields if possible. Don't ask for Social Security numbers unless absolutely necessary. Assume some users have screen readers or limited vision.
+
+<br /><br />
+
+Format as: Clear heading, brief explanation of purpose, form fields with descriptive labels, submit and reset buttons, privacy statement, alternative completion methods.
+</pre><br />
+
+<p>Notice what happened: you told AI not just what you want, but why you want it, who you are, what to include, what constraints matter, and what shape it should take. That&#39;s vastly different from &quot;write me a syllabus.&quot; Try CRAFTing a prompt yourself! Pick a moderately complexity task from your own work. This might be:</p>
+<ul>
+<li><p>A lesson plan that incorporates multiple learning styles</p>
+</li>
+<li><p>An email to parents explaining a policy change</p>
+</li>
+<li><p>A job posting that attracts the right candidates and sets clear expectations</p>
+</li>
+<li><p>A rubric for evaluating student work</p>
+</li>
+<li><p>An onboarding guide for new volunteers</p>
+</li>
+</ul>
+<p>Now structure your prompt using CRAFT. Open an AI tool and paste in your CRAFT-structured prompt. Notice the difference in quality compared to a generic request.</p>
+<h1 id="activity-2-high-end-prompting">Activity #2: High-End Prompting</h1>
+<p>CRAFT works beautifully for tactical tasks. But what if you&#39;re tackling something bigger? Something that involves multiple stakeholders, competing values, systemic constraints, and real-world messiness?</p>
+<p>That is when you move to high-end prompting.</p>
+<p>High-end prompts take CRAFT further. They add more scaffolding: a clear <em>Objective</em>, a defined <em>Role</em> for AI to inhabit, richer <em>Context</em>, specification of <em>Format</em> and <em>Audience</em>, <em>Tone</em> guidance, <em>Timeframe</em> expectations, and explicit <em>Restrictions</em>.</p>
+<p>These prompts are longer. They&#39;re more specific. And they produce outputs that are dramatically better - and often immediately usable. Consider the elements of a sophisticated prompt:</p>
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-12 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<br />
+
+<p><strong>OBJECTIVE:</strong> What is the big-picture goal? What problem are you trying to solve or system are you trying to design?</p>
+<p><strong>ACTION:</strong> What do you want AI to actually create? (Program blueprint, strategic plan, initiative design, etc.)</p>
+<p><strong>ROLE:</strong> What expertise should AI assume? What is AI an expert in?</p>
+<p><strong>CONTEXT:</strong> What is the real-world situation? What constraints, pressures, and competing interests exist? What has been tried before?</p>
+<p><strong>FORMAT:</strong> How should the output be structured? What sections, deliverables, or components matter?</p>
+<p><strong>AUDIENCE:</strong> Who will read/use this? What do different stakeholders care about? What might they be skeptical of?</p>
+<p><strong>TONE:</strong> What is the right voice? Professional? Optimistic? Grounded? Realistic about tradeoffs?</p>
+<p><strong>TIMEFRAME:</strong> What is the realistic timeline for implementation? When should impact show up?</p>
+<p><strong>RESTRICTIONS:</strong> What should AI not do? What lines should it not cross? What values must be preserved?</p>
+</div>
+</div>
+</div>
+</div>
+<p>In the three prompts below, each new paragraph corresponds to one of the five parameters above. Try running one (or more!) of these prompts to see the type of response you get from AI.</p>
+<h2 id="high-end-prompt-1-designing-an-ai-enhanced-competency-based-learning-program">HIGH-END PROMPT #1: Designing an AI-Enhanced Competency-Based Learning Program</h2>
+<pre contenteditable="false" class="language-none drg-code">
+Design a comprehensive, competency-based learning program that uses AI strategically to personalize student pathways while maintaining genuine human interaction and critical thinking development.
+
+<br /><br />
+
+Create a detailed program blueprint that includes learning objectives, AI integration points, assessment methods, student support structures, and implementation milestones.
+
+<br /><br />
+
+You are an innovative instructional designer with expertise in competency-based education, adult learning theory, educational technology, and the ethical implementation of AI in higher education. You understand both the pedagogical benefits and potential pitfalls of AI in learning environments.
+
+<br /><br />
+
+Community colleges are facing enrollment pressures and employer demands for demonstrable competency outcomes. Many students balance work and family responsibilities and need flexible pathways. There's growing skepticism about AI in education, so trust and transparency are critical. Institutions need to show that AI enhances rather than replaces meaningful learning experiences.
+
+<br /><br />
+
+Present your program as a modular blueprint with: program vision statement, 5-7 core competencies with clear performance indicators, 3-4 specific AI integration points (with pedagogical justification for each), student journey map for a typical learner, assessment strategy that balances automation and human judgment, and one implementation roadmap for Year 1.
+
+<br /><br />
+
+Your audience includes skeptical faculty members, technology-hesitant administrators, students who value personalization, and employers seeking work-ready graduates. Some prefer visual representations, others need detailed narratives. All want evidence that this serves student learning, not just institutional efficiency.
+
+<br /><br />
+
+Professional yet approachable - demonstrate innovation without overselling technology. Show genuine concern for student success and faculty agency. Be honest about AI limitations alongside its benefits.
+
+<br /><br />
+
+This program should be pilotable within 12-18 months and show measurable competency attainment improvements within the first cohort.
+
+<br /><br />
+
+Do not suggest replacing human instruction or feedback with AI alone. Ensure the program maintains accessibility for students with diverse learning needs and technology comfort levels. Avoid surveillance-style data tracking; prioritize student data privacy. Do not recommend solutions that disadvantage low-tech or non-traditional students. Include at least two non-AI strategies that enhance learning. All AI tools must be explainable to students - no "black box" algorithms.
+
+</pre><br />
+
+<h2 id="high-end-prompt-2-building-a-year-round-community-centered-tourism-experience-in-the-finger-lakes">HIGH-END PROMPT #2: Building a Year-Round, Community-Centered Tourism Experience in the Finger Lakes</h2>
+<pre contenteditable="false" class="language-none drg-code">
+Develop a distinctive, year-round tourism experience that attracts visitors across all seasons while authentically supporting local small businesses, farmers, artisans, and communities - not extracting value from them.
+
+<br /><br />
+
+Create a comprehensive tourism experience design that includes signature offerings for each season, partnership strategies with local businesses, marketing positioning, revenue models, and community benefit mechanisms.
+
+<br /><br />
+
+You are an experienced tourism strategist with expertise in sustainable destination development, rural economic development, experiential travel design, and building authentic community partnerships. You understand both the business imperatives and the responsibility to preserve community character.
+
+<br /><br />
+
+The Finger Lakes area has tremendous seasonal variability - summer wine tourism is strong, but fall-winter-spring visitor traffic drops significantly, leaving small businesses vulnerable. Many tourism dollars leak out of the region through chain hotels and corporate operators. There's growing traveler interest in authentic, locally-rooted experiences rather than generic tourism products. Local communities are wary of over-tourism and cultural commodification. Small independent businesses (wineries, farms, galleries, restaurants, lodges) lack coordination and marketing reach individually.
+
+<br /><br />
+
+Present your experience design as: a year-round experience framework with specific seasonal offerings for each quarter, three to four strategic partnerships you'd establish with local businesses (showing how mutual benefit works), a positioning/marketing narrative that differentiates this from generic Finger Lakes tourism, a sustainable revenue model showing how money cycles through the local economy, and one concrete pilot project for the next 9 months.
+
+<br /><br />
+
+Your audience includes skeptical small business owners who've been burned by tourism promises, community leaders concerned about preservation, potential investors/partners, and increasingly sophisticated travelers seeking authentic experiences. Some are tech-savvy, others prefer word-of-mouth and traditional marketing. All want to see tangible local benefit.
+
+<br /><br />
+
+Grounded and realistic - celebrate what makes the Finger Lakes genuinely distinctive without romanticizing rural life. Show respect for both business viability and community wellbeing. Be transparent about trade-offs and challenges.
+
+<br /><br />
+
+The experience should launch core offerings within 6-9 months and demonstrate meaningful visitor engagement and local business revenue impact within 12 months.
+
+<br /><br />
+
+Do not suggest solutions that commodify or exploit local culture or natural resources. Avoid strategies that prioritize visitor volume over visitor quality or community capacity. Do not recommend extractive models (franchise operations, outside ownership, corporate consolidation). Ensure accessibility for visitors with disabilities and varying economic means. Include at least two offerings that actively engage visitors with local environmental stewardship or community contribution. Do not rely solely on wine tourism - create genuine diversification. All partnerships must show clear, measurable benefit flowing back to local small business owners and communities, not just to the tourism operator.
+
+</pre><br />
+
+<h2 id="high-end-prompt-3transforming-food-insecurity-response-in-rochester-from-emergency-aid-to-economic-resilience">HIGH-END PROMPT #3:Transforming Food Insecurity Response in Rochester from Emergency Aid to Economic Resilience</h2>
+<pre contenteditable="false" class="language-none drg-code">
+Design an integrated food insecurity initiative that moves beyond emergency distribution toward building sustainable economic resilience, community food sovereignty, and systemic change - while meeting immediate survival needs.
+
+<br /><br />
+
+Develop a comprehensive program blueprint that addresses both urgent food access and underlying economic barriers, including specific interventions, community partnerships, measurement strategies, and a 24-month implementation roadmap.
+
+<br /><br />
+
+You are an experienced community development strategist with expertise in food systems, anti-poverty work, community organizing, economic justice, and systems-level change. You understand Rochester's specific neighborhood dynamics, existing non-profit landscape, and the lived experience of food insecurity across the city's diverse communities.
+
+<br /><br />
+
+Rochester has deep food insecurity rooted in poverty, unemployment, housing instability, and transportation barriers - not just lack of charity. Many neighborhoods lack fresh food access. Existing aid (food pantries, soup kitchens) saves lives but doesn't address root causes. Community members often experience fragmented services and loss of dignity. There's siloing among non-profits and insufficient coordination with employers, schools, and other systems. Winter weather compounds challenges. Families need reliable, year-round solutions tied to economic opportunity, not temporary patches.
+
+<br /><br />
+
+Present your initiative as: a tiered intervention model (emergency response + medium-term stability + long-term economic resilience), three to four specific programs that address different population segments or barriers, a community partnership strategy showing how existing organizations coordinate rather than duplicate, a measurement framework that tracks both immediate food access and longer-term economic indicators, concrete workforce/economic opportunity connections, and a detailed implementation plan for months 1-6.
+
+<br /><br />
+
+Your audience includes non-profit leaders (sometimes protective of turf), city officials with budget constraints, community members with lived experience of food insecurity, employers skeptical about hiring from vulnerable populations, foundation officers seeking measurable impact, and faith communities active in service. Perspectives range from those focused on emergency aid to those pushing for systemic change. All want to see both immediate relief and genuine progress.
+
+<br /><br />
+
+Grounded in dignity and respect for community expertise. Acknowledge that food insecurity is not a personal failing but a systems failure. Show ambitious vision while being realistic about constraints. Center the voices and agency of people with lived experience, not just professional expertise.
+
+<br /><br />
+
+Launch pilot interventions within 3-4 months, demonstrate measurable food security improvement within 12 months, and show movement toward economic stability indicators (employment, income, housing security) within 24 months.
+
+<br /><br />
+
+Do not propose solutions that increase surveillance, shame, or bureaucratic burden on recipients. Avoid charity-model thinking; prioritize approaches that build power and agency. Do not suggest programs that fragment services further - integrate across existing non-profit ecosystems. Ensure culturally appropriate food access that respects community preferences and heritage. Include at least three programs/elements that connect directly to employment, income-building, or economic opportunity (not just food distribution). Do not recommend solutions that work only seasonally or require perfect weather/transportation. Address both food access and interconnected barriers (transportation, childcare, housing, health). Any technology solutions must be accessible to people with limited digital literacy or connectivity. All measurements should include indicators chosen by community members, not just institutional metrics.
+
+</pre><br />
+
+<p>Have fun with some sweet, sweet prompting knowledge!</p>
+<p><br /><br /></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>

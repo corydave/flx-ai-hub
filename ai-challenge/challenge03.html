@@ -1,0 +1,290 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<br />
+
+<h1 class="jumbotron">
+                         Prompt Refinement
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Transforming a generic answer into something useful</li>
+<li>Crafting precise, tailored prompts</li>
+<li>Getting more accurate responses</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>Prompt refinement is a game changer when working with AI. By starting with a basic question and then adding context, detail, and desired outputs, you can dramatically improve the quality of the responses. This exercise will show you how clear, specific prompts produce detailed answers that can help you every day.</p>
+<br />
+
+<div class="embed-responsive embed-responsive-16by9 rounded drg-rounded" style="border-radius: 15px !important;">
+<iframe class="embed-responsive-item rounded drg-rounded" style="border-radius: 15px !important;" width="560" height="315" src="https://www.youtube.com/embed/8uI8Yo_3y9I?si=Zz9zHR1tCSOvyb1l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 15px !important;"></iframe></div>
+<br />
+
+<h1 id="activity-1-the-basic-prompt">Activity #1: The Basic Prompt</h1>
+<p><strong>Ask a very broad question.</strong></p>
+<p>Choose a topic relevant to your work (e.g., lesson planning, student engagement, industry research, campus events, etc.):</p>
+<pre contenteditable="false" class="language-none drg-code">
+List 10 student involvement activities.
+</pre><p>or</p>
+<pre contenteditable="false" class="language-none drg-code">
+
+Help me create an engaging learning environment.
+
+</pre><p>or</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please give me tips when talking about financial aid.
+</pre><p><br /><br /></p>
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-8 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<center>
+
+<p><strong>Run your prompt and review the output.</strong></p>
+<p>Expect a broad, generic response.</p>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+<p><br /><br /></p>
+<h1 id="activity-2-the-refined-prompt">Activity #2: The Refined Prompt</h1>
+<p>When using AI tools, <em>context is king</em>. AI wants to help you, but you need to paint a portrait with as much detail as you can to elicit high-quality responses. The more details you can provide, the better the response will be. Add the following information to your prompt:</p>
+<ul>
+<li><p><strong>Context:</strong> Provide background details that situate the question or task.</p>
+</li>
+<li><p><strong>Details:</strong> Mention specific elements you want included in the response.</p>
+</li>
+<li><p><strong>Constraints:</strong> Identify any limitations or requirements for your situation.</p>
+</li>
+<li><p><strong>Output:</strong> Specify the desired response length, format, style, tone, etc.</p>
+</li>
+<li><p><strong>Perspective:</strong> Providing a desired point of view helps frame the answer.</p>
+</li>
+</ul>
+<p>In the following example, the main point of the prompt is to have AI help <strong>create an engaging learning environment</strong> - notice the details that accompany the prompt:</p>
+<br />
+
+<pre contenteditable="false" class="language-none drg-code">
+I am an English professor at a community college teaching a first-year composition class.
+
+<br /><br />
+
+I have a class of 20 students that meets for 50 minutes, three times a week in a traditional in-person classroom. It has a whiteboard, projector, and moveable desks. 
+
+<br /><br />
+
+It is a shared classroom that I cannot personalize and must leave exactly as I find it each day.
+
+<br /><br />
+
+Help me create an engaging learning environment. As output, I’d like a list of zero-cost solutions that I can implement as soon as next week. 
+
+<br /><br />
+
+In particular, I’d like to see how changes to the physical space and sequence of instructional activities can improve student participation and class discussion. 
+
+<br /><br />
+
+Think about this from the perspective of first-year students who may be experiencing mid-semester fatigue and burnout.
+
+<br /><br />
+
+For each listed suggestion, explain how I can quickly implement it into the classroom and what underlying challenges to student engagement the solution addresses.
+</pre><p><br /><br /></p>
+<div><div class="row mx-1 mb-4 justify-content-md-center">
+<div class="col-md-8 rounded accentOutline center-column">
+<div class="rounded px-2 py-1">
+<center>
+
+<p><strong>Run this prompt and review the output.</strong></p>
+<p>Expect something actionable and insightful!</p>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+<br />
+
+<hr>
+<br />
+
+<h1 id="activity-3-continue-the-conversation">Activity #3: Continue the Conversation</h1>
+<p>Once your refined prompts return actionable responses, it’s time to use those results even more. Each conversation (&quot;chat&quot;) that you have with AI is contextual. AI will remember what is said previously in the chat and continue to reference that information with subsequent queries in the same chat.</p>
+<p><strong>Ask for specific uses of that information.</strong></p>
+<pre contenteditable="false" class="language-none drg-code">
+Turn these ideas into a one-page PDF reference sheet I can share with colleagues.
+</pre><p><br /><br /></p>
+<p><strong>Ask to apply the general principles to a specific situation.</strong></p>
+<pre contenteditable="false" class="language-none drg-code">
+My next lesson is focused on assessing the quality of a research paper source. I have a sample source to share with my students and each student was asked to find one source related to their own research topic. Identify which of these solutions is best fit for this lesson and provide an outline for the 50-minute session.
+</pre><p><br /><br /></p>
+<p><strong>Explore different perspectives.</strong></p>
+<pre contenteditable="false" class="language-none drg-code">
+I also teach this class in an asynchronous online format with a different group of students. I like the two classes to have roughly the same experience despite the difference in modality. How can we repurpose and adapt the strategies used in a face-to-face classroom for an engaging asynchronous experience? Since they do not meet together at a specific time or place, group work is challenging, but I still want the students to benefit from a sense of shared learning.
+</pre><p><br /><br /></p>
+<center>
+
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1RidI0hidThZp8hC2v3pr7iN7p_MIQ521" alt="A screenshot of a ChatGPT prompting session" style="border: 2px solid red; width:60% !important;" > 
+<a target='_blank' href="https://chatgpt.com/share/67eff833-eebc-800b-b5a6-3b20e98baa1e">See results using these exact prompts with ChatGPT.</a></p>
+</center>
+
+<p><br /><br /></p>
+<h1 id="reflection-questions">Reflection Questions</h1>
+<ul>
+<li>What differences did you notice between the generic and refined responses?</li>
+<li>Which specific details in your refined prompt improved the output the most?</li>
+<li>How might this prompt refinement technique be applied to your daily tasks?</li>
+<li>When would exploring multiple perspectives enhance your prompt response?</li>
+</ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>
+

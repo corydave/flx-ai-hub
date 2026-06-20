@@ -1,0 +1,224 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<h1 class="jumbotron">
+                         AI as a Writing Coach
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Save time on writing and reviewing your communications</li>
+<li>Receive real-time feedback and suggestions to improve your writing</li>
+<li>Enhance your editing skills by comparing the original and revised drafts</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>This challenge will show you how AI can serve as a valuable writing coach. By using AI to review and suggest improvements, you’ll learn how to refine your professional documents — whether they are emails, reports, proposals, or newsletters.</p>
+<br />
+
+<h1 id="activity-1-getting-feedback-on-your-draft">Activity #1: Getting Feedback on Your Draft</h1>
+<p><strong>Copy a draft communication into your AI tool</strong></p>
+<p>Do not upload protected data, personal information, or anything you wouldn’t share publicly. Consider reviewing emails going to a public audience, reports, proposals, newsletters, course announcements, presentations, or marketing copy.</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please review the following document for clarity, tone, and structure. Provide feedback and suggestions for improvement:
+
+<br /><br />
+
+[COPY IN DRAFT COMMUNICATION]
+</pre><br />
+
+<p><strong>Identify Key Areas for Revision</strong></p>
+<p>From the AI’s feedback, select two or three specific aspects to improve. Depending on the AI tool, prompt, and document reviewed, you may see a list of improvements and suggested rewritten text.</p>
+<p><br /><br /></p>
+<h1 id="activity-2-targeted-revisions-and-enhanced-feedback">Activity #2: Targeted Revisions and Enhanced Feedback</h1>
+<p><strong>Refine the prompt to request more specific feedback (see challenge #2)</strong></p>
+<p>Providing context, details, constraints, output, and perspective helps the AI produce feedback directly related to your current communication needs.</p>
+<pre contenteditable="false" class="language-none drg-code">
+I am writing the standard operating procedures for the workflow in my office. Specifically, the task is how to handle inbound messages in a shared mailbox.
+<br /><br />
+The goal is to ensure that all the people who have access to the mailbox are checking it three times a day, answering emails when it is applicable to them, and covering for others when they are out.
+<br /><br />
+The primary audience is the people who have access to the mailbox (probably around six). Each employee has a specific skillet and should be answering emails pertinent to their domain. In the event that an email is unclassifiable, the first person to encounter it should send a message to everyone else on the team and ask who should be the primary person to respond.
+<br /><br />
+The SOP should be fun, relevant, and easy to follow.
+<br /><br />
+Rate the quality of my work and then propose edits that will strengthen this content.
+<br /><br />
+Pay attention to the readability of the instructions and how beginner-friendly the step-by-step instructions are. 
+
+<br /><br />
+
+[COPY IN DRAFT COMMUNICATION]
+</pre><br />
+
+<p><strong>Review the response, apply suggestions, and repeat as desired</strong></p>
+<p>Reflect on the improvements and decide if further refinements are needed.</p>
+<p><br /><br /></p>
+<h1 id="activity-3-exploring-different-audience-perspectives">Activity #3: Exploring Different Audience Perspectives</h1>
+<p><strong>Ask the AI to review your document from multiple perspectives</strong></p>
+<p>This can help you repurpose communications for a new audience and ensure your message is optimized for a specific population.</p>
+<pre contenteditable="false" class="language-none drg-code">
+I’m concerned that employees might not see the relevance of this SOP to their workflow. Can you suggest examples and revised instructions that will further engage them and explain the rationale?
+</pre><pre contenteditable="false" class="language-none drg-code">
+The IT Department is concerned that employees may copy sensitive data into their responses. Please help me create a data security and responsible use warning.
+</pre><pre contenteditable="false" class="language-none drg-code">
+I’d like to repurpose this SOP for our summer interns - they are typically first-year college students. Please rewrite the exercise with this audience in mind.
+</pre><br />
+
+<p><strong>Edit your draft based on the selected suggestions</strong></p>
+<p>Compare the before and after versions to see how your communication has improved.</p>
+<p><br /><br /></p>
+<h1 id="reflection-questions">Reflection Questions</h1>
+<ul>
+<li>What kind of changes did the AI suggest?</li>
+<li>Did the AI suggestions enhance your document&#39;s quality?</li>
+<li>How did specifying a perspective change the feedback you received?</li>
+<li>Where would AI-assisted editing be useful in your own professional life?</li>
+</ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>

@@ -1,0 +1,241 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/styles.min.css">
+   <link rel="stylesheet" href="https://www.aichallenges.org/md/css/custom.css">
+</head>
+<style>
+  code {
+    background-color: #f5f2f0;
+    color: #000;
+    border-radius: .25em;
+    padding: 0 .25em 0 .25em;
+}
+  .h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+.h2, h2 {
+    color: #0046AD;
+}
+.accentColor .h2, .accentColor h2 {
+    color: #f7f7f7;
+}
+.accentDark .h2, .accentDark h2 {
+    color: #e9e9e9;
+}
+.two-col-panels .card .card-body h2 {
+    color: #0046AD;
+    margin-top: 0px;
+}
+
+  .accentOutline {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+}
+.accentColor {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.accentColor h1, .accentColor h2, .accentColor h3, .accentColor h4, .accentColor h5, .accentColor h6 {
+    color: #f7f7f7;
+} 
+.accentColor a  {
+    color: #cef;
+    border-color: #cef;
+    font-weight: bold;
+    border-bottom-width: 2px;
+}
+.jumbotron {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+.jumbotron a {
+    color: #f7f7f7;
+    border-color: #cef;
+}
+
+.accentDark {
+    background-color: #555;
+    color: #e9e9e9;
+}
+.accentDark h1, .accentDark h2, .accentDark h3, .accentDark h4, .accentDark h5, .accentDark h6 {
+    color: #e9e9e9;
+} 
+.accentDark a {
+    color: lightblue;
+    border-color: lightblue;
+}
+.accentLite {
+    background-color: #e3e9f1;
+    color: black;
+}
+.accentLite h1, .accentLite .h1, .accentLite h3, .accentLite .h3, .accentLite h4, .accentLite .h4, .accentLite h5, .accentLite .h5, .accentLite h6, .accentLite .h6 {
+    color: black;
+} 
+.accentLite h2, .accentLite .h2 {
+    color: #0046AD;
+}
+
+.card-graphic {
+    border-color: #0046AD;
+}
+
+.card-graphic .card-body .card-icon .fa,
+.card-graphic .card-body .card-icon .fas, 
+.card-graphic .card-body .card-icon .fab {
+    font-size: 3.125rem;
+    min-width: 5.313rem;
+    text-align: center;
+    color: #0046AD;
+}
+
+ol.large-number li:before {
+    color: #0046AD;
+}
+
+ol.box-number li:before,
+ol.box-alpha li:before {
+    background-color: #0046AD;
+    color: #f7f7f7;
+}
+
+  /*
+    .center-column {
+    border-width: 3px; 
+    border-style: solid;
+    border-radius: .25em;
+    border-color: #0046AD;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+*/
+  .table-responsive td,
+.table-responsive tr,
+.table-responsive caption {
+    background-color: #fff;
+}
+  .col, .col-1, .col-10, .col-11, .col-12, 
+.col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, 
+.col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, 
+.col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, 
+.col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, 
+.col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, 
+.col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, 
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+.col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, 
+.col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, 
+.col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+</style>
+
+<body>
+
+<div class="container-fluid">
+<br />
+
+<h1 class="jumbotron">
+                         What <em>is</em> AI?
+                    </h1>
+<h1 id="what-we-think-youll-love">What we think you&#39;ll love</h1>
+<ul>
+<li>Setting up accounts at some popular AI sites</li>
+<li>Understanding the layout of AI services</li>
+<li>Having some fun with AI</li>
+<li>Practicing the &quot;back-and-forth&quot; mentality of AI</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p><em>Artificial Intelligence (AI)</em> is the ability for a computer to perform tasks that are considered human-like. These tasks include offering insight from large data sources, engaging in realistic conversations, and generating text and images.</p>
+<p>You probably have heard of ChatGPT - it became very popular near the end of 2022. ChatGPT (and other services like it) are known as <em>generative AI</em> because they can generate responses. We&#39;ll learn more about generative AI, large language models (LLMs) and other nerdy AI topics later. For right now, let&#39;s just dig in! </p>
+<br />
+
+<div class="embed-responsive embed-responsive-16by9 rounded drg-rounded" style="border-radius: 15px !important;">
+<iframe class="embed-responsive-item rounded drg-rounded" style="border-radius: 15px !important;" width="560" height="315" src="https://www.youtube.com/embed/lXzQoMABGHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<br />
+
+<h1 id="activity-1-set-up-an-account-or-two">Activity #1: Set up an account (or two!)</h1>
+<p>Let&#39;s look at the five most popular sites for using AI. You should create a free account at one (or more!) of the following services; each one has a particular strength. Note that most of these companies are improving their services all the time; the following descriptions are accurate at the time of writing (March, 2025) and are subject to change.</p>
+<p>All of the AI services listed have a free tier - that&#39;s all you need for this challenge; you may decide later that you&#39;d like to pay for one of them. While some of these services do not require an account, you may not be able to access all the features if you don&#39;t create an account.</p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1FiYD8T6yYWcHwllk8Dt5lbK_5uErj_eY=w320" alt="0 Open AI ChatGPT Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://chat.openai.com/">ChatGPT</a> (by OpenAI) is probably the most well-known AI AI service. The strength of ChatGPT is that it is a very powerful general purpose AI service. You can use it for general questions, help analyzing documents and data, and creating images.</p>
+<p><br /><br /></p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1IZbe7fkRaxUluauaM7Euj0uHggTSlEHc=w320" alt="0 Google Gemini Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://gemini.google.com/">Gemini</a> (by Google) is also a very powerful generic AI service. The images Gemini creates are excellent. Gemini also ties into all your Google services (Google Docs, Gmail, etc.).</p>
+<p><br /><br /></p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1UKfsR_IOUTiOyD-3_xZwPsOIcKdIxcrc=w320" alt="0 Anthropic Claude Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://claude.ai/chat/">Claude</a> (by Anthropic) is known for its conversation, literary expertise, and its coding prowess. If you have any need for developing code (we&#39;ll explore vibe coding later on - no coding experience necessary!), Claude is for you. Claude can not make images, though it can make rudimentary illustrations.</p>
+<p><br /><br /></p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1aIEWLGq23VCoQdcwrDBLRKUQvVO_HAg_=w320" alt="0 Perplexity Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://www.perplexity.ai/">Perplexity</a> is probably the best AI service when it comes to facts. Perplexity is known for providing comprehensive citations for any text it generates. This helps mitigate hallucinations (AI services are known to make up information and we call those <em>hallucinations</em>). Perplexity cannot make images.</p>
+<p><br /><br /></p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1bqpQku4uOHpEAc5MSM_0BblI_EfjAK8Z=w320" alt="0 Meta Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://www.meta.ai/">MetaAI</a> (by Meta, formerly Facebook) seems to be the most creative AI service especially when it comes to image generation. You can log in to Meta with a Facebook account or Instagram account.</p>
+<p><br /><br /></p>
+<p><img class="img-fluid rounded mx-auto d-block" style="margin-bottom: .5em;  "  src="https://lh3.googleusercontent.com/d/1ENILlH8vew0c2JYPp_s5Du8KevvAdgro=w320" alt="0 Microsoft Copilot Logo" style="border: 2px solid red; width:60% !important;" > </p>
+<p><a target='_blank' href="https://copilot.microsoft.com/">Copilot</a> (by Microsoft) comes with every Microsoft account. The free version is somewhat limited.</p>
+<p><br /><br /><br /></p>
+<p>You should set up an account with at least one of these services. If you don&#39;t have a preference right now, we recommend ChatGPT and Gemini. After you get some AI experience under your belt you might want to try more of the services.</p>
+<br />
+
+<hr>
+<br />
+
+<h1 id="activity-2-understand-the-anatomy-of-an-ai-service">Activity #2: Understand the anatomy of an AI service</h1>
+<p>Most AI services have a very similar layout. The diagram below captures the pieces you&#39;ll initially need to know. Some services have things in slightly different spots and have more features, but generally speaking this should get you going.</p>
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQyusLLfN2UpSHBLRva0fF-2DHLARvTWI7UtGHAI74ipIRUFLQSCCvZGbDpfVXCq6BhbYLi2ecAKLY4/pub?w=1140&amp;h=785" alt="A typical layout for an AI service.">
+
+<ol>
+<li><p>The left navigation pane houses previous conversations. You can typically revisit past conversations (and pick up right where you left off!).</p>
+</li>
+<li><p>Most AI services have a way to select the &quot;model&quot; you are using. This typically means the version of the AI services. Usually the different versions have a tradeoff (speed for depth and accuracy). While we&#39;re just getting started, the default model is fine.</p>
+</li>
+<li><p>Your account is usually accessed through this avatar. Just boring administrative stuff.</p>
+</li>
+<li><p>The main part of the screen is where the current conversation happens. You&#39;ll be able to see the chat history of what you&#39;ve typed and how the AI has responded. This chat includes images that have been generated.</p>
+</li>
+<li><p>The bottom text box is where you type your <em>prompt</em> for AI. The text you type (to ask questions or direct the AI to do something) is called a prompt. The more specific it is, the better a response you&#39;ll get.</p>
+</li>
+<li><p>More administrative stuff here - sometimes this is where you access your profile (instead of the avatar in the upper right).</p>
+</li>
+</ol>
+<br />
+
+<hr>
+<br />
+
+<h1 id="activity-3-have-some-fun">Activity #3: Have some fun</h1>
+<p>Let&#39;s dig right in! By now  you should have an account with one of the AI services. Once you go through any orientation that they might provide, you should start your first chat. Most of the services have one text box right in the middle of the screen; this is used for starting a conversation. Click into it and give it a prompt. After you do, the screen will look more like a chat (the text box moves to the bottom).</p>
+<p>There are a lot of idioms in our language. &quot;Break a leg&quot; means to wish someone luck. &quot;Once in a blue moon&quot; means that something happens very rarely.</p>
+<p>Let&#39;s have the AI create some fun, fake idioms. You can use the prompt below or modify it with your own language:</p>
+<pre contenteditable="false" class="language-none drg-code">
+Please generate a list of 20 fictitious idioms.
+</pre><br />
+
+<p>Hopefully the AI  was able to generate a few good ones. </p>
+<p>Now comes the cool part! Up recently, we would go to Google and ask a question. Google would give us an answer and we&#39;d go on our way. Unlike typical search engines, you can continue the conversation with AI! Pick one or two that you like and ask AI to generate more idioms like it. You can refer to the previous response from AI and it will know what you mean.</p>
+<p>For instance, you might try:</p>
+<pre contenteditable="false" class="language-none drg-code">
+Oh! I like #4 and # 18. Please generate more idioms that are similar to them.
+</pre><br />
+
+<p>You can keep this conversation alive and ask for more idioms or ask AI to generate idioms related to something specific.</p>
+<p>Enjoy the rest of your day, and don&#39;t be afraid to poke around a bit more with AI!</p>
+<br />
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/popper.min.js"></script>
+<script src="https://www.aichallenges.org/md/js/bootstrap.min.js"></script>
+<!-- Template JavaScript -->
+<script src="https://www.aichallenges.org/md/js/scripts.min.js"></script>
+</body></html>
