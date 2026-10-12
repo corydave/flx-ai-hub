@@ -1,6 +1,6 @@
 # Image checklist
 
-The website looks for every picture in the `images/` folder. **Two pictures are still missing** (marked ☐ below): `what-is-ai-perplexity-logo.png` and `notebooklm-change-title.png`. Until they are saved under those names, they show as broken images on the page.
+The website looks for every picture in the `images/` folder. **All of them are in place** (✅ below). This list records each picture's name and where it originally came from, in case one ever needs to be replaced.
 
 ## How to download
 
@@ -10,7 +10,7 @@ The website looks for every picture in the `images/` folder. **Two pictures are 
 - **Every name ends in `.png`.** If a picture downloads as `.jpg` or `.webp`, either convert it to PNG or save it as it is and change its name in `index.html` to match.
 - **Card pictures are 400 × 300 pixels.** Other pictures can be any size; the page shrinks them to fit.
 
-Tick each one off as you go.
+
 
 ## Card pictures (400 × 300)
 
@@ -35,7 +35,7 @@ Tick each one off as you go.
 | ✅ | `what-is-ai-chatgpt-logo.png` | What is AI? | ChatGPT logo | https://lh3.googleusercontent.com/d/1FiYD8T6yYWcHwllk8Dt5lbK_5uErj_eY |
 | ✅ | `what-is-ai-gemini-logo.png` | What is AI? | Google Gemini logo | https://lh3.googleusercontent.com/d/1IZbe7fkRaxUluauaM7Euj0uHggTSlEHc |
 | ✅ | `what-is-ai-claude-logo.png` | What is AI? | Anthropic Claude logo | https://lh3.googleusercontent.com/d/1UKfsR_IOUTiOyD-3_xZwPsOIcKdIxcrc |
-| ☐ | `what-is-ai-perplexity-logo.png` | What is AI? | Perplexity logo | https://lh3.googleusercontent.com/d/1aIEWLGq23VCoQdcwrDBLRKUQvVO_HAg_ |
+| ✅ | `what-is-ai-perplexity-logo.png` | What is AI? | Perplexity logo | https://lh3.googleusercontent.com/d/1aIEWLGq23VCoQdcwrDBLRKUQvVO_HAg_ |
 | ✅ | `what-is-ai-meta-ai-logo.png` | What is AI? | Meta logo | https://lh3.googleusercontent.com/d/1bqpQku4uOHpEAc5MSM_0BblI_EfjAK8Z |
 | ✅ | `what-is-ai-copilot-logo.png` | What is AI? | Microsoft Copilot logo | https://lh3.googleusercontent.com/d/1ENILlH8vew0c2JYPp_s5Du8KevvAdgro |
 | ✅ | `what-is-ai-service-layout.png` | What is AI? | Diagram of a typical AI service's layout | https://docs.google.com/drawings/d/e/2PACX-1vQyusLLfN2UpSHBLRva0fF-2DHLARvTWI7UtGHAI74ipIRUFLQSCCvZGbDpfVXCq6BhbYLi2ecAKLY4/pub |
@@ -46,7 +46,7 @@ Tick each one off as you go.
 | ✅ | `imagine-images-claymation-lions.png` | Imagine Images | Claymation lions | https://lh3.googleusercontent.com/d/1ofpoWgVqwdz70n7g6AcDrZM445NXfpuH |
 | ✅ | `imagine-images-claymation-lions-night.png` | Imagine Images | Claymation lions at night | https://lh3.googleusercontent.com/d/1z7PEt_VUVckS4tmiGmY6zhXOEz1HCDtd |
 | ✅ | `notebooklm-layout.png` | NotebookLM | NotebookLM's three panes | https://docs.google.com/drawings/d/e/2PACX-1vRvjWizIN7rBtktEEymUn5rDU40EniSjl3R9eyhvLiyHzXPjBh_iyXyr_LbsJvjGN0DouqKf1CDaYZh/pub |
-| ☐ | `notebooklm-change-title.png` | NotebookLM | Where to change a notebook's title | https://docs.google.com/drawings/d/e/2PACX-1vTg56dqpyXfblNt8WaAj8PZ0zupO6KQYj8aT4Z7r3xwZjmc7CUcQAycIMX_L0Znb6g45BOacPfmPUCT/pub |
+| ✅ | `notebooklm-change-title.png` | NotebookLM | Where to change a notebook's title | https://docs.google.com/drawings/d/e/2PACX-1vTg56dqpyXfblNt8WaAj8PZ0zupO6KQYj8aT4Z7r3xwZjmc7CUcQAycIMX_L0Znb6g45BOacPfmPUCT/pub |
 | ✅ | `notebooklm-flashcards.png` | NotebookLM | The Flashcards feature | https://docs.google.com/drawings/d/e/2PACX-1vR0OFiClmBA7VX3rg-rnnKEw8RgGJwvv2mv4s6PfTbrhmuiKfMUJzNCwru9jhKem1PEayuJbigy3JKH/pub |
 | ✅ | `notebooklm-procrastination-infographic.png` | NotebookLM | "The Procrastinator's Brain" infographic | https://docs.google.com/drawings/d/e/2PACX-1vQRpMfM6rbyuCYWz-5jsNipTsAudw9NMAA363ymh4kjHLrb2v-dBbO5FerkAbgiCLhSfwaPrU86C5-O/pub |
 | ✅ | `voice-mode-microphone-buttons.png` | Voice Mode | Four chat apps with their microphone buttons circled | https://docs.google.com/drawings/d/e/2PACX-1vRAn9nn1EllPw5ygzD1TTTeHM3-5LV4Utz7TTclf9wNDZxH7yfrRmZh4T_krNbUb-flrcaKcdDOFywL/pub |

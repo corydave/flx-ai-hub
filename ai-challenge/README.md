@@ -202,7 +202,6 @@ Because it stores what people share, it needs a PHP-enabled web server and a dat
 
 This project is an early version. Some things still need work:
 
-- **Two pictures are still missing from `images/`:** `what-is-ai-perplexity-logo.png` and `notebooklm-change-title.png`. They show as broken images until they are added. See [IMAGES.md](IMAGES.md).
 - **Some challenges embed content from other companies.** See the privacy section above.
 
 ---
