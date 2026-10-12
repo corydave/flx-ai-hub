@@ -40,7 +40,7 @@
           Console, and copy the new "sha256-..." value from the error shown
           there into this line.
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-5vGfNIfT2SS1TYXNcbOpevURk1YaK4qgiNO1WMCnNbc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://script.google.com https://corydave.github.io https://docs.google.com https://drive.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-FSKpkbTL/D6z65CuMsx21imrn0MtSZAmkn98cAKiIpo='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://script.google.com https://corydave.github.io https://docs.google.com https://drive.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
     <!-- The font used across the site (Comfortaa, from Google Fonts) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
@@ -360,7 +360,7 @@
         }
 
         .privacy-list li {
-            margin-bottom: 10px;
+            margin-bottom: 18px;
         }
 
         .site-footer {
@@ -543,6 +543,11 @@
             border-radius: 15px;
         }
 
+        /* Lists inside a challenge: a little space between items */
+        .dialog-body li {
+            margin-bottom: 0.6rem;
+        }
+
         /* <pre class="prompt">: a sample prompt to copy into an AI tool */
         .prompt {
             margin: 1rem 0;
@@ -554,6 +559,42 @@
             font-size: 0.95rem;
             white-space: pre-wrap;        /* long lines wrap instead of scrolling */
             overflow-wrap: anywhere;
+        }
+
+        /* The script wraps each prompt in a box with a Copy button in its
+           top-right corner. The prompt gets extra room on the right so its
+           text never runs under the button. */
+        .prompt-box {
+            position: relative;
+        }
+
+        .prompt-box .prompt {
+            padding-right: 56px;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background: var(--light-gray);
+        }
+
+        .copy-button svg {
+            width: 22px;
+            height: 22px;
         }
 
         /* <div class="callout">: a highlighted box */
@@ -647,6 +688,7 @@
             <button type="button" class="close-x" data-close aria-label="Close">&times;</button>
         </div>
         <div class="dialog-body" id="dialog-body" tabindex="0"></div>
+        <p class="visually-hidden" id="copy-status" aria-live="polite"></p>
         <div class="dialog-footer">
             <button type="button" class="close-button" data-close>Close</button>
         </div>
@@ -674,6 +716,7 @@
                An embedded tool, as tall as its height setting.
            <pre class="prompt">...</pre>
                A sample prompt. Line breaks are kept exactly as typed.
+               The script adds a Copy button to it automatically.
            <div class="callout">...</div>
                A highlighted box.
 
@@ -1500,6 +1543,13 @@
         const dialog = document.getElementById("challenge-dialog");
         const dialogTitle = document.getElementById("dialog-title");
         const dialogBody = document.getElementById("dialog-body");
+        const copyStatus = document.getElementById("copy-status");
+
+        // The two icons used on the Copy buttons (a clipboard, and a tick
+        // shown for a moment after copying). These are fixed drawings
+        // written here, not text from anywhere else.
+        const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+        const DONE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12l5 5L20 6"></path></svg>';
 
         // Remembers which card opened the pop-up, so focus can go back to it
         let openedFrom = null;
@@ -1568,6 +1618,9 @@
                 link.append(note);
             });
 
+            // Give each sample prompt a Copy button
+            dialogBody.querySelectorAll("pre.prompt").forEach(addCopyButton);
+
             // Under each YouTube video, add a link to watch it on YouTube
             // (handy if the embedded player does not work for someone)
             dialogBody.querySelectorAll('.video iframe[src*="youtube"]').forEach(function (frame) {
@@ -1585,6 +1638,69 @@
 
             dialog.showModal();
             dialogBody.scrollTop = 0;
+        }
+
+        // ---------------------------------------------------------------
+        // Copy buttons for sample prompts
+        // ---------------------------------------------------------------
+        function addCopyButton(prompt) {
+            // Put the prompt in a box, so the button can sit in its corner
+            const box = document.createElement("div");
+            box.className = "prompt-box";
+            prompt.before(box);
+            box.append(prompt);
+
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "copy-button";
+            button.setAttribute("aria-label", "Copy prompt");
+            button.title = "Copy prompt";
+            button.innerHTML = COPY_ICON;
+            button.addEventListener("click", function () {
+                copyText(prompt.textContent).then(function () {
+                    // Show a tick for two seconds, and tell screen reader users
+                    button.innerHTML = DONE_ICON;
+                    copyStatus.textContent = "Prompt copied";
+                    setTimeout(function () {
+                        button.innerHTML = COPY_ICON;
+                        copyStatus.textContent = "";
+                    }, 2000);
+                }).catch(function () {
+                    copyStatus.textContent = "Sorry, the prompt could not be copied. Please select the text and copy it yourself.";
+                });
+            });
+            box.append(button);
+        }
+
+        // Copy text to the clipboard. Most browsers support the modern way
+        // (navigator.clipboard). Some only allow it on secure (https) sites,
+        // so if it is missing or refused, fall back to the older way.
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text).catch(function () {
+                    return copyTheOldWay(text);
+                });
+            }
+            return copyTheOldWay(text);
+        }
+
+        function copyTheOldWay(text) {
+            return new Promise(function (resolve, reject) {
+                // Put the text in a hidden text box, select it, and copy it
+                const scratch = document.createElement("textarea");
+                scratch.value = text;
+                scratch.setAttribute("readonly", "");
+                scratch.className = "visually-hidden";
+                dialog.append(scratch);
+                scratch.select();
+                const worked = document.execCommand("copy");
+                scratch.remove();
+                if (worked) {
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
         }
 
         // ---------------------------------------------------------------

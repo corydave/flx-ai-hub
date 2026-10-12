@@ -157,7 +157,7 @@ Inside a challenge, write normal HTML (`<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>`, `<
 |---|---|
 | `<div class="video"><iframe ...></iframe></div>` | A centered video. |
 | `<div class="embed"><iframe ... height="600"></iframe></div>` | An embedded tool, as tall as its `height`. |
-| `<pre class="prompt">...</pre>` | A sample prompt. Line breaks are kept exactly as typed. |
+| `<pre class="prompt">...</pre>` | A sample prompt with a Copy button in its corner (added automatically). Line breaks are kept exactly as typed. |
 | `<div class="callout">...</div>` | A highlighted box. |
 
 A few rules keep the page accessible:
