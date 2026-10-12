@@ -29,6 +29,8 @@
         This line tells the browser which outside websites the page may use.
         Anything not listed is blocked.
 
+        - img-src 'self' means pictures must be in the images/ folder.
+          Pictures linked from other websites are blocked.
         - frame-src lists the sites that embedded videos and tools come from.
           If you embed something from a new site, add that site here.
         - script-src allows only the script at the bottom of this file. The
@@ -38,7 +40,7 @@
           Console, and copy the new "sha256-..." value from the error shown
           there into this line.
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-5vGfNIfT2SS1TYXNcbOpevURk1YaK4qgiNO1WMCnNbc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://script.google.com https://corydave.github.io https://docs.google.com https://drive.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-5vGfNIfT2SS1TYXNcbOpevURk1YaK4qgiNO1WMCnNbc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://script.google.com https://corydave.github.io https://docs.google.com https://drive.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
     <!-- The font used across the site (Comfortaa, from Google Fonts) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
@@ -264,12 +266,14 @@
             outline-offset: 3px;
         }
 
+        /* Card pictures are 400 x 300 pixels (a 4:3 shape). "contain" shows
+           the whole picture, so nothing on it is ever cropped off. */
         .challenge-card img {
             display: block;
             width: 100%;
             height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
         }
 
         .challenge-card h3 {
@@ -530,7 +534,7 @@
     <a class="skip-link" href="#challenges">Skip to the challenges</a>
 
     <header class="site-header">
-        <img src="https://pxl-flccedu.terminalfour.net/prod01/flcc-cdn-pxl/media/flccedu/content-assets/images/branding/logos/finger-lakes-color.svg" alt="Finger Lakes Community College">
+        <img src="images/flcc-logo.svg" alt="Finger Lakes Community College">
     </header>
 
     <main>
@@ -576,7 +580,7 @@
             <ul class="privacy-list">
                 <li><strong>This website does not collect information about you.</strong> It does not use cookies, analytics, sign-ins, or tracking, and it does not record anything you type.</li>
                 <li><strong>Some challenges show content from other companies.</strong> These include YouTube videos, a Spotify episode, Google Drive and Google Docs files, a Google Apps Script tool, and a quiz hosted on a personal GitHub Pages site. That content loads only when you open a challenge that contains it. When it loads, your browser contacts that company, which may set cookies or record your visit under its own privacy policy. YouTube videos use YouTube's privacy-enhanced mode.</li>
-                <li><strong>Some pictures and the font come from other websites.</strong> The font comes from Google Fonts, the logo from the FLCC website, and many pictures from Google Drive. Those services can see your internet address, as any website's host can.</li>
+                <li><strong>The font comes from Google Fonts.</strong> Google can see your internet address when the font loads, as any website's host can. All pictures are stored with this website.</li>
                 <li><strong>The AI tools linked in the challenges are run by their own companies.</strong> Once you leave this website, their terms and privacy policies apply.</li>
                 <li><strong>Think before you share.</strong> Do not paste personal, student, employee, or confidential information into an AI tool unless your organization allows it.</li>
             </ul>
@@ -612,13 +616,14 @@
     <!-- =================================================================
          4. THE CHALLENGES
 
-         Each challenge is one <template> block. The settings at the top
-         of each block control its card:
+         Each challenge is one <template> block, with a large comment box
+         above it showing its name. The settings at the top of each block
+         control its card:
 
            data-title    the challenge's name
            data-summary  one sentence shown on its card
            data-stage    Recognize, Investigate, Supercharge, or Exchange
-           data-image    the picture on its card
+           data-image    the picture on its card (400 x 300, in images/)
 
          Inside each block, write normal HTML. These special pieces are
          styled for you:
@@ -639,12 +644,20 @@
          note for screen reader users automatically.
          ================================================================= -->
 
-    <!-- ========== What is AI? ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                         WHAT IS AI?                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="What is AI?"
         data-summary="Learn about AI, create an account at some popular AI services, and have some fun!"
         data-stage="Recognize"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vRUltIv1LF2MWJx_oHqVfcFdaYcSrMBXdt2YySpV4Cq6zu8mk9J9YvEqfaLr9Nsckkypr_EKuuHcVLz/pub?w=500&h=500">
+        data-image="images/what-is-ai-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -662,23 +675,23 @@
         <h3>Activity #1: Set up an account (or two!)</h3>
         <p>Let's look at the five most popular sites for using AI. You should create a free account at one (or more!) of the following services; each one has a particular strength. Note that most of these companies are improving their services all the time; the following descriptions are accurate at the time of writing (March, 2025) and are subject to change.</p>
         <p>All of the AI services listed have a free tier - that's all you need for this challenge; you may decide later that you'd like to pay for one of them. While some of these services do not require an account, you may not be able to access all the features if you don't create an account.</p>
-        <img src="https://lh3.googleusercontent.com/d/1FiYD8T6yYWcHwllk8Dt5lbK_5uErj_eY=w320" alt="Open AI ChatGPT Logo">
+        <img src="images/what-is-ai-chatgpt-logo.png" alt="Open AI ChatGPT Logo">
         <p><a href="https://chat.openai.com/" target="_blank">ChatGPT</a> (by OpenAI) is probably the most well-known AI service. The strength of ChatGPT is that it is a very powerful general purpose AI service. You can use it for general questions, help analyzing documents and data, and creating images.</p>
-        <img src="https://lh3.googleusercontent.com/d/1IZbe7fkRaxUluauaM7Euj0uHggTSlEHc=w320" alt="Google Gemini Logo">
+        <img src="images/what-is-ai-gemini-logo.png" alt="Google Gemini Logo">
         <p><a href="https://gemini.google.com/" target="_blank">Gemini</a> (by Google) is also a very powerful generic AI service. The images Gemini creates are excellent. Gemini also ties into all your Google services (Google Docs, Gmail, etc.).</p>
-        <img src="https://lh3.googleusercontent.com/d/1UKfsR_IOUTiOyD-3_xZwPsOIcKdIxcrc=w320" alt="Anthropic Claude Logo">
+        <img src="images/what-is-ai-claude-logo.png" alt="Anthropic Claude Logo">
         <p><a href="https://claude.ai/chat/" target="_blank">Claude</a> (by Anthropic) is known for its conversation, literary expertise, and its coding prowess. If you have any need for developing code (we'll explore vibe coding later on - no coding experience necessary!), Claude is for you. Claude can not make images, though it can make rudimentary illustrations.</p>
-        <img src="https://lh3.googleusercontent.com/d/1aIEWLGq23VCoQdcwrDBLRKUQvVO_HAg_=w320" alt="Perplexity Logo">
+        <img src="images/what-is-ai-perplexity-logo.png" alt="Perplexity Logo">
         <p><a href="https://www.perplexity.ai/" target="_blank">Perplexity</a> is probably the best AI service when it comes to facts. Perplexity is known for providing comprehensive citations for any text it generates. This helps mitigate hallucinations (AI services are known to make up information and we call those <em>hallucinations</em>). Perplexity cannot make images.</p>
-        <img src="https://lh3.googleusercontent.com/d/1bqpQku4uOHpEAc5MSM_0BblI_EfjAK8Z=w320" alt="Meta Logo">
+        <img src="images/what-is-ai-meta-ai-logo.png" alt="Meta Logo">
         <p><a href="https://www.meta.ai/" target="_blank">MetaAI</a> (by Meta, formerly Facebook) seems to be the most creative AI service especially when it comes to image generation. You can log in to Meta with a Facebook account or Instagram account.</p>
-        <img src="https://lh3.googleusercontent.com/d/1ENILlH8vew0c2JYPp_s5Du8KevvAdgro=w320" alt="Microsoft Copilot Logo">
+        <img src="images/what-is-ai-copilot-logo.png" alt="Microsoft Copilot Logo">
         <p><a href="https://copilot.microsoft.com/" target="_blank">Copilot</a> (by Microsoft) comes with every Microsoft account. The free version is somewhat limited.</p>
         <p>You should set up an account with at least one of these services. If you don't have a preference right now, we recommend ChatGPT and Gemini. After you get some AI experience under your belt you might want to try more of the services.</p>
         <hr>
         <h3>Activity #2: Understand the anatomy of an AI service</h3>
         <p>Most AI services have a very similar layout. The diagram below captures the pieces you'll initially need to know. Some services have things in slightly different spots and have more features, but generally speaking this should get you going.</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQyusLLfN2UpSHBLRva0fF-2DHLARvTWI7UtGHAI74ipIRUFLQSCCvZGbDpfVXCq6BhbYLi2ecAKLY4/pub?w=1140&h=785" alt="A typical layout for an AI service.">
+        <img src="images/what-is-ai-service-layout.png" alt="A typical layout for an AI service.">
         <ol>
             <li>The left navigation pane houses previous conversations. You can typically revisit past conversations (and pick up right where you left off!).</li>
             <li>Most AI services have a way to select the "model" you are using. This typically means the version of the AI services. Usually the different versions have a tradeoff (speed for depth and accuracy). While we're just getting started, the default model is fine.</li>
@@ -702,12 +715,20 @@
 
     </template>
 
-    <!-- ========== AI or Not? ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                          AI OR NOT?                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="AI or Not?"
         data-summary="Can you tell what was created by a human and what was created by AI?"
         data-stage="Recognize"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vSy1xyG-qAuefOnjfBad5i8rKeLlyDrRzHkh5R8MEN3iR7drkByRekZNaze4V9p-PC6TAb76zwH0je_/pub?w=500&h=500">
+        data-image="images/ai-or-not-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -726,7 +747,7 @@
         </div>
         <h3>Activity #2: Review your Results</h3>
         <p>Once you are done classifying all the content you will see your results. If you click on the thumbnails you'll see more information about that particular content (if it was human or AI and the provenance of that content as well).</p>
-        <img src="https://aichallenges.org/aIorNotResults.gif" alt="Clicking on each item in the results to see more about the item.">
+        <img src="images/ai-or-not-quiz-results.gif" alt="Clicking on each item in the results to see more about the item.">
         <h3>Activity #3: Share your results</h3>
         <p>Please think about sharing your results! Click on the number below that corresponds to how many you got right. This is completely anonymous.</p>
         <p>Once you submit your results you can see how everyone else has done. Note that these stats include <em>everyone</em> who has completed this challenge.</p>
@@ -744,12 +765,20 @@
 
     </template>
 
-    <!-- ========== Prompt Refinement ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                      PROMPT REFINEMENT                       ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Prompt Refinement"
         data-summary="See what a difference a well-crafted prompt can make."
         data-stage="Recognize"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vRqMqL-pNwFOniQXy37W9scrhkfhXCjo3IQl10bZxu2L25e7Bi20u3H-rQxCbP0S9X1tpmdZz7aDrkr/pub?w=500&h=500">
+        data-image="images/prompt-refinement-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -810,7 +839,7 @@
         <pre class="prompt">My next lesson is focused on assessing the quality of a research paper source. I have a sample source to share with my students and each student was asked to find one source related to their own research topic. Identify which of these solutions is best fit for this lesson and provide an outline for the 50-minute session.</pre>
         <p><strong>Explore different perspectives.</strong></p>
         <pre class="prompt">I also teach this class in an asynchronous online format with a different group of students. I like the two classes to have roughly the same experience despite the difference in modality. How can we repurpose and adapt the strategies used in a face-to-face classroom for an engaging asynchronous experience? Since they do not meet together at a specific time or place, group work is challenging, but I still want the students to benefit from a sense of shared learning.</pre>
-        <img src="https://lh3.googleusercontent.com/d/1RidI0hidThZp8hC2v3pr7iN7p_MIQ521" alt="A screenshot of a ChatGPT prompting session">
+        <img src="images/prompt-refinement-chatgpt-session.png" alt="A screenshot of a ChatGPT prompting session">
         <p><a href="https://chatgpt.com/share/67eff833-eebc-800b-b5a6-3b20e98baa1e" target="_blank">See results using these exact prompts with ChatGPT.</a></p>
         <h3>Reflection Questions</h3>
         <ul>
@@ -822,12 +851,20 @@
 
     </template>
 
-    <!-- ========== Imagine Images ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                        IMAGINE IMAGES                        ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Imagine Images"
         data-summary="Create customized images - and convert a photo of yourself into a cartoon!"
         data-stage="Investigate"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vTTNkOPhqZwEkSmrxyE59djl4qtJk8_qPis9E29PclMgbGSzGjMtq1tZTqNW3WavrARgPMxa7CIzb-0/pub?w=500&h=500">
+        data-image="images/imagine-images-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -843,7 +880,7 @@
         </div>
         <h3>Activity #1: Generate an image</h3>
         <figure>
-            <img src="https://lh3.googleusercontent.com/d/1q7lTMUTQtk3lwZu4rnP0BPqCYvEzrSlj=w480" alt="Images of elephants playing violins.">
+            <img src="images/imagine-images-elephants-violins.png" alt="Images of elephants playing violins.">
             <figcaption>These images were created with Gemini.</figcaption>
         </figure>
         <p>You'll want to use either <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>, <a href="https://gemini.google.com/" target="_blank">Google Gemini</a>, or <a href="https://www.meta.ai/" target="_blank">Meta AI</a> for this one (although Meta AI seems to be the most creative right now). There are a few things to remember about image generation:</p>
@@ -861,7 +898,7 @@
         <p>Try this simple prompt - or come up with your own:</p>
         <pre class="prompt">Please generate a photo of a lion in the Sahara.</pre>
         <figure>
-            <img src="https://lh3.googleusercontent.com/d/1JKCUsSLZ0TaJuD55FC8iyuxAWGoDuTVU=w480" alt="Images of lions in the Sahara.">
+            <img src="images/imagine-images-lions-sahara.png" alt="Images of lions in the Sahara.">
             <figcaption>These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</figcaption>
         </figure>
         <p>This is a great start - but we can do better.</p>
@@ -876,7 +913,7 @@
         <p>Once we start adding modifiers to our subject we start getting results that are aligned closer to what we are looking for:</p>
         <pre class="prompt">Please generate a lion in the Sahara. Blur the background slightly. The image is made out of clay and looks 3D. The image looks like a still from a claymation show.</pre>
         <figure>
-            <img src="https://lh3.googleusercontent.com/d/1ofpoWgVqwdz70n7g6AcDrZM445NXfpuH=w480" alt="Images of claymation lions.">
+            <img src="images/imagine-images-claymation-lions.png" alt="Images of claymation lions.">
             <figcaption>These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</figcaption>
         </figure>
         <p>That's pretty slick! Notice how all three AI services interpreted the style of <em>claymation</em> a little differently. That's okay! The differences between these services are starting to emerge.</p>
@@ -884,7 +921,7 @@
         <p>Most AI services can modify images that you create; you can build on previous iterations. For our case, let's try making it nighttime in the image of the lion (if you are working with different prompts, try a prompt that fundamentally alters the image):</p>
         <pre class="prompt">Please make it nighttime in the image.</pre>
         <figure>
-            <img src="https://lh3.googleusercontent.com/d/1z7PEt_VUVckS4tmiGmY6zhXOEz1HCDtd=w480" alt="Images of claymation lions at night.">
+            <img src="images/imagine-images-claymation-lions-night.png" alt="Images of claymation lions at night.">
             <figcaption>These images were created with ChatGPT (upper left), Gemini (upper right), and Meta (bottom).</figcaption>
         </figure>
         <p>In these examples, we can see that Gemini did a great job of reimagining the sky as a nighttime starry sky. But look! The lion actually changed a little (this happens sometimes). The interpretation of nighttime with ChatGPT and Meta are wildly different - but the lions stayed exactly the same.</p>
@@ -900,12 +937,20 @@
 
     </template>
 
-    <!-- ========== AI as a Writing Coach ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                    AI AS A WRITING COACH                     ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="AI as a Writing Coach"
         data-summary="Use AI to get feedback on your draft and explore different perspectives."
         data-stage="Investigate"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vQwF3TgsAwv6jXe8w5m1uERh0pSSsIzCIhJh1mfddfOnGexoPrDzsZfxihf1rZSPfy_nTGTZoxzUg1y/pub?w=500&h=500">
+        data-image="images/writing-coach-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -959,12 +1004,20 @@
 
     </template>
 
-    <!-- ========== Summarizing ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                         SUMMARIZING                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Summarizing"
         data-summary="Upload documents to AI and gain nuanced insight."
         data-stage="Supercharge"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vQTdgLakRoba9Yqvk_WhQeQ98pM91Yd6_oEqtCQxoR-y1NS9RguU8x2Uy-gxg8S2H7f_H87acoqTubc/pub?w=500&h=500">
+        data-image="images/summarizing-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -1008,12 +1061,20 @@
 
     </template>
 
-    <!-- ========== NotebookLM ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                          NOTEBOOKLM                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="NotebookLM"
         data-summary="Supercharge your research, knowledge base, and projects."
         data-stage="Supercharge"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vTvNvHz75V6bbGm5iwt68dHnxrcEQ21gaGy1pnqZQ0fqI27ZJ8QEfklKQbu4rv4XygnY-3G5ZKzMBVd/pub?w=500&h=500">
+        data-image="images/notebooklm-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -1041,7 +1102,7 @@
             <li><strong>Chat:</strong> The middle pane is the chat. This is where you will ask questions and work with the AI.</li>
             <li><strong>Studio:</strong> This is the fun part! You'll make podcasts, videos, flashcards, quizzes, and infographics here.</li>
         </ol>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vRvjWizIN7rBtktEEymUn5rDU40EniSjl3R9eyhvLiyHzXPjBh_iyXyr_LbsJvjGN0DouqKf1CDaYZh/pub?w=1524&h=868" alt="Layout of NotebookLM showing the SOURCES on the left, CHAT in the middle, and STUDIO on the right.">
+        <img src="images/notebooklm-layout.png" alt="Layout of NotebookLM showing the SOURCES on the left, CHAT in the middle, and STUDIO on the right.">
         <h4>Adding Documents</h4>
         <p>For this challenge we will be creating a Chatbot for a College Success course. If you'd rather, you can use documents and links that are relevant to what you do.</p>
         <p><strong>STEP 1: Get a PDF to upload</strong></p>
@@ -1053,7 +1114,7 @@
         <p>You can add as many sources as you want - files, URLs, videos, etc. but for this challenge, two is enough.</p>
         <p>You'll note that the title of your notebook is derived automatically from your content. If you'd like to change it, simply click in the title on the top left and change it to whatever you'd like.</p>
         <p>You'll also note that the chat now has a summary that is also automatic.</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vTg56dqpyXfblNt8WaAj8PZ0zupO6KQYj8aT4Z7r3xwZjmc7CUcQAycIMX_L0Znb6g45BOacPfmPUCT/pub?w=1524&h=868" alt="Screenshot from NotebookLM showing where to click to change the title of the notebook - the words CHANGE TITLE HERE are present.">
+        <img src="images/notebooklm-change-title.png" alt="Screenshot from NotebookLM showing where to click to change the title of the notebook - the words CHANGE TITLE HERE are present.">
         <h3>Activity #2: The Grounded Chatbot</h3>
         <p><strong>STEP 1: Ask the Chatbot Questions</strong></p>
         <p>In the chat box, ask a specific question. You might try:</p>
@@ -1069,11 +1130,11 @@
         <p><strong>STEP 1: Make Flashcards</strong></p>
         <p>The right pane, Studio, is where all the magic happens. You'll note that there are a number of options here. Let's start with "Flashcards".</p>
         <p>Click on the pencil icon to configure the options - choose whatever options you'd like. You don't have to put any instructions in the text box (but you can if you want!).</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vR0OFiClmBA7VX3rg-rnnKEw8RgGJwvv2mv4s6PfTbrhmuiKfMUJzNCwru9jhKem1PEayuJbigy3JKH/pub?w=1524&h=868" alt="Screenshot from NotebookLM showcasing the FLASHCARDS feature in the Studio.">
+        <img src="images/notebooklm-flashcards.png" alt="Screenshot from NotebookLM showcasing the FLASHCARDS feature in the Studio.">
         <p><strong>STEP 2: Make a Quiz</strong></p>
         <p>Similarly, you can configure a quiz, too. Or a mind map. Or a slide deck. Or an infographic. Note that if you make a slide deck, each slide will be one big image (which makes the slide less accessible for screen readers).</p>
         <p>Here's the infographic NotebookLM generated (again, this is all one image so the alt text would need to be substantial to make it ADA compliant - but you could always upload the image to AI and have it generate the alt text for you):</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQRpMfM6rbyuCYWz-5jsNipTsAudw9NMAA363ymh4kjHLrb2v-dBbO5FerkAbgiCLhSfwaPrU86C5-O/pub?w=2304&h=4128" alt="The infographic titled “The Procrastinator’s Brain: Why You Wait Until the Last Minute” explains procrastination using cartoon characters inside a cutaway brain. Three characters are introduced: The Rational Decision-Maker, described as the part of your brain that wants to make sensible, long-term plans and do productive work, shown as a calm person in a blue suit at a desk with organized papers and a computer; The Instant Gratification Monkey, which lives entirely in the present moment and only cares about what is easy and fun, illustrated as a joyful monkey in a party hat surrounded by pizza, video game controllers, music notes, phones, and social media icons; and The Panic Monster, which is dormant until a deadline gets too close and is the only thing the Monkey fears, depicted as a large red creature curled around an alarm clock. The infographic outlines “The System: How Procrastination Unfolds” in three steps. Step 1, “The Monkey Seizes Control,” shows the monkey hijacking the controls from the Rational Decision-Maker to do something fun instead of working. Step 2, “Entering the ‘Dark Playground,’” represents leisure happening when it shouldn’t, with scenes like a roller coaster, dark rain clouds, and scattered entertainment devices symbolizing guilt, anxiety, and dread. Step 3, “The Panic Monster Awakens,” shows looming deadlines waking the Panic Monster, which scares the monkey away and finally lets work begin. Next, the infographic presents “The Two Types of Procrastination.” Short-Term Procrastination (with deadlines) is portrayed with a person working urgently at a desk stacked with papers labeled “DEADLINE” while the Panic Monster looms, with the caption explaining that effects are contained because the Panic Monster eventually forces action. Long-Term Procrastination (with no deadlines) shows a person rowing a small boat down a winding river while the Panic Monster sleeps beside them; the text warns this is more dangerous because the Panic Monster has nothing to wake up for, so inaction can last forever. Beneath this, an illustration labeled “Theater of Life” shows a spectator watching actors on stage, paired with the caption “The Hidden Cost,” explaining that long-term procrastination can make you feel like a spectator in your own life, unable to start chasing your dreams. The image ends with a small NotebookLM logo.">
+        <img src="images/notebooklm-procrastination-infographic.png" alt="The infographic titled “The Procrastinator’s Brain: Why You Wait Until the Last Minute” explains procrastination using cartoon characters inside a cutaway brain. Three characters are introduced: The Rational Decision-Maker, described as the part of your brain that wants to make sensible, long-term plans and do productive work, shown as a calm person in a blue suit at a desk with organized papers and a computer; The Instant Gratification Monkey, which lives entirely in the present moment and only cares about what is easy and fun, illustrated as a joyful monkey in a party hat surrounded by pizza, video game controllers, music notes, phones, and social media icons; and The Panic Monster, which is dormant until a deadline gets too close and is the only thing the Monkey fears, depicted as a large red creature curled around an alarm clock. The infographic outlines “The System: How Procrastination Unfolds” in three steps. Step 1, “The Monkey Seizes Control,” shows the monkey hijacking the controls from the Rational Decision-Maker to do something fun instead of working. Step 2, “Entering the ‘Dark Playground,’” represents leisure happening when it shouldn’t, with scenes like a roller coaster, dark rain clouds, and scattered entertainment devices symbolizing guilt, anxiety, and dread. Step 3, “The Panic Monster Awakens,” shows looming deadlines waking the Panic Monster, which scares the monkey away and finally lets work begin. Next, the infographic presents “The Two Types of Procrastination.” Short-Term Procrastination (with deadlines) is portrayed with a person working urgently at a desk stacked with papers labeled “DEADLINE” while the Panic Monster looms, with the caption explaining that effects are contained because the Panic Monster eventually forces action. Long-Term Procrastination (with no deadlines) shows a person rowing a small boat down a winding river while the Panic Monster sleeps beside them; the text warns this is more dangerous because the Panic Monster has nothing to wake up for, so inaction can last forever. Beneath this, an illustration labeled “Theater of Life” shows a spectator watching actors on stage, paired with the caption “The Hidden Cost,” explaining that long-term procrastination can make you feel like a spectator in your own life, unable to start chasing your dreams. The image ends with a small NotebookLM logo.">
         <h3>Activity #4: The "Magic" Podcast</h3>
         <p>This is the feature that has gone viral. You can turn your reading list into a listening list.</p>
         <p><strong>STEP 1: Locate Audio Overview</strong></p>
@@ -1095,12 +1156,20 @@
 
     </template>
 
-    <!-- ========== Voice Mode ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                          VOICE MODE                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Voice Mode"
         data-summary="Have an audible conversation with AI."
         data-stage="Supercharge"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vSeQIM1Ef0QSGletmpNeQuHRfxwP5eBfq3IRRyVzdO9nVzaBKoIRxS98U0H9H12yzVO4y-YoqM9aZkK/pub?w=500&h=500">
+        data-image="images/voice-mode-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -1117,7 +1186,7 @@
         <p>One interesting way to use Voice Mode is when you want to explore an idea - not necessarily engage in a productivity conversation.</p>
         <h3>Activity #1: Engage Voice Mode</h3>
         <p>Almost all of the AI tools have a microphone button (or speech button) in the same place you type text. If you click the button, you'll be in Voice Mode. The exception to this is Microsoft Copilot 365 - you'll have to dig around in the settings to access the "Dictate" function.</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vRAn9nn1EllPw5ygzD1TTTeHM3-5LV4Utz7TTclf9wNDZxH7yfrRmZh4T_krNbUb-flrcaKcdDOFywL/pub?w=1440&h=1080" alt="A side-by-side comparison of four AI chatbot mobile interfaces is shown, each displayed on a smartphone screen. From left to right, the interfaces belong to ChatGPT, Gemini, Claude, and Copilot.  |  ChatGPT (far left): The interface is dark-themed with a greeting text, “What can I help with?” and several colorful options below such as “Create image,” “Summarize text,” “Code,” “Make a plan,” and “More.” The ChatGPT logo is visible at the bottom left. The microphone button at the bottom input bar is circled in light blue, indicating voice input availability.  |  Gemini (second from left): Also in dark mode, the screen greets the user “Hi Dave” and suggests prompts like “Make me a chart on seasonal travel” and “Code a breathing box mini app with 3 Pro.” Various options like “Create image,” “Write anything,” and “Deep Research” are listed as rounded buttons. The Gemini logo is shown bottom left. The microphone icon in the input bar is highlighted with a light blue circle.  |  Claude (third from left): The screen has a minimalist dark brown background with a centered orange flower-like icon and the message “How can I help you this morning?” The Claude logo is displayed in the bottom left, and the microphone icon is again circled in light blue in the message input field.  |  Copilot (far right): The interface features a dark blue gradient background with the prompt “What’s on today’s agenda?” at the center. The message input bar contains a microphone icon, also circled in light blue. The Copilot logo is placed at the bottom left above the navigation bar.  |  All four screens show voice input features highlighted in light blue circles, suggesting a comparison of voice input accessibility across different AI assistant apps.">
+        <img src="images/voice-mode-microphone-buttons.png" alt="A side-by-side comparison of four AI chatbot mobile interfaces is shown, each displayed on a smartphone screen. From left to right, the interfaces belong to ChatGPT, Gemini, Claude, and Copilot.  |  ChatGPT (far left): The interface is dark-themed with a greeting text, “What can I help with?” and several colorful options below such as “Create image,” “Summarize text,” “Code,” “Make a plan,” and “More.” The ChatGPT logo is visible at the bottom left. The microphone button at the bottom input bar is circled in light blue, indicating voice input availability.  |  Gemini (second from left): Also in dark mode, the screen greets the user “Hi Dave” and suggests prompts like “Make me a chart on seasonal travel” and “Code a breathing box mini app with 3 Pro.” Various options like “Create image,” “Write anything,” and “Deep Research” are listed as rounded buttons. The Gemini logo is shown bottom left. The microphone icon in the input bar is highlighted with a light blue circle.  |  Claude (third from left): The screen has a minimalist dark brown background with a centered orange flower-like icon and the message “How can I help you this morning?” The Claude logo is displayed in the bottom left, and the microphone icon is again circled in light blue in the message input field.  |  Copilot (far right): The interface features a dark blue gradient background with the prompt “What’s on today’s agenda?” at the center. The message input bar contains a microphone icon, also circled in light blue. The Copilot logo is placed at the bottom left above the navigation bar.  |  All four screens show voice input features highlighted in light blue circles, suggesting a comparison of voice input accessibility across different AI assistant apps.">
         <p>Once you have engaged Voice Mode, have a typical conversation. If you have a topic you'd like to talk about, go for it. Feel free to use some of the examples below. Make sure you have several exchanges with AI so you can fully experience the power of the conversation.</p>
         <p>Just like a typical conversation with AI, you should have a separate chat for unrelated topics. If you revisit this conversation later, you can engage Voice Mode if you'd like.</p>
         <p>Lastly, most of the AI tools will keep a transcript of your conversation so you can reference it later.</p>
@@ -1136,17 +1205,25 @@
         <p>The power of engaging in Voice Mode is that you can converse naturally with AI. You'll notice that after AI responds, it will most likely give you more things to follow up on. Even if you don't find some of the suggestions helpful, ask follow-up questions to continue the conversation!</p>
         <h4>Bonus Activity: Use the widget on your phone</h4>
         <p>Most of the AI tools also have widgets that you can install on your phone. These widgets have shortcuts that make it very easy to start a chat session.</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQCJBWu7sapKaNf2nXTs9nfnVCvmOrMk8uMteqH5Cym-y7lY58F4_zX32dMCELScSfPYBFlPNZYsuhZ/pub?w=1440&h=1080" alt="Example of an AI chat app widget on a phone home screen">
+        <img src="images/voice-mode-phone-widget.png" alt="Example of an AI chat app widget on a phone home screen">
         <p>Have fun talking with AI!</p>
 
     </template>
 
-    <!-- ========== Crafting Prompts ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                       CRAFTING PROMPTS                       ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Crafting Prompts"
         data-summary="Level up your prompting with a detailed framework."
         data-stage="Supercharge"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vS_uzzykdzpNMvMb7uEgVmTtz0zGOFAon3zWUsbPoeTmOC4Trlk33UUEScM3I0rqcLMF3zisLYWLhpL/pub?w=500&h=500">
+        data-image="images/crafting-prompts-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -1282,12 +1359,20 @@
 
     </template>
 
-    <!-- ========== Vibe Coding ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                         VIBE CODING                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Vibe Coding"
         data-summary="Think you'll never be able to make that app you dream of? Think again. Let AI build your ideas."
         data-stage="Exchange"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vRrb0wEEK6sMG1BHhaMllcnfF1M7S8vuYq8rhTpFayClllK-gDpunUAZfL-Eya9RB8lD2pl0IYochH6/pub?w=500&h=500">
+        data-image="images/vibe-coding-card.png">
 
         <h3>What we think you'll love</h3>
         <ul>
@@ -1303,11 +1388,11 @@
         <h3>Activity #1: Build a Basic Pomodoro Timer</h3>
         <p>Although you can use <a href="https://chatgpt.com/" target="_blank">ChatGPT</a> for this, <a href="https://gemini.google.com/" target="_blank">Google Gemini</a> and <a href="https://claude.ai/" target="_blank">Claude</a> are much better for coding. ChatGPT only gives you the code to use (then you have to download it and run it). Gemini and Claude will give you the code and let you run it without any fuss.</p>
         <p>Open up Gemini or Claude and enter the prompt below. Note that if you use Gemini, you should add the "Canvas" from the Tools menu; if you use Claude, the canvas will automatically pop open. The Canvas is where you can see the code - and see the app you create!</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vTRyR4pnLkppIsnh_3G_TwwXmu-Y00hZPLgnmSsfZ636P9I0ZO1pdJ2ae-YBKBW7EEHAaGd0EQGFPgT/pub?w=1440&h=1080" alt="Screenshot of activating the CANVAS tool in Google Gemini.">
+        <img src="images/vibe-coding-gemini-canvas.png" alt="Screenshot of activating the CANVAS tool in Google Gemini.">
         <pre class="prompt">I’ve never coded before, but I want to build a simple Pomodoro timer using just one HTML file. Can you give me a basic version and explain how to use it?</pre>
         <p>AI will make the web app for you! It's called a "web app" because it's an application that is designed for the web (we use this term to differentiate it from the common understanding of "app" as an application you install on your phone).</p>
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vQcbTnrjsJbO1H8BjrdnQ-OzFpV-Pps18cnI1v2ikQy4l9H00i-CkBgZm_5hpr6utphj49sl5v4yLmX/pub?w=1440&h=1080" alt="Screenshot of Gemini and the Pomodoro Timer app.">
-        <img src="https://docs.google.com/drawings/d/e/2PACX-1vTEIPs6GpF5biIiPhIpqx9SOEHooL8iR1c0d7QP2R6CWMDKNAiz3qwmO9I65A9Zj608Hl4JUMB4rUIL/pub?w=1440&h=1080" alt="Screenshot of Claude and the Pomodoro Timer app.">
+        <img src="images/vibe-coding-gemini-pomodoro.png" alt="Screenshot of Gemini and the Pomodoro Timer app.">
+        <img src="images/vibe-coding-claude-pomodoro.png" alt="Screenshot of Claude and the Pomodoro Timer app.">
         <h3>Activity #2: Make It Yours</h3>
         <p>Now, time to add vibes. Let's try tweaking the aesthetics to make the app reflect our personal taste. Ask AI:</p>
         <pre class="prompt">Please help me make the timer look like a neon clock.</pre>
@@ -1325,23 +1410,39 @@
 
     </template>
 
-    <!-- ========== Coming soon ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                         COMING SOON                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Coming soon"
         data-summary="This challenge has not been released yet."
         data-stage="Exchange"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vRjtb5Q7sMbOrd1QzhNvdnu63xrkxN_6RCwZYY936uImoO-B7qYSNZCt0_6i4sBFhsdUuiGbrY0ha6N/pub?w=500&h=500">
+        data-image="images/coming-soon-card.png">
 
         <p>This challenge has not been released yet.</p>
 
     </template>
 
-    <!-- ========== Coming soon ========== -->
+    <!--
+    ##################################################################
+    ##                                                              ##
+    ##                                                              ##
+    ##                         COMING SOON                          ##
+    ##                                                              ##
+    ##                                                              ##
+    ##################################################################
+    -->
     <template class="challenge"
         data-title="Coming soon"
         data-summary="This challenge has not been released yet."
         data-stage="Exchange"
-        data-image="https://docs.google.com/drawings/d/e/2PACX-1vRjtb5Q7sMbOrd1QzhNvdnu63xrkxN_6RCwZYY936uImoO-B7qYSNZCt0_6i4sBFhsdUuiGbrY0ha6N/pub?w=500&h=500">
+        data-image="images/coming-soon-card.png">
 
         <p>This challenge has not been released yet.</p>
 

@@ -56,7 +56,7 @@ Challenges 11 and 12 are placeholders. Their cards are on the home page, but the
 
 You do **not** need to install anything or run a server. Double-click `index.html`, and it opens in your web browser.
 
-The page itself works without an internet connection. Pictures hosted online, the Comfortaa font, embedded videos, and the AI tools themselves still need one. If an embedded video will not play, use the **Watch this video on YouTube** link underneath it.
+The page itself works without an internet connection, including all of its pictures. The Comfortaa font, embedded videos, and the AI tools themselves still need one. If an embedded video will not play, use the **Watch this video on YouTube** link underneath it.
 
 ---
 
@@ -69,7 +69,7 @@ Some challenges show content from other companies, such as YouTube videos, a Spo
 Safety rules followed in the page's design:
 
 - The page runs no code from other websites. Its only script is the short one at the bottom of `index.html`.
-- A Content Security Policy (a browser rule at the top of `index.html`) lists the only websites the page may load pictures, fonts, and embedded content from. Anything else is blocked.
+- A Content Security Policy (a browser rule at the top of `index.html`) lists the only places the page may load things from: pictures only from its own `images/` folder, the font only from Google Fonts, and embedded content only from the listed websites. Anything else is blocked.
 - No challenge loads its embedded content until someone opens that challenge. Closing a challenge removes its content again, which also stops any video that was playing.
 - YouTube videos use YouTube's privacy-enhanced mode (`youtube-nocookie.com`), and the share-tracking codes have been removed from their links.
 - Links that open a new browser tab are announced to screen reader users, and the new tab cannot control this page.
@@ -98,7 +98,8 @@ If you find something that is hard to use, please tell us at **ai@flcc.edu**.
 | File or folder | Purpose |
 |---|---|
 | `index.html` | The whole website: the home page, the challenges, the pop-up window, the styles, and a short script. |
-| `images/` | Pictures used on the home page, including the favicon. |
+| `images/` | Every picture the site uses: card pictures, pictures inside the challenges, the logo, the stage icons, and the favicon. |
+| `IMAGES.md` | A checklist of every picture, with its file name and where to download it from. |
 | `AI-Challenge.md` | Plain-language instructions for putting the site online. |
 | `README.md` | This file. |
 
@@ -114,14 +115,23 @@ The file is in five sections, each marked with a large comment:
 
 ### What a challenge looks like
 
-Each challenge is one block. The settings at the top control its card, and everything inside is the challenge itself:
+Each challenge is one block, with a big comment box above it so it is easy to spot while scrolling. The settings at the top control its card, and everything inside is the challenge itself:
 
 ```html
+<!--
+##################################################################
+##                                                              ##
+##                                                              ##
+##                         WHAT IS AI?                          ##
+##                                                              ##
+##                                                              ##
+##################################################################
+-->
 <template class="challenge"
     data-title="What is AI?"
     data-summary="Learn about AI, create an account at some popular AI services, and have some fun!"
     data-stage="Recognize"
-    data-image="images/what-is-ai.png">
+    data-image="images/what-is-ai-card.png">
 
     <h3>Introduction</h3>
     <p>Artificial Intelligence (AI) is the ability for a computer to ...</p>
@@ -155,11 +165,13 @@ A few rules keep the page accessible:
 - Use `<h3>` for section headings and `<h4>` for smaller ones. Do not use `<h1>` or `<h2>` inside a challenge.
 - Give every `<img>` an `alt` that describes the picture (or `alt=""` if it is only decoration).
 - Give every `<iframe>` a `title` that says what it is.
+- Save every picture in the `images/` folder and link to it there (for example `images/my-picture.png`). Pictures linked straight from other websites are blocked.
+- Card pictures are 400 × 300 pixels. The whole picture is always shown, never cropped.
 
 ### Adding, removing, and reordering challenges
 
-- **Add a challenge:** copy an existing `<template class="challenge">` block, paste it where you want it, and change its settings and content.
-- **Remove a challenge:** delete its whole block, from `<template` to `</template>`.
+- **Add a challenge:** copy an existing challenge, starting from the big `####` comment box above it and ending at its `</template>`. Paste it where you want it, then change the name in the comment box, the settings, and the content.
+- **Remove a challenge:** delete its whole block, from the big `####` comment box above it to its `</template>`.
 - **Reorder challenges:** move the blocks. Challenges are numbered in the order they appear in the file, so the numbers update by themselves.
 
 Save the file and reload the page to see the change.
@@ -190,7 +202,7 @@ Because it stores what people share, it needs a PHP-enabled web server and a dat
 
 This project is an early version. Some things still need work:
 
-- **Some pictures are hosted on Google Drive.** Those links can break if the picture is moved or unpublished, and they do not show without an internet connection. Pictures are being moved into the `images/` folder.
+- **Most pictures still need to be downloaded into `images/`.** The page already points at the new file names, so until each picture is saved there, it shows as a broken image. See [IMAGES.md](IMAGES.md) for the list.
 - **Some challenges embed content from other companies.** See the privacy section above.
 - **Some alt text was written without seeing the picture.** Challenge 8 has one image described from the text around it. Please check it against the picture.
 

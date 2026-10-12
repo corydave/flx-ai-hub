@@ -80,12 +80,12 @@ A **plain text editor** is different from something like Microsoft Word - it sav
 Open the file `index.html` (inside `ai-challenge`) in your editor. Every challenge is stored in that one file, in a block that starts with `<template class="challenge"` (see [README.md](README.md) for how to edit them). Use **Find** (Ctrl+F on Windows, Cmd+F on Mac) to locate each of the following:
 
 **1. The logo**
-Search for: `finger-lakes-color.svg`
+Search for: `flcc-logo.svg`
 You'll land on a line that looks like:
 ```
-<img src="https://pxl-flccedu.terminalfour.net/.../finger-lakes-color.svg" alt="Finger Lakes Community College">
+<img src="images/flcc-logo.svg" alt="Finger Lakes Community College">
 ```
-Replace the web address inside the quotes after `src=` with a link to your own logo image, and replace the text inside the quotes after `alt=` with your organization's name. (If your logo is a file rather than a web link, upload it into the `images` folder alongside the other pictures, and point `src=` to `images/yourlogo.png` instead.)
+Put your own logo file in the `images` folder, and change `flcc-logo.svg` to your file's name (for example, `images/our-logo.png`). Then replace the text inside the quotes after `alt=` with your organization's name. The logo must be a file in the `images` folder: for privacy and security, the page does not load pictures from other websites.
 
 **2. The green header color**
 Search for: `478316`
