@@ -26,4 +26,4 @@ Each of those guides assumes no prior experience with websites or code, and walk
 
 ## About the license
 
-This repository's code is shared under the [GNU General Public License v3 (GPLv3)](LICENSE) — in plain terms, you're free to use it, adapt it for your own organization, and share your changes, as long as anything you share stays under that same open license. The `engagement-guide` tool also carries its own Creative Commons attribution requirement, explained in that tool's install guide.
+This repository's code is shared under the [MIT License](LICENSE). In plain terms, you're free to use it, adapt it for your own organization, and share your changes, as long as you keep the copyright notice and license text with any copy you share. The `engagement-guide` tool also carries its own Creative Commons attribution requirement, explained in that tool's install guide.
