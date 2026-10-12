@@ -202,9 +202,8 @@ Because it stores what people share, it needs a PHP-enabled web server and a dat
 
 This project is an early version. Some things still need work:
 
-- **Most pictures still need to be downloaded into `images/`.** The page already points at the new file names, so until each picture is saved there, it shows as a broken image. See [IMAGES.md](IMAGES.md) for the list.
+- **Two pictures are still missing from `images/`:** `what-is-ai-perplexity-logo.png` and `notebooklm-change-title.png`. They show as broken images until they are added. See [IMAGES.md](IMAGES.md).
 - **Some challenges embed content from other companies.** See the privacy section above.
-- **Some alt text was written without seeing the picture.** Challenge 8 has one image described from the text around it. Please check it against the picture.
 
 ---
 
