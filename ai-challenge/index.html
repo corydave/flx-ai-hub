@@ -182,9 +182,13 @@
         /* =============================================================
            THE FOUR STAGES (Recognize, Investigate, Supercharge, Exchange)
            ============================================================= */
+        /* Every stage box is the same height (100px), a little shorter than
+           its round icon (120px), so the icon always sticks out evenly above
+           and below the box. The text is sized so it always fits in the box.
+           If you make a description much longer, check that it still fits. */
         .stages {
             list-style: none;
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem auto 0 auto;
             padding: 0 0 0 40px;
         }
@@ -193,18 +197,26 @@
             position: relative;
             display: flex;
             align-items: center;
-            min-height: 100px;
+            height: 100px;
             margin-bottom: 40px;
-            padding: 10px 20px 10px 100px;
+            padding: 8px 20px 8px 100px;
             border-radius: 8px;
         }
 
+        /* The round icon, centered on the box's left edge */
         .stage img {
             position: absolute;
             left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
             width: 120px;
             height: 120px;
             border-radius: 50%;
+        }
+
+        .stage p {
+            margin: 0;
+            line-height: 1.4;
         }
 
         .stage strong {
@@ -216,8 +228,16 @@
         .stage-supercharge { background: #DCFCE7; }
         .stage-exchange    { background: #DBEAFE; }
 
-        /* On phones, put each icon above its text */
-        @media (max-width: 600px) {
+        /* Medium screens: slightly smaller text, so it still fits the box */
+        @media (max-width: 900px) {
+            .stage p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Phones: put each icon above its text. The box grows to fit the
+           text here, because the icon no longer sits beside it. */
+        @media (max-width: 560px) {
             .stages {
                 padding-left: 0;
                 margin-top: 4rem;
@@ -225,6 +245,7 @@
 
             .stage {
                 flex-direction: column;
+                height: auto;
                 padding: 70px 16px 16px 16px;
                 text-align: center;
             }
