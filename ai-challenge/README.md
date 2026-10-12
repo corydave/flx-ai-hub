@@ -56,7 +56,7 @@ Challenges 11 and 12 are placeholders. Their cards are on the home page, but the
 
 You do **not** need to install anything or run a server. Double-click `index.html`, and it opens in your web browser.
 
-The page needs an internet connection, because it loads its styling and the Bootstrap library from the internet. Without a connection it will look plain, and the pop-ups may not work.
+The page itself works without an internet connection. Pictures hosted online, the Comfortaa font, embedded videos, and the AI tools themselves still need one. If an embedded video will not play, use the **Watch this video on YouTube** link underneath it.
 
 ---
 
@@ -64,13 +64,15 @@ The page needs an internet connection, because it loads its styling and the Boot
 
 The website itself does not collect information about the people who use it. It does not use cookies, analytics, sign-ins, or tracking, and it does not record what you type into it.
 
-Some challenges show content from other companies, such as YouTube videos, a Spotify episode, Google Drive and Google Docs files, a Google Apps Script tool, and a demo hosted on a personal GitHub Pages site. That content loads only when you open a challenge that contains it. Those companies can set cookies or record visits under their own privacy policies. The home page explains this in plain language under **Privacy and embedded content**.
+Some challenges show content from other companies, such as YouTube videos, a Spotify episode, Google Drive and Google Docs files, a Google Apps Script tool, and a quiz hosted on a personal GitHub Pages site. That content loads only when you open a challenge that contains it. Those companies can set cookies or record visits under their own privacy policies. The home page explains this in plain language under **Privacy and embedded content**.
 
 Safety rules followed in the page's design:
 
-- The page only loads scripts, styles, frames, and images from the sources listed in its Content Security Policy (a browser rule written in the page's header). Anything else is blocked.
-- No challenge runs its embedded content until someone opens that challenge. Closing a challenge removes its content again.
-- All links that open a new browser tab are marked as doing so, and they do not give the new page access to this one.
+- The page runs no code from other websites. Its only script is the short one at the bottom of `index.html`.
+- A Content Security Policy (a browser rule at the top of `index.html`) lists the only websites the page may load pictures, fonts, and embedded content from. Anything else is blocked.
+- No challenge loads its embedded content until someone opens that challenge. Closing a challenge removes its content again, which also stops any video that was playing.
+- YouTube videos use YouTube's privacy-enhanced mode (`youtube-nocookie.com`), and the share-tracking codes have been removed from their links.
+- Links that open a new browser tab are announced to screen reader users, and the new tab cannot control this page.
 
 ---
 
@@ -78,11 +80,12 @@ Safety rules followed in the page's design:
 
 The site is designed to work for keyboard users and for people using screen readers, screen magnifiers, and high-contrast or reduced-motion settings:
 
-- Every challenge can be opened with the keyboard (**Tab** to move, **Enter** to open) and closed with **Esc**. Focus returns to the challenge when the pop-up closes.
-- Pop-up windows are labeled with their titles, so screen readers announce what they are.
+- Every challenge can be opened with the keyboard (**Tab** to move, **Enter** to open) and closed with **Esc**. Focus returns to the challenge's card when the pop-up closes.
+- The page has one main heading (`<h1>`), and every other heading follows in order, so screen reader users can move around by heading.
+- The pop-up window is labeled with the challenge's title, so screen readers announce what it is.
 - Pictures used only for decoration are hidden from screen readers. Pictures that carry information have descriptive text.
-- Embedded videos and tools have titles, so screen readers can say what they are.
-- Text colors on the home page meet the WCAG AA contrast standard (checked with an automated accessibility tool).
+- Embedded videos and tools have titles, so screen readers can say what they are, and each YouTube video also has a plain link.
+- Text colors meet the WCAG AA contrast standard (checked with an automated accessibility tool on the home page and in every challenge).
 - The layout works on phones, with no sideways scrolling.
 - Animations are turned off for people who ask for reduced motion.
 
@@ -94,40 +97,84 @@ If you find something that is hard to use, please tell us at **ai@flcc.edu**.
 
 | File or folder | Purpose |
 |---|---|
-| `index.html` | The whole website: the home page, the challenge cards, the pop-up windows, the content of all 12 challenges, and the small script that fills in each pop-up. |
-| `images/` | Pictures used on the home page and in the challenges, including the favicon. |
+| `index.html` | The whole website: the home page, the challenges, the pop-up window, the styles, and a short script. |
+| `images/` | Pictures used on the home page, including the favicon. |
 | `AI-Challenge.md` | Plain-language instructions for putting the site online. |
 | `README.md` | This file. |
 
-### How the page is organized
+### How `index.html` is organized
 
-Everything is in `index.html`, in this order:
+The file is in five sections, each marked with a large comment:
 
-1. **Styles** in the `<head>`. Changes to colors or layout go here.
-2. **The page itself**: the header, the welcome text, the four stages, the challenge cards, the privacy section, and the contact section.
-3. **One pop-up window per challenge** (`<div class="modal ...">`). Each pop-up has a title and a Close button, and its contents are filled in from the matching template.
-4. **One template per challenge** (`<template id="challenge-01">` through `<template id="challenge-12">`). A template holds the challenge's text, pictures, and links without showing them. Its contents are copied into the pop-up the first time someone opens it.
-5. **A small script** at the very end, which copies each template into its pop-up when it opens and empties the pop-up when it closes.
+1. **Settings and styles** (in the `<head>`). The colors are listed at the top of the styles, so changing a color in one place changes it everywhere.
+2. **The home page**: the header, the welcome text, the four stages, the list of challenge cards, the privacy section, and the contact section.
+3. **The pop-up window**: one window, reused for every challenge.
+4. **The challenges**: one `<template>` block per challenge. This is the section you will edit most.
+5. **The script**: builds a card for each challenge and opens and closes the pop-up.
 
-Because the whole site is one file, it works when opened from your computer and when hosted online. It also means each challenge is separate and can be replaced on its own.
+### What a challenge looks like
 
-### Swapping in a different challenge
+Each challenge is one block. The settings at the top control its card, and everything inside is the challenge itself:
 
-1. Find the template for the challenge you want to replace. Search for `<template id="challenge-07">`, for example.
-2. Replace everything between that opening tag and its matching `</template>` with the new challenge's HTML. Keep the `<template id="challenge-07">` and `</template>` lines.
-3. To change its title or card, search for `challenge07Modal` (or `Challenge 7`). The card's title and description are in the "AI Challenges" section, and the pop-up's title is in the matching `<div class="modal ...">`.
+```html
+<template class="challenge"
+    data-title="What is AI?"
+    data-summary="Learn about AI, create an account at some popular AI services, and have some fun!"
+    data-stage="Recognize"
+    data-image="images/what-is-ai.png">
 
-Save the file, and reload the page to see the change.
+    <h3>Introduction</h3>
+    <p>Artificial Intelligence (AI) is the ability for a computer to ...</p>
+
+    <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/VIDEO-ID" title="Video: Introduction" allowfullscreen></iframe>
+    </div>
+
+    <h3>Activity #1: Have some fun</h3>
+    <p>Try this prompt:</p>
+    <pre class="prompt">Please generate a list of 20 fictitious idioms.</pre>
+
+    <div class="callout">
+        <p><strong>Tip:</strong> You can't AI wrong!</p>
+    </div>
+
+</template>
+```
+
+Inside a challenge, write normal HTML (`<h3>`, `<h4>`, `<p>`, `<ul>`, `<ol>`, `<a>`, `<img>`, `<strong>`, `<em>`). Four special pieces are styled for you:
+
+| Write this | To get |
+|---|---|
+| `<div class="video"><iframe ...></iframe></div>` | A centered video. |
+| `<div class="embed"><iframe ... height="600"></iframe></div>` | An embedded tool, as tall as its `height`. |
+| `<pre class="prompt">...</pre>` | A sample prompt. Line breaks are kept exactly as typed. |
+| `<div class="callout">...</div>` | A highlighted box. |
+
+A few rules keep the page accessible:
+
+- Use `<h3>` for section headings and `<h4>` for smaller ones. Do not use `<h1>` or `<h2>` inside a challenge.
+- Give every `<img>` an `alt` that describes the picture (or `alt=""` if it is only decoration).
+- Give every `<iframe>` a `title` that says what it is.
+
+### Adding, removing, and reordering challenges
+
+- **Add a challenge:** copy an existing `<template class="challenge">` block, paste it where you want it, and change its settings and content.
+- **Remove a challenge:** delete its whole block, from `<template` to `</template>`.
+- **Reorder challenges:** move the blocks. Challenges are numbered in the order they appear in the file, so the numbers update by themselves.
+
+Save the file and reload the page to see the change.
+
+If you embed something from a website the page has not used before, add that website to the `frame-src` list in the security settings at the top of the file. Otherwise the browser will block it.
 
 ---
 
-## Editing the content
+## Editing the rest of the page
 
-- **Text and links inside a challenge:** find its `<template id="challenge-NN">` block in `index.html`, change the text or links, and save.
-- **Titles, card text, and badges:** these are in the "AI Challenges" section (search for `challenge-card`).
-- **Colors, logo, and contact email:** see Step 3 in [AI-Challenge.md](AI-Challenge.md).
+- **Colors:** change them in the list at the top of the styles (search for `COLORS AND FONTS`).
+- **Logo and contact email:** see Step 3 in [AI-Challenge.md](AI-Challenge.md).
+- **The script:** most people never need to change it. If you do, follow the note above the security settings to update its fingerprint, or the page will stop working.
 
-If the page stops working after an edit, check that every `<template>` has its closing `</template>` tag, and that you did not change the script at the bottom of the file.
+If the page stops working after an edit, check that every `<template>` has its closing `</template>` tag.
 
 ---
 
@@ -143,8 +190,7 @@ Because it stores what people share, it needs a PHP-enabled web server and a dat
 
 This project is an early version. Some things still need work:
 
-- **The challenge text styling comes from aichallenges.org.** The page loads it from another website, so if that site changes or goes away, the challenge text will look different.
-- **Some pictures are hosted on Google Drive.** Those links can break if the picture is moved or unpublished. Pictures are being moved into the `images/` folder.
+- **Some pictures are hosted on Google Drive.** Those links can break if the picture is moved or unpublished, and they do not show without an internet connection. Pictures are being moved into the `images/` folder.
 - **Some challenges embed content from other companies.** See the privacy section above.
 - **Some alt text was written without seeing the picture.** Challenge 8 has one image described from the text around it. Please check it against the picture.
 

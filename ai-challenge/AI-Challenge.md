@@ -7,7 +7,7 @@ A few words first, in plain language:
 - A **website** is really just a folder of files (pages, pictures, and a bit of styling) that sit on a computer somewhere on the internet, called a **server** or a **host**. Your web browser fetches those files when someone types in the address.
 
 - **"Installing"** the AI Challenge means: getting a copy of its files, putting that copy on a server somewhere, and then sharing the resulting web address with people.
-- You **can** try the website on your own computer. Double-click the `index.html` file and it will open in your web browser. It needs an internet connection, because its styling is loaded from the internet. To share it with other people, you'll need to put it on a host first (covered in Step 2 below).
+- You **can** try the website on your own computer. Double-click the `index.html` file and it will open in your web browser. The page works without an internet connection, although online pictures, videos, and the AI tools need one. To share it with other people, you'll need to put it on a host first (covered in Step 2 below).
 
 ---
 
@@ -77,13 +77,13 @@ A **plain text editor** is different from something like Microsoft Word - it sav
 - **Mac:** TextEdit, but switch it to "Plain Text" mode first (Format menu → Make Plain Text)
 - Or, if you used GitHub Pages in Option A, you can edit files directly on the GitHub website: open the file, click the pencil ("Edit") icon, make your change, and click **Commit changes** - no separate editor needed.
 
-Open the file `index.html` (inside `ai-challenge`) in your editor. Every challenge's text is stored in that one file, in a block that starts with `<template id="challenge-NN">`. Use **Find** (Ctrl+F on Windows, Cmd+F on Mac) to locate each of the following:
+Open the file `index.html` (inside `ai-challenge`) in your editor. Every challenge is stored in that one file, in a block that starts with `<template class="challenge"` (see [README.md](README.md) for how to edit them). Use **Find** (Ctrl+F on Windows, Cmd+F on Mac) to locate each of the following:
 
 **1. The logo**
-Search for: `header-logo`
+Search for: `finger-lakes-color.svg`
 You'll land on a line that looks like:
 ```
-<img class="header-logo" src="https://pxl-flccedu.terminalfour.net/.../finger-lakes-color.svg" alt="Finger Lakes Community College">
+<img src="https://pxl-flccedu.terminalfour.net/.../finger-lakes-color.svg" alt="Finger Lakes Community College">
 ```
 Replace the web address inside the quotes after `src=` with a link to your own logo image, and replace the text inside the quotes after `alt=` with your organization's name. (If your logo is a file rather than a web link, upload it into the `images` folder alongside the other pictures, and point `src=` to `images/yourlogo.png` instead.)
 
@@ -91,7 +91,7 @@ Replace the web address inside the quotes after `src=` with a link to your own l
 Search for: `478316`
 You'll land on a line that looks like:
 ```
-background-color: #478316;
+--green: #478316;         /* the bar under the logo */
 ```
 Replace `478316` with your own color code, keeping the `#` in front. (Search "color picker" online to find the 6-character code for any color you like.)
 
@@ -99,7 +99,7 @@ Replace `478316` with your own color code, keeping the `#` in front. (Search "co
 Search for: `ai@flcc.edu`
 You'll find it in two places on the same line:
 ```
-<h3 class="card-title text-center mb-4 section-title">Email us at <a href="mailto:ai@flcc.edu">ai@flcc.edu</a></h3>
+<p class="lead">Email us at <a href="mailto:ai@flcc.edu">ai@flcc.edu</a>.</p>
 ```
 Replace **both** instances of `ai@flcc.edu` with your own contact email address.
 
@@ -118,8 +118,8 @@ When you're done, save the file, and re-upload it the same way you did in Step 2
 
 ## Troubleshooting
 
-**The page looks plain, or the challenge pop-ups are empty.**
-The page loads its styling and its Bootstrap components from the internet. Check your internet connection, then refresh the page. If the pop-ups are still empty, make sure `index.html` was not changed in a way that broke a `<template>` block (every `<template id="challenge-NN">` needs a matching `</template>`).
+**The challenge cards are missing, or a challenge will not open.**
+Make sure `index.html` was not changed in a way that broke a challenge block: every `<template class="challenge"` needs a matching `</template>`. If you changed the script at the bottom of the file, see the note in the security settings at the top of the file about updating its fingerprint.
 
 **I changed the logo or email, but I still see the old one.**
 Make sure you saved the file as **plain text** (not as a Word document), and that you re-uploaded the changed file to the same place. If you're using GitHub Pages, it can take a minute or two for changes to appear after you save them - try refreshing the page.
