@@ -7,7 +7,7 @@ A few words first, in plain language:
 - A **website** is really just a folder of files (pages, pictures, and a bit of styling) that sit on a computer somewhere on the internet, called a **server** or a **host**. Your web browser fetches those files when someone types in the address.
 
 - **"Installing"** the AI Challenge means: getting a copy of its files, putting that copy on a server somewhere, and then sharing the resulting web address with people.
-- You will **not** get this working by simply double-clicking the `index.html` file on your own computer. This website is built to load its 12 challenge pages dynamically, and browsers block that trick unless the files are being served from a real website address. So even though it might *look* like it's loading when you double-click it, the actual challenges won't appear. You have to put it on a host first (covered in Step 2 below).
+- You **can** try the website on your own computer. Double-click the `index.html` file and it will open in your web browser. The page works without an internet connection, although online pictures, videos, and the AI tools need one. To share it with other people, you'll need to put it on a host first (covered in Step 2 below).
 
 ---
 
@@ -29,7 +29,7 @@ A few words first, in plain language:
    - **Mac:** double-click the file - it unzips automatically.
 5. Inside the unzipped folder, find the folder named **`ai-challenge`**. This single folder contains everything the website needs (the pages, the images, and the styling). Everything you do for the rest of this guide uses only this `ai-challenge` folder.
 
-> **Important:** Keep all the files inside `ai-challenge` together, in the same folder structure, including the `images` subfolder. The pages refer to each other and to the images by their relative position, so if you split them up or rename the folders, parts of the site will stop working.
+> **Important:** Keep the `index.html` file and the `images` subfolder together, in the same folder structure. The page finds its pictures by their location inside that folder, so if you rename or move the folders, some pictures will stop showing.
 
 ---
 
@@ -61,7 +61,7 @@ That's it - your website is live at that address. Share it with anyone you'd lik
 If your school, college, or company already has a website, you likely have a way to upload new pages to it (for example, a "file manager" tool in a web-based control panel, or a program like FileZilla that connects to your server). If you're not sure, ask whoever manages your organization's website - they'll know the term **"FTP access"** or **"file manager."**
 
 1. Ask your web administrator where new website files normally get uploaded, and request a folder (for example, `ai-challenge`) for this project.
-2. Upload the **entire contents** of the `ai-challenge` folder from Step 1 into that folder - all the `.html` files, the `bootstrap.css` and `bootstrap.js` files, and the whole `images` folder.
+2. Upload the **entire contents** of the `ai-challenge` folder from Step 1 into that folder - the `index.html` file and the whole `images` folder.
 3. Once uploaded, your web administrator can tell you the address to visit, which will probably look something like:
    `https://www.yourcollege.edu/ai-challenge/index.html`
 
@@ -77,21 +77,21 @@ A **plain text editor** is different from something like Microsoft Word - it sav
 - **Mac:** TextEdit, but switch it to "Plain Text" mode first (Format menu → Make Plain Text)
 - Or, if you used GitHub Pages in Option A, you can edit files directly on the GitHub website: open the file, click the pencil ("Edit") icon, make your change, and click **Commit changes** - no separate editor needed.
 
-Open the file `index.html` (inside `ai-challenge`) in your editor, and use **Find** (Ctrl+F on Windows, Cmd+F on Mac) to locate each of the following:
+Open the file `index.html` (inside `ai-challenge`) in your editor. Every challenge is stored in that one file, in a block that starts with `<template class="challenge"` (see [README.md](README.md) for how to edit them). Use **Find** (Ctrl+F on Windows, Cmd+F on Mac) to locate each of the following:
 
 **1. The logo**
-Search for: `header-logo`
+Search for: `flcc-logo.svg`
 You'll land on a line that looks like:
 ```
-<img class="header-logo" src="https://pxl-flccedu.terminalfour.net/.../finger-lakes-color.svg" alt="Finger Lakes Community College">
+<img src="images/flcc-logo.svg" alt="Finger Lakes Community College">
 ```
-Replace the web address inside the quotes after `src=` with a link to your own logo image, and replace the text inside the quotes after `alt=` with your organization's name. (If your logo is a file rather than a web link, upload it into the `images` folder alongside the other pictures, and point `src=` to `images/yourlogo.png` instead.)
+Put your own logo file in the `images` folder, and change `flcc-logo.svg` to your file's name (for example, `images/our-logo.png`). Then replace the text inside the quotes after `alt=` with your organization's name. The logo must be a file in the `images` folder: for privacy and security, the page does not load pictures from other websites.
 
 **2. The green header color**
 Search for: `478316`
 You'll land on a line that looks like:
 ```
-background-color: #478316;
+--green: #478316;         /* the bar under the logo */
 ```
 Replace `478316` with your own color code, keeping the `#` in front. (Search "color picker" online to find the 6-character code for any color you like.)
 
@@ -99,7 +99,7 @@ Replace `478316` with your own color code, keeping the `#` in front. (Search "co
 Search for: `ai@flcc.edu`
 You'll find it in two places on the same line:
 ```
-<h3 class="card-title text-center mb-4 section-title">Email us at <a href="mailto:ai@flcc.edu">ai@flcc.edu</a></h3>
+<p class="lead">Email us at <a href="mailto:ai@flcc.edu">ai@flcc.edu</a>.</p>
 ```
 Replace **both** instances of `ai@flcc.edu` with your own contact email address.
 
@@ -110,15 +110,16 @@ When you're done, save the file, and re-upload it the same way you did in Step 2
 ## Step 4: Try it out
 
 1. Visit your website address from Step 2.
-2. Click on any of the "Challenge" cards - a window should pop up with that challenge's content.
+2. Click any challenge card's title (or select it with the Tab key and press Enter) - a window should pop up with that challenge's content.
 3. Click through a few challenges to make sure everything loads correctly.
+4. Read the **Privacy and embedded content** section on the home page. It explains which other companies' content your visitors will see, so tell your participants about it.
 
 ---
 
 ## Troubleshooting
 
-**The challenge pop-ups are empty / nothing shows when I click a card.**
-This almost always means the files are being viewed directly from your computer instead of from a real website address. Go back to Step 2 and make sure you're visiting the `https://...` address, not double-clicking `index.html` on your computer.
+**The challenge cards are missing, or a challenge will not open.**
+Make sure `index.html` was not changed in a way that broke a challenge block: every `<template class="challenge"` needs a matching `</template>`. If you changed the script at the bottom of the file, see the note in the security settings at the top of the file about updating its fingerprint.
 
 **I changed the logo or email, but I still see the old one.**
 Make sure you saved the file as **plain text** (not as a Word document), and that you re-uploaded the changed file to the same place. If you're using GitHub Pages, it can take a minute or two for changes to appear after you save them - try refreshing the page.
