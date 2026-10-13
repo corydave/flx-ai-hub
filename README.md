@@ -11,7 +11,7 @@ Right now, this repository contains two separate, unrelated tools, each in its o
 | Folder | What it is |
 |---|---|
 | [`ai-challenge/`](ai-challenge/) | A 12-part interactive website that teaches people the basics of AI through short, hands-on challenges. |
-| [`engagement-guide/`](engagement-guide/) | A tool instructors use to quickly build a short, clear statement describing how students may (or may not) use AI on a given assignment. |
+| [`engagement-guide/`](engagement-guide/) | A tool instructors use to quickly build a short, clear statement describing how students may (or may not) use AI, for a single assignment or a whole course. |
 
 You generally only need to work with **one** of these folders at a time, depending on which tool you're trying to set up. Each folder is self-contained - meaning everything that particular tool needs lives inside it.
 
