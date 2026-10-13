@@ -6,7 +6,7 @@ A few words first, in plain language:
 
 - This tool is a single page that instructors use to answer a few questions about how AI may be used, and it generates ready-to-paste text describing that policy for students. It has two tabs:
   - **Assignment Level** - for one assignment.
-  - **Course Level** - for a whole course, for example in a syllabus.
+  - **Course Level** - for a whole course, for example in a syllabus. You pick the example policy closest to your course, then change it however you like.
 - A **website** is normally a folder of files that need to live on a server (a computer on the internet) before anyone can visit them. This tool is unusual in that it works perfectly well just sitting on your own computer - no server required - **as long as you only need it for yourself.**
 - You only need real web hosting (covered in Step 3) if you want to **share a working link** with other people, or **embed** the tool inside a learning-management system (like Brightspace, Canvas, or Blackboard) so students can see the result without you having to share files.
 
@@ -30,7 +30,7 @@ A few words first, in plain language:
 5. Inside the unzipped folder, find the folder named **`engagement-guide`**. It contains:
    - `index.html` - the tool itself (its layout, look, and behavior)
    - `options-data.js` - the wording for the **Assignment Level** questions
-   - `course-data.js` - the wording for the **Course Level** questions
+   - `course-data.js` - the example policies for the **Course Level** tab
    - `rationale-data.js` - the wording for the "No AI Use" and "Open Use" pop-ups
    - `icons.js` - the icons, stored with the tool
    - `fonts/` - a folder holding the fonts (Comfortaa and Atkinson Hyperlegible)
@@ -44,7 +44,9 @@ A few words first, in plain language:
 1. Open the `engagement-guide` folder on your computer.
 2. Double-click **`index.html`**. It will open in your default web browser, ready to use. It works without an internet connection.
 3. Choose **Assignment Level** or **Course Level** at the top.
-4. Click the cards to build your guide. The guide on the right (or below, on a phone) updates as you click.
+4. Build your guide. The guide on the right (or below, on a phone) updates as you go.
+   - **Assignment Level:** click the cards that describe the assignment.
+   - **Course Level:** click the example policy closest to your course. Six examples cover the range, from an AI-free course to one where AI is required. Then use **Make it yours** to change the title, rewrite any section, remove sections, or add your own. **Undo my changes** returns to the original example.
 5. Choose how the guide looks:
    - **Icons:** Emoji, Icons (simple line drawings), or None.
    - **Icon position:** beside the text, or above it.
@@ -107,7 +109,9 @@ A **plain text editor** is different from something like Microsoft Word - it sav
 - Or, if you used GitHub Pages in Option A, you can edit files directly on the GitHub website: open the file, click the pencil ("Edit") icon, make your change, and click **Commit changes** - no separate editor needed.
 
 **1. The wording of the cards and the finished guide**
-Open `options-data.js` (Assignment Level), `course-data.js` (Course Level), or `rationale-data.js` (the "No AI Use" and "Open Use" pop-ups). Each file explains at the top, in plain language, how to change, add, remove, or reorder cards. You never need to edit `index.html` to change wording.
+Open `options-data.js` (Assignment Level), `course-data.js` (the Course Level example policies), or `rationale-data.js` (the "No AI Use" and "Open Use" pop-ups). Each file explains at the top, in plain language, how to change, add, remove, or reorder cards or examples. You never need to edit `index.html` to change wording.
+
+The Course Level examples are original wording based on widely used frameworks: the AI Assessment Scale (Perkins, Furze, Roe, and MacVaugh, 2024), the "traffic light" approach, and common syllabus statement tiers. You can replace them with your own institution's sample policies.
 
 **2. The page title and heading**
 Open `index.html` and search (Ctrl+F on Windows, Cmd+F on Mac) for: `AI Engagement Guide</`

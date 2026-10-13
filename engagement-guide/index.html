@@ -9,7 +9,7 @@
     HOW THIS FOLDER FITS TOGETHER
       index.html         this page: layout, styles, and the main script
       options-data.js    wording for the Assignment Level questions
-      course-data.js     wording for the Course Level questions
+      course-data.js     the example course policies (Course Level)
       rationale-data.js  wording for the "No AI Use" / "Open Use" pop-ups
       icons.js           the icons (from Lucide), stored here so nothing is
                          downloaded from other websites
@@ -47,7 +47,7 @@
         page, press F12 to open the browser's Console, and copy the new
         "sha256-..." value from the error shown there into this line.
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-eca/OgWVIL51HZLVObrC/KIksjjCXYciim7LtYaYMbc=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; frame-src 'self' https://docs.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-4RYDaXKhmbHJDHwxqk6jS7GaCosruM0BusXbG4oj1bo=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; frame-src 'self' https://docs.google.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 
     <style>
         /* =============================================================
@@ -449,7 +449,8 @@
             margin-bottom: 4px;
         }
 
-        textarea {
+        textarea,
+        input[type="text"] {
             width: 100%;
             padding: 10px 12px;
             border: 2px solid var(--border);
@@ -461,8 +462,78 @@
             resize: vertical;
         }
 
-        textarea:focus-visible {
+        textarea:focus-visible,
+        input[type="text"]:focus-visible {
             border-color: var(--blue);
+        }
+
+        /* =============================================================
+           COURSE LEVEL: EXAMPLES AND THE "MAKE IT YOURS" EDITOR
+           ============================================================= */
+        .card-source {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .course-editor {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-editor h2 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .field-label {
+            display: block;
+            margin: 12px 0 4px 0;
+            font-weight: 700;
+        }
+
+        /* One box per section of the guide */
+        .section-editor {
+            min-width: 0;
+            margin: 16px 0 0 0;
+            padding: 12px 16px 16px 16px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-small);
+        }
+
+        .section-editor legend {
+            padding: 0 6px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        .section-editor-top {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .section-editor-top > div {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .section-editor .field-label {
+            margin-top: 4px;
+        }
+
+        .remove-section {
+            flex-shrink: 0;
+        }
+
+        .editor-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
         }
 
         /* =============================================================
@@ -966,6 +1037,26 @@
             height: 1.2em;
         }
 
+        /* Course Level sections: paragraphs and bullet points */
+        .guide-section-text {
+            margin: 0 0 8px 0;
+        }
+
+        .guide-bullets {
+            margin: 0 0 8px 0;
+            padding-left: 1.4em;
+        }
+
+        .guide-bullets li {
+            margin-bottom: 6px;
+        }
+
+        .guide-icons-beside .guide-block-heading + .guide-section-text,
+        .guide-icons-beside .guide-block-heading ~ .guide-bullets,
+        .guide-icons-beside .guide-block-heading ~ .guide-section-text {
+            margin-left: 36px;
+        }
+
         /* "Icons above text": each icon gets its own line */
         .guide-icons-above .guide-title,
         .guide-icons-above .guide-block-heading,
@@ -1023,8 +1114,23 @@
                     <div id="assignment-questions"></div>
                 </div>
                 <div role="tabpanel" id="panel-course" aria-labelledby="tab-course" hidden>
-                    <p class="tab-intro">Describe how AI may be used across <strong>your whole course</strong>, for example in a syllabus.</p>
-                    <div id="course-questions"></div>
+                    <p class="tab-intro">Describe how AI may be used across <strong>your whole course</strong>, for example in a syllabus. Start from the example closest to your course, then make it yours.</p>
+
+                    <!-- Step 1: the example policies (built by the script from course-data.js) -->
+                    <div id="course-examples"></div>
+
+                    <!-- Step 2: edit the chosen example (filled in by the script) -->
+                    <section class="course-editor" id="course-editor" aria-labelledby="editor-heading" hidden>
+                        <h2 id="editor-heading">Make it yours</h2>
+                        <p class="question-hint">Change anything below, and your guide updates as you type. In the text boxes, each line is a paragraph, and a line that starts with "- " becomes a bullet point. Leave a box empty to leave it out.</p>
+                        <label class="field-label" for="course-title">Title of your guide</label>
+                        <input type="text" id="course-title" maxlength="200">
+                        <div id="course-sections"></div>
+                        <div class="editor-buttons">
+                            <button type="button" class="button button-secondary button-small" id="add-section"><span data-icon="plus"></span> Add a section</button>
+                            <button type="button" class="button button-secondary button-small" id="undo-changes"><span data-icon="undo-2"></span> Undo my changes</button>
+                        </div>
+                    </section>
                 </div>
             </section>
 
@@ -1128,6 +1234,20 @@
         <div class="dialog-footer">
             <button type="button" class="button button-secondary" data-cancel>Cancel</button>
             <button type="button" class="button" data-done>Done</button>
+        </div>
+    </dialog>
+
+    <!-- Asked before switching to a different example after making changes -->
+    <dialog id="replace-dialog" aria-labelledby="replace-title">
+        <div class="dialog-header">
+            <h2 id="replace-title">Start from a different example?</h2>
+        </div>
+        <div class="dialog-body">
+            <p>You have made changes to your guide. Starting from a different example will replace them.</p>
+        </div>
+        <div class="dialog-footer">
+            <button type="button" class="button button-secondary" data-keep>Keep my changes</button>
+            <button type="button" class="button" data-replace>Replace them</button>
         </div>
     </dialog>
 
@@ -1251,21 +1371,20 @@
         // The longest text accepted in any typed box (also limits shared links)
         const MAX_TEXT = 1500;
 
-        // Where each question's cards are built, and the data they come from.
+        // The Assignment Level questions, and the data they come from.
         // "type" is "checkbox" (choose any) or "radio" (choose one).
+        // (The Course Level tab works differently: see section 6b.)
         const QUESTIONS = {
             assignment: [
                 { key: "useCases",      type: "checkbox" },
                 { key: "documentation", type: "checkbox" }
-            ],
-            course: [
-                { key: "approach",     type: "radio" },
-                { key: "welcome",      type: "checkbox" },
-                { key: "offLimits",    type: "checkbox" },
-                { key: "acknowledge",  type: "checkbox" },
-                { key: "expectations", type: "checkbox" }
             ]
         };
+
+        // Limits for the Course Level editor (also limits shared links)
+        const MAX_TITLE = 200;
+        const MAX_SECTIONS = 15;
+        const MAX_SECTION_TEXT = 4000;
 
         // =================================================================
         // 2. SMALL HELPERS
@@ -1353,8 +1472,7 @@
 
         // The data for each tab, by question key
         const DATA = {
-            assignment: { useCases: OPTIONS_DATA.useCases, documentation: OPTIONS_DATA.documentation },
-            course: COURSE_DATA
+            assignment: { useCases: OPTIONS_DATA.useCases, documentation: OPTIONS_DATA.documentation }
         };
 
         // =================================================================
@@ -1420,7 +1538,6 @@
             const fieldset = make("fieldset", "question");
             fieldset.id = id;
             fieldset.dataset.key = question.key;
-            if (data.hideWhen) fieldset.dataset.hideWhen = data.hideWhen;
 
             const legend = make("legend");
             legend.append(make("h2", "", data.question));
@@ -1461,7 +1578,7 @@
         }
 
         QUESTIONS.assignment.forEach(function (q) { $("#assignment-questions").append(buildQuestion("assignment", q)); });
-        QUESTIONS.course.forEach(function (q) { $("#course-questions").append(buildQuestion("course", q)); });
+        buildCourseExamples();
         buildReasons("no-ai-reasons", "noAiReason", RATIONALE_DATA.noAiReasons);
         buildReasons("open-use-reasons", "openUseReason", RATIONALE_DATA.openUseRationales);
         fillIconPlaceholders(document);
@@ -1505,11 +1622,9 @@
 
         // Everything needed to rebuild this exact guide, for shared links
         function snapshot() {
-            const state = { v: 2, tab: currentTab(), look: settings(), assignment: {}, course: {}, reasons: {} };
-            ["assignment", "course"].forEach(function (tab) {
-                QUESTIONS[tab].forEach(function (q) {
-                    state[tab][q.key] = { chosen: chosen(tab, q.key), other: otherText(tab, q.key) };
-                });
+            const state = { v: 3, tab: currentTab(), look: settings(), assignment: {}, course: courseSnapshot(), reasons: {} };
+            QUESTIONS.assignment.forEach(function (q) {
+                state.assignment[q.key] = { chosen: chosen("assignment", q.key), other: otherText("assignment", q.key) };
             });
             state.reasons = {
                 noAiPicked: (($('input[name="noAiReason"]:checked') || {}).value) || "",
@@ -1525,20 +1640,20 @@
         // so a tampered link cannot do anything unexpected.
         function restore(state) {
             if (!state || typeof state !== "object") return;
-            ["assignment", "course"].forEach(function (tab) {
-                const saved = state[tab];
-                if (!saved || typeof saved !== "object") return;
-                QUESTIONS[tab].forEach(function (q) {
+            const saved = state.assignment;
+            if (saved && typeof saved === "object") {
+                QUESTIONS.assignment.forEach(function (q) {
                     const entry = saved[q.key];
                     if (!entry || typeof entry !== "object") return;
                     const wanted = Array.isArray(entry.chosen) ? entry.chosen.map(String) : [];
-                    inputsFor(tab, q.key).forEach(function (input) {
+                    inputsFor("assignment", q.key).forEach(function (input) {
                         input.checked = wanted.indexOf(input.value) !== -1;
                     });
-                    const area = $("#" + tab + "-" + q.key + "-other-text");
+                    const area = $("#assignment-" + q.key + "-other-text");
                     if (area && typeof entry.other === "string") area.value = cleanText(entry.other);
                 });
-            });
+            }
+            restoreCourse(state.course);
             const reasons = state.reasons || {};
             [["noAiReason", reasons.noAiPicked], ["openUseReason", reasons.openPicked]].forEach(function (pair) {
                 $$('input[name="' + pair[0] + '"]').forEach(function (input) { input.checked = input.value === pair[1]; });
@@ -1622,47 +1737,260 @@
         // boxes only when their card is chosen, and hide questions that do
         // not apply (for example, documentation when AI is not allowed).
         function refreshQuestions() {
-            ["assignment", "course"].forEach(function (tab) {
-                QUESTIONS[tab].forEach(function (q) {
-                    const inputs = inputsFor(tab, q.key);
-                    const exclusiveOn = inputs.some(function (i) { return i.checked && i.dataset.exclusive; });
-                    inputs.forEach(function (input) {
-                        input.closest(".option-card").classList.toggle("is-muted", exclusiveOn && !input.checked);
-                    });
-                    const otherInput = inputs.find(function (i) { return i.dataset.other; });
-                    const area = $("#" + tab + "-" + q.key + "-other-text");
-                    if (otherInput && area) area.parentElement.hidden = !otherInput.checked;
+            QUESTIONS.assignment.forEach(function (q) {
+                const inputs = inputsFor("assignment", q.key);
+                const exclusiveOn = inputs.some(function (i) { return i.checked && i.dataset.exclusive; });
+                inputs.forEach(function (input) {
+                    input.closest(".option-card").classList.toggle("is-muted", exclusiveOn && !input.checked);
                 });
+                const otherInput = inputs.find(function (i) { return i.dataset.other; });
+                const area = $("#assignment-" + q.key + "-other-text");
+                if (otherInput && area) area.parentElement.hidden = !otherInput.checked;
             });
 
             // Assignment: no documentation question when AI is not allowed
             const noAi = chosen("assignment", "useCases").indexOf("prohibited") !== -1;
             $("#assignment-documentation").hidden = noAi;
 
-            // Course: hide questions marked hideWhen for the chosen approach
-            const approach = chosen("course", "approach")[0] || "";
-            $$("#course-questions .question").forEach(function (fieldset) {
-                fieldset.hidden = !!fieldset.dataset.hideWhen && fieldset.dataset.hideWhen === approach;
-            });
+            // Course: show the editor once an example has been chosen
+            $("#course-editor").hidden = !chosenExample();
         }
 
         // Card icons follow the "Icons" setting too
         function refreshCardIcons() {
             const style = settings().iconStyle;
-            ["assignment", "course"].forEach(function (tab) {
-                QUESTIONS[tab].forEach(function (q) {
-                    DATA[tab][q.key].options.forEach(function (option) {
-                        const input = $('input[name="' + tab + "-" + q.key + '"][value="' + CSS.escape(option.value) + '"]');
-                        const spot = input.closest(".option-card").querySelector(".card-icon");
-                        spot.replaceChildren();
-                        const icon = optionIcon(option, style, "");
-                        if (icon) spot.append(...icon.childNodes);
-                        spot.hidden = !icon;
-                    });
-                });
+            const setIcon = function (name, option) {
+                const input = $('input[name="' + name + '"][value="' + CSS.escape(option.value) + '"]');
+                const spot = input.closest(".option-card").querySelector(".card-icon");
+                spot.replaceChildren();
+                const icon = optionIcon(option, style, "");
+                if (icon) spot.append(...icon.childNodes);
+                spot.hidden = !icon;
+            };
+            QUESTIONS.assignment.forEach(function (q) {
+                DATA.assignment[q.key].options.forEach(function (option) { setIcon("assignment-" + q.key, option); });
             });
+            COURSE_DATA.examples.forEach(function (example) { setIcon("course-example", example); });
             $("#icon-position").hidden = style === "none";
         }
+
+        // =================================================================
+        // 6b. COURSE LEVEL: EXAMPLES AND THE "MAKE IT YOURS" EDITOR
+        // The instructor picks the example closest to their course. Its
+        // title and sections are copied into the editor, where every part
+        // can be changed, and the guide is built from the editor.
+        // =================================================================
+        let currentExample = null;   // the example the editor was filled from
+        let pendingExample = null;   // an example waiting for "Replace them?"
+
+        // The example cards (choose one), built from course-data.js
+        function buildCourseExamples() {
+            const fieldset = make("fieldset", "question");
+            fieldset.id = "course-example";
+            const legend = make("legend");
+            legend.append(make("h2", "", COURSE_DATA.question));
+            fieldset.append(legend);
+            fieldset.append(make("p", "question-hint", COURSE_DATA.hint));
+            const grid = make("div", "option-grid");
+            COURSE_DATA.examples.forEach(function (example) {
+                const card = buildCard({ value: example.value, emoji: example.emoji, icon: example.icon,
+                    title: example.title, description: example.summary }, "course-example", "radio", "course-example");
+                if (example.basedOn) card.querySelector(".card-text").append(make("span", "card-source", "Based on: " + example.basedOn));
+                grid.append(card);
+            });
+            fieldset.append(grid);
+            $("#course-examples").append(fieldset);
+        }
+
+        function chosenExample() {
+            const picked = $('input[name="course-example"]:checked');
+            return picked ? COURSE_DATA.examples.find(function (e) { return e.value === picked.value; }) || null : null;
+        }
+
+        // An example, in the same shape as the editor's contents
+        function exampleAsEditorText(example) {
+            return {
+                title: example.guideTitle || example.title,
+                sections: (example.sections || []).map(function (s) {
+                    return { heading: s.heading || "", text: (s.lines || []).join("\n"), emoji: s.emoji || "", icon: s.icon || "info" };
+                })
+            };
+        }
+
+        function fillEditor(content) {
+            $("#course-title").value = content.title;
+            const list = $("#course-sections");
+            list.replaceChildren();
+            content.sections.forEach(function (section) { list.append(sectionEditor(section)); });
+            numberSections();
+        }
+
+        function loadExample(example) {
+            currentExample = example;
+            fillEditor(exampleAsEditorText(example));
+        }
+
+        // One box for editing one section: a heading, its text, and a
+        // Remove button. The section keeps its example's icon.
+        function sectionEditor(section) {
+            const box = make("fieldset", "section-editor");
+            box.dataset.emoji = section.emoji || "ℹ️";
+            box.dataset.icon = ICONS[section.icon] ? section.icon : "info";
+            box.append(make("legend"));
+
+            const top = make("div", "section-editor-top");
+            const field = make("div");
+            const heading = make("input", "section-heading");
+            heading.type = "text";
+            heading.maxLength = MAX_TITLE;
+            heading.value = section.heading || "";
+            field.append(make("label", "field-label", "Heading"), heading);
+            const remove = make("button", "button button-secondary button-small remove-section");
+            remove.type = "button";
+            remove.append(drawIcon("trash-2"), make("span", "", "Remove"));
+            top.append(field, remove);
+
+            const text = make("textarea", "section-text");
+            text.maxLength = MAX_SECTION_TEXT;
+            text.value = section.text || "";
+            text.rows = Math.min(10, Math.max(3, text.value.split("\n").length + 1));
+            box.append(top, make("label", "field-label", "Text"), text);
+            return box;
+        }
+
+        // Number the sections, and connect each label to its box
+        function numberSections() {
+            const boxes = $$("#course-sections .section-editor");
+            boxes.forEach(function (box, i) {
+                const n = i + 1;
+                box.querySelector("legend").textContent = "Section " + n;
+                const heading = box.querySelector(".section-heading");
+                const text = box.querySelector(".section-text");
+                const labels = box.querySelectorAll(".field-label");
+                heading.id = "section-" + n + "-heading";
+                text.id = "section-" + n + "-text";
+                labels[0].htmlFor = heading.id;
+                labels[1].htmlFor = text.id;
+                box.querySelector(".remove-section").setAttribute("aria-label", "Remove section " + n);
+            });
+            $("#add-section").disabled = boxes.length >= MAX_SECTIONS;
+        }
+
+        function readEditor() {
+            return {
+                title: $("#course-title").value.trim(),
+                sections: $$("#course-sections .section-editor").map(function (box) {
+                    return {
+                        heading: box.querySelector(".section-heading").value.trim(),
+                        text: box.querySelector(".section-text").value,
+                        emoji: box.dataset.emoji,
+                        icon: box.dataset.icon
+                    };
+                })
+            };
+        }
+
+        // True when the editor no longer matches the example it came from
+        function hasChanges() {
+            if (!currentExample) return false;
+            const normal = function (content) {
+                return JSON.stringify([content.title.trim(), content.sections.map(function (s) {
+                    return [s.heading.trim(), s.text.trim(), s.icon];
+                })]);
+            };
+            return normal(readEditor()) !== normal(exampleAsEditorText(currentExample));
+        }
+
+        // For shared links: which example, plus the edits (only if there are
+        // any, which keeps links short)
+        function courseSnapshot() {
+            return { example: currentExample ? currentExample.value : "", edited: hasChanges() ? readEditor() : null };
+        }
+
+        // From a shared link. Unknown examples are ignored, and every piece of
+        // text is checked and limited in length, so a tampered link cannot do
+        // anything unexpected.
+        function restoreCourse(saved) {
+            if (!saved || typeof saved !== "object") return;
+            const example = COURSE_DATA.examples.find(function (e) { return e.value === saved.example; });
+            if (!example) return;
+            $$('input[name="course-example"]').forEach(function (input) { input.checked = input.value === example.value; });
+            loadExample(example);
+            const edited = saved.edited;
+            if (!edited || typeof edited !== "object" || !Array.isArray(edited.sections)) return;
+            fillEditor({
+                title: String(edited.title || "").slice(0, MAX_TITLE),
+                sections: edited.sections.slice(0, MAX_SECTIONS)
+                    .filter(function (s) { return s && typeof s === "object"; })
+                    .map(function (s) {
+                        return {
+                            heading: String(s.heading || "").slice(0, MAX_TITLE),
+                            text: String(s.text || "").slice(0, MAX_SECTION_TEXT),
+                            emoji: String(s.emoji || "").slice(0, 8),
+                            icon: ICONS[s.icon] ? s.icon : "info"
+                        };
+                    })
+            });
+        }
+
+        // Choosing an example. If the editor has changes, ask before replacing them.
+        $("#course-examples").addEventListener("change", function (event) {
+            const example = chosenExample();
+            if (!example || example === currentExample) return;
+            if (hasChanges()) {
+                pendingExample = example;
+                // Keep the old example selected until the instructor decides
+                $$('input[name="course-example"]').forEach(function (input) { input.checked = input.value === currentExample.value; });
+                openDialog($("#replace-dialog"), event.target);
+                return;
+            }
+            loadExample(example);
+        });
+
+        const replaceDialog = $("#replace-dialog");
+        $("[data-keep]", replaceDialog).addEventListener("click", function () {
+            pendingExample = null;
+            replaceDialog.close();
+        });
+        $("[data-replace]", replaceDialog).addEventListener("click", function () {
+            const example = pendingExample;
+            pendingExample = null;
+            replaceDialog.close();
+            if (!example) return;
+            $$('input[name="course-example"]').forEach(function (input) { input.checked = input.value === example.value; });
+            loadExample(example);
+            refreshAll();
+            announce("Started from " + example.title);
+        });
+        // Esc means "keep my changes"
+        replaceDialog.addEventListener("cancel", function () { pendingExample = null; });
+
+        $("#add-section").addEventListener("click", function () {
+            const box = sectionEditor({ heading: "", text: "", emoji: "ℹ️", icon: "info" });
+            $("#course-sections").append(box);
+            numberSections();
+            box.querySelector(".section-heading").focus();
+            refreshAll();
+        });
+
+        $("#undo-changes").addEventListener("click", function () {
+            if (currentExample) loadExample(currentExample);
+            refreshAll();
+            announce("Your changes were undone");
+        });
+
+        $("#course-sections").addEventListener("click", function (event) {
+            const remove = event.target.closest(".remove-section");
+            if (!remove) return;
+            const box = remove.closest(".section-editor");
+            const next = box.nextElementSibling || box.previousElementSibling;
+            box.remove();
+            numberSections();
+            // Put keyboard focus somewhere sensible, not lost at the top of the page
+            (next ? next.querySelector(".section-heading") : $("#add-section")).focus();
+            refreshAll();
+            announce("Section removed");
+        });
 
         // =================================================================
         // 7. WHAT THE GUIDE SAYS
@@ -1674,7 +2002,10 @@
         //   { level: "open" | "selective" | "none",
         //     title: "...", titleIcons: [option, ...],
         //     blocks: [ { kind: "paragraph", icon, text },
-        //               { kind: "list", icon, heading, items: [ { icon, title, text, example } ] } ] }
+        //               { kind: "list", icon, heading, items: [ { icon, title, text, example } ] },
+        //               { kind: "section", icon, heading, lines: [ "text", "- bullet" ] } ] }
+        // ("list" blocks are used by the Assignment Level tab, and "section"
+        // blocks by the Course Level tab.)
         // =================================================================
 
         // Icons used for headings in the guide (emoji + drawn icon)
@@ -1683,9 +2014,7 @@
             selective: { emoji: "⚠️", icon: "triangle-alert" },
             none:      { emoji: "🚫", icon: "ban" },
             allowed:   { emoji: "✔️", icon: "check" },
-            notAllowed:{ emoji: "🚫", icon: "ban" },
             document:  { emoji: "📝", icon: "file-pen-line" },
-            info:      { emoji: "ℹ️", icon: "info" },
             other:     { emoji: "➕", icon: "plus" }
         };
 
@@ -1745,38 +2074,20 @@
             return guide;
         }
 
+        // The Course Level guide is whatever is in the editor right now
         function courseGuide() {
-            const approachValue = chosen("course", "approach")[0];
-            const approach = COURSE_DATA.approach.options.find(function (o) { return o.value === approachValue; });
-            const levels = { none: "none", varies: "selective", open: "open" };
-            const guide = { level: approach ? (levels[approach.value] || "selective") : null, title: "", titleIcons: [], blocks: [] };
-
-            if (approach) {
-                guide.title = approach.guideTitle || approach.title;
-                guide.titleIcons = [approach];
-                guide.blocks.push({ kind: "paragraph", icon: approach, text: approach.statement || approach.description || "" });
-            }
-
-            const hidden = function (key) { return COURSE_DATA[key].hideWhen && COURSE_DATA[key].hideWhen === approachValue; };
-            const addList = function (key, icon) {
-                if (hidden(key)) return;
-                const items = chosenItems("course", key);
-                if (items.length) guide.blocks.push({ kind: "list", icon: icon, heading: COURSE_DATA[key].guideHeading, items: items });
-            };
-
-            addList("welcome", HEADING_ICONS.allowed);
-            addList("offLimits", HEADING_ICONS.notAllowed);
-
-            // "No Disclosure Needed" is a sentence on its own, not a list
-            if (!hidden("acknowledge")) {
-                const noDisclosure = COURSE_DATA.acknowledge.options.find(function (o) { return o.exclusive; });
-                if (noDisclosure && chosen("course", "acknowledge").indexOf(noDisclosure.value) !== -1) {
-                    guide.blocks.push({ kind: "paragraph", icon: noDisclosure, text: noDisclosure.description });
-                } else {
-                    addList("acknowledge", HEADING_ICONS.document);
-                }
-            }
-            addList("expectations", HEADING_ICONS.info);
+            const example = chosenExample();
+            const guide = { level: null, title: "", titleIcons: [], blocks: [] };
+            if (!example) return guide;
+            const edited = readEditor();
+            guide.level = ["none", "selective", "open"].indexOf(example.level) !== -1 ? example.level : "selective";
+            guide.title = edited.title;
+            guide.titleIcons = guide.title ? [example] : [];
+            edited.sections.forEach(function (section) {
+                const lines = section.text.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
+                if (!section.heading && !lines.length) return;
+                guide.blocks.push({ kind: "section", icon: { emoji: section.emoji, icon: section.icon }, heading: section.heading, lines: lines });
+            });
             return guide;
         }
 
@@ -1819,6 +2130,26 @@
                     if (icon) paragraph.append(icon);
                     paragraph.append(make("span", "", block.text));
                     section.append(paragraph);
+                } else if (block.kind === "section") {
+                    // A Course Level section: an optional heading, then
+                    // paragraphs, with "- " lines grouped into bullet lists
+                    if (block.heading) {
+                        const heading = make("h4", "guide-block-heading");
+                        const icon = optionIcon(block.icon, style, "guide-icon");
+                        if (icon) heading.append(icon);
+                        heading.append(make("span", "", block.heading));
+                        section.append(heading);
+                    }
+                    let list = null;
+                    block.lines.forEach(function (line) {
+                        if (isBullet(line)) {
+                            if (!list) { list = make("ul", "guide-bullets"); section.append(list); }
+                            list.append(make("li", "", bulletText(line)));
+                        } else {
+                            list = null;
+                            section.append(make("p", "guide-section-text", line));
+                        }
+                    });
                 } else {
                     const heading = make("h4", "guide-block-heading");
                     const icon = optionIcon(block.icon, style, "guide-icon");
@@ -1850,6 +2181,15 @@
             return root;
         }
 
+        // A line that starts with "- " (or "* " or "• ") is a bullet point
+        function isBullet(line) {
+            return /^[-*\u2022]\s+/.test(line);
+        }
+
+        function bulletText(line) {
+            return line.replace(/^[-*\u2022]\s+/, "");
+        }
+
         function itemText(item) {
             const text = make("p", "guide-item-text", item.text);
             if (item.example) {
@@ -1868,6 +2208,12 @@
             guide.blocks.forEach(function (block) {
                 if (block.kind === "paragraph") {
                     lines.push(emoji(block.icon) + block.text, "");
+                } else if (block.kind === "section") {
+                    if (block.heading) lines.push(emoji(block.icon) + block.heading);
+                    block.lines.forEach(function (line) {
+                        lines.push(isBullet(line) ? "  \u2022 " + bulletText(line) : line);
+                    });
+                    lines.push("");
                 } else {
                     lines.push(emoji(block.icon) + block.heading);
                     block.items.forEach(function (item) {
@@ -1887,6 +2233,9 @@
             guide.blocks.forEach(function (block) {
                 if (block.kind === "paragraph") {
                     parts.push(block.text);
+                } else if (block.kind === "section") {
+                    if (block.heading) parts.push(block.heading);
+                    block.lines.forEach(function (line) { parts.push(isBullet(line) ? bulletText(line) : line); });
                 } else {
                     parts.push(block.heading);
                     block.items.forEach(function (item) {
@@ -1907,6 +2256,16 @@
             guide.blocks.forEach(function (block) {
                 if (block.kind === "paragraph") {
                     out.push(emoji(block.icon) + safe(block.text), "");
+                } else if (block.kind === "section") {
+                    if (block.heading) out.push("## " + emoji(block.icon) + safe(block.heading), "");
+                    block.lines.forEach(function (line, i) {
+                        if (isBullet(line)) {
+                            out.push("- " + safe(bulletText(line)));
+                            if (!isBullet(block.lines[i + 1] || "")) out.push("");
+                        } else {
+                            out.push(safe(line), "");
+                        }
+                    });
                 } else {
                     out.push("## " + emoji(block.icon) + safe(block.heading), "");
                     block.items.forEach(function (item) {
@@ -1945,6 +2304,8 @@
                 ".guide-item": "margin:0 0 10px 0;",
                 ".guide-item-heading": "display:flex;gap:6px;margin:0;font-weight:bold;",
                 ".guide-item-text": "margin:2px 0 0 0;",
+                ".guide-section-text": "margin:0 0 8px 0;",
+                ".guide-bullets": "margin:0 0 8px 0;padding-left:1.4em;",
                 ".guide-icon svg": "width:1.1em;height:1.1em;"
             };
             Object.keys(styles).forEach(function (selector) {
@@ -2025,7 +2386,7 @@
         });
 
         $(".questions").addEventListener("input", function (event) {
-            if (event.target.matches("textarea")) refreshAll();
+            if (event.target.matches("textarea, input[type=text]")) refreshAll();
         });
 
         $(".display-options").addEventListener("change", function () {
@@ -2253,6 +2614,11 @@
             const tab = currentTab();
             $$("#panel-" + tab + " input").forEach(function (input) { input.checked = false; });
             $$("#panel-" + tab + " textarea").forEach(function (area) { area.value = ""; });
+            if (tab === "course") {
+                currentExample = null;
+                $("#course-sections").replaceChildren();
+                $("#course-title").value = "";
+            }
             if (tab === "assignment") {
                 $$('input[name="noAiReason"], input[name="openUseReason"]').forEach(function (r) { r.checked = false; });
                 $("#no-ai-custom").value = "";
