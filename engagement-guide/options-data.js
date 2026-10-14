@@ -230,7 +230,9 @@ const OPTIONS_DATA = {
         openTitle:        'Open AI Use',
         selectiveTitle:   'Selective AI Use',
         noAiTitle:        'No AI Use for This Assignment',
-        // Added to the end of the title when documentation is required
+        // Added to the end of the title when documentation is required,
+        // after the separator (for example "Selective AI Use - Documentation Required")
+        separator:        ' - ',
         documentationTag: 'Documentation Required',
         // The first sentence of the guide for "Open Use" and "No AI Use".
         // The instructor's chosen reason (if any) is added after it.
