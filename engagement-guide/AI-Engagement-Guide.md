@@ -28,7 +28,8 @@ A few words first, in plain language:
    - **Windows:** right-click the file and choose "Extract All."
    - **Mac:** double-click the file - it unzips automatically.
 5. Inside the unzipped folder, find the folder named **`engagement-guide`**. It contains:
-   - `index.html` - the tool itself (its layout, look, and behavior)
+   - `index.html` - the tool itself (its layout and look)
+   - `app.js` - the script that makes the tool work
    - `options-data.js` - the wording for the **Assignment Level** questions
    - `course-data.js` - the example policies for the **Course Level** tab
    - `rationale-data.js` - the wording for the "No AI Use" and "Open Use" pop-ups
@@ -113,15 +114,18 @@ Open `options-data.js` (Assignment Level), `course-data.js` (the Course Level ex
 
 The Course Level examples are original wording based on widely used frameworks: the AI Assessment Scale (Perkins, Furze, Roe, and MacVaugh, 2024), the "traffic light" approach, and common syllabus statement tiers. You can replace them with your own institution's sample policies.
 
-**2. The page title and heading**
+**2. The separator in the guide's title**
+When an assignment needs documentation, the title reads like "Selective AI Use - Documentation Required". To change the " - " between the two parts, open `options-data.js` and search for: `separator`
+
+**3. The page title and heading**
 Open `index.html` and search (Ctrl+F on Windows, Cmd+F on Mac) for: `AI Engagement Guide</`
 You'll find it inside `<title>` tags (the text shown in the browser tab) and inside an `<h1>` tag (the heading shown on the page). You can add your organization's name to both.
 
-**3. The colors**
+**4. The colors**
 In `index.html`, search for: `COLORS, FONTS, AND SIZES`
 Just below it is a list of colors with a note beside each one (for example, `--blue: #0046ad;`). Change the 6-character code to change that color everywhere. (Search "color picker" online to find the code for any color you like.)
 
-**4. The footer credit line**
+**5. The footer credit line**
 Search for: `Finger Lakes Community College`
 You'll land in a paragraph near the bottom of the page that credits "the FLX AI Hub" and "Finger Lakes Community College." You're welcome to change this to point to your own organization instead.
 
@@ -129,7 +133,7 @@ You'll land in a paragraph near the bottom of the page that credits "the FLX AI 
 
 When you're done, save the file, and re-upload it the same way you did in Step 3 (or, if you're using GitHub, commit your change there directly).
 
-> **One thing to avoid:** the script near the bottom of `index.html` is protected by a security setting. If you change anything inside that script, the page will stop working until you update its "fingerprint" - the comment at the top of `index.html` explains how. Changing the wording in the data files, the title, the colors, or the footer is always safe.
+> **Good to know:** every file in the folder can be edited safely. The page's security settings trust the files stored with it, so changing the wording, the title, the colors, the footer, or even the script in `app.js` will not stop the page from working.
 
 ---
 

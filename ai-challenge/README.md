@@ -68,7 +68,7 @@ Some challenges show content from other companies, such as YouTube videos, a Spo
 
 Safety rules followed in the page's design:
 
-- The page runs no code from other websites. Its only script is the short one at the bottom of `index.html`.
+- The page runs no code from other websites. Its only script is `app.js`, stored in the same folder.
 - A Content Security Policy (a browser rule at the top of `index.html`) lists the only places the page may load things from: pictures only from its own `images/` folder, the font only from Google Fonts, and embedded content only from the listed websites. Anything else is blocked.
 - No challenge loads its embedded content until someone opens that challenge. Closing a challenge removes its content again, which also stops any video that was playing.
 - YouTube videos use YouTube's privacy-enhanced mode (`youtube-nocookie.com`), and the share-tracking codes have been removed from their links.
@@ -97,7 +97,8 @@ If you find something that is hard to use, please tell us at **ai@flcc.edu**.
 
 | File or folder | Purpose |
 |---|---|
-| `index.html` | The whole website: the home page, the challenges, the pop-up window, the styles, and a short script. |
+| `index.html` | The whole website: the home page, the challenges, the pop-up window, and the styles. |
+| `app.js` | The short script that builds the challenge cards and opens and closes the pop-up. |
 | `images/` | Every picture the site uses: card pictures, pictures inside the challenges, the logo, the stage icons, and the favicon. |
 | `IMAGES.md` | A checklist of every picture, with its file name and where to download it from. |
 | `AI-Challenge.md` | Plain-language instructions for putting the site online. |
@@ -111,7 +112,7 @@ The file is in five sections, each marked with a large comment:
 2. **The home page**: the header, the welcome text, the four stages, the list of challenge cards, the privacy section, and the contact section.
 3. **The pop-up window**: one window, reused for every challenge.
 4. **The challenges**: one `<template>` block per challenge. This is the section you will edit most.
-5. **The script**: builds a card for each challenge and opens and closes the pop-up.
+5. **A link to the script** (`app.js`), which builds a card for each challenge and opens and closes the pop-up.
 
 ### What a challenge looks like
 
@@ -184,7 +185,7 @@ If you embed something from a website the page has not used before, add that web
 
 - **Colors:** change them in the list at the top of the styles (search for `COLORS AND FONTS`).
 - **Logo and contact email:** see Step 3 in [AI-Challenge.md](AI-Challenge.md).
-- **The script:** most people never need to change it. If you do, follow the note above the security settings to update its fingerprint, or the page will stop working.
+- **The script:** it is in `app.js`. Most people never need to change it, but you can edit it safely.
 
 If the page stops working after an edit, check that every `<template>` has its closing `</template>` tag.
 

@@ -29,7 +29,7 @@ A few words first, in plain language:
    - **Mac:** double-click the file - it unzips automatically.
 5. Inside the unzipped folder, find the folder named **`ai-challenge`**. This single folder contains everything the website needs (the pages, the images, and the styling). Everything you do for the rest of this guide uses only this `ai-challenge` folder.
 
-> **Important:** Keep the `index.html` file and the `images` subfolder together, in the same folder structure. The page finds its pictures by their location inside that folder, so if you rename or move the folders, some pictures will stop showing.
+> **Important:** Keep the `index.html` and `app.js` files and the `images` subfolder together, in the same folder structure. The page finds its pictures by their location inside that folder, so if you rename or move the folders, some pictures will stop showing.
 
 ---
 
@@ -61,7 +61,7 @@ That's it - your website is live at that address. Share it with anyone you'd lik
 If your school, college, or company already has a website, you likely have a way to upload new pages to it (for example, a "file manager" tool in a web-based control panel, or a program like FileZilla that connects to your server). If you're not sure, ask whoever manages your organization's website - they'll know the term **"FTP access"** or **"file manager."**
 
 1. Ask your web administrator where new website files normally get uploaded, and request a folder (for example, `ai-challenge`) for this project.
-2. Upload the **entire contents** of the `ai-challenge` folder from Step 1 into that folder - the `index.html` file and the whole `images` folder.
+2. Upload the **entire contents** of the `ai-challenge` folder from Step 1 into that folder - the `index.html` and `app.js` files and the whole `images` folder.
 3. Once uploaded, your web administrator can tell you the address to visit, which will probably look something like:
    `https://www.yourcollege.edu/ai-challenge/index.html`
 
@@ -119,7 +119,7 @@ When you're done, save the file, and re-upload it the same way you did in Step 2
 ## Troubleshooting
 
 **The challenge cards are missing, or a challenge will not open.**
-Make sure `index.html` was not changed in a way that broke a challenge block: every `<template class="challenge"` needs a matching `</template>`. If you changed the script at the bottom of the file, see the note in the security settings at the top of the file about updating its fingerprint.
+Make sure `index.html` was not changed in a way that broke a challenge block: every `<template class="challenge"` needs a matching `</template>`. Also make sure `app.js` is in the same folder as `index.html`.
 
 **I changed the logo or email, but I still see the old one.**
 Make sure you saved the file as **plain text** (not as a Word document), and that you re-uploaded the changed file to the same place. If you're using GitHub Pages, it can take a minute or two for changes to appear after you save them - try refreshing the page.
